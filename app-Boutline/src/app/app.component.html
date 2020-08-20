@@ -1,0 +1,71 @@
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info justify-content-sm-start fixed-top">
+  <a class="navbar-brand  order-1 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">BOUTIKLINE</a>
+  <button class="navbar-toggler align-self-start" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <h2>Back Office</h2>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#"><h2>Configuration</h2></a>
+          <a class="dropdown-item" href="#"><h2>Gestion Produits</h2></a>
+          <a class="dropdown-item" href="#"><h2>Gestion Clients</h2></a>
+          <a class="dropdown-item" href="#"><h2>Gestion Gérants</h2></a>
+          <a class="dropdown-item" href="#"><h2>Gestion Points vente</h2></a>
+          <a class="dropdown-item" href="#"><h2>Gestion Factures</h2></a>
+          <a class="dropdown-item" href="#"><h2>Gestion Commandes</h2></a>
+          <a class="dropdown-item" href="#"><h2>Gestion Fournisseurs</h2></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><h2>Autres</h2></a>
+        </div>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" routerLink= "accueil"><h2>Accueil</h2> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink= "achats"><h2>Achats</h2></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink= "news"><h2>News</h2></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink= "promos"><h2>Promos</h2></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink= "contact"><h2>Contact</h2></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <h2>A propos de nous</h2>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#"><h2>Qui sommes nous</h2></a>
+          <a class="dropdown-item" href="#"><h2>Nos services</h2></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><h2>Autres</h2></a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink= "login"><h2>Login</h2></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink= ""><h2>S'inscrire</h2></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>
+</div>
