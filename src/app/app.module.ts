@@ -1,6 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms' 
+import { FormsModule } from '@angular/forms'
+import { HttpClientModule, HttpErrorResponse, HttpClientJsonpModule } from '@angular/common/http';
+
+import {Observable, pipe} from 'rxjs';
+import {catchError} from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+import { Pipe, PipeTransform } from '@angular/core';
+
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarModule } from 'ng-sidebar';
@@ -12,6 +22,10 @@ import { ContactComponent } from './Pages/contact/contact.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { DetailsComponent } from './Pages/details/details.component';
 import { PanierComponent } from './Pages/panier/panier.component';
+import { ConfigurationComponent } from './Pages/configuration/configuration.component';
+import { ProduitsComponent } from './Pages/produits/produits.component';
+import { ProduitsService } from './Shared/produits.service';
+import { PventesComponent } from './Pages/pventes/pventes.component';
 
 @NgModule({
   declarations: [
@@ -23,17 +37,24 @@ import { PanierComponent } from './Pages/panier/panier.component';
     ContactComponent,
     LoginComponent,
     DetailsComponent,
-    PanierComponent
+    PanierComponent,
+    ConfigurationComponent,
+    ProduitsComponent,
+    PventesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SidebarModule.forRoot(),
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
+  
     
     
   ],
-  providers: [],
+  providers: [ProduitsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

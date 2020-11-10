@@ -1,0 +1,186 @@
+<router-outlet></router-outlet>
+<br><br><br><br>
+<!-- <div class="container">
+        <h1>CONFIGURATION DE LA BOUTIQUE</h1>
+        <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+              <label for="inputAddress2">Address 2</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  Check me out
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </form>
+
+</div> -->
+<br>
+<div class="container">
+  <h1 class="text-white" style="text-align: center; background-color:firebrick;">CONFIGURATION DE LA BOUTIQUE</h1>
+  <br>
+  <hr>
+
+  <form #form ="ngForm">  
+    <div class="row">
+        <div class="col" style="background-color:steelblue;">
+            <div class="form-group">
+                <label for="sel1"><h3 class="text-white">Raison Sociale&nbsp;:&nbsp;</h3></label>
+                <input type="text" id="numTva" name="numTva" placeholder="Entrez le N° Tva">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="Row">
+        <div class="col" style="background-color:steelblue;">
+            <div class="form-group">
+              <label for="sel1"><h3 class="text-white">Type de Société&nbsp;:&nbsp;</h3></label>
+              <select class="browser-default custom-select custom-select-lg mb-3">
+                <option selected>Sélectionnez le type de société</option>
+                <option value="1">ASBL</option>
+                <option value="2">SPRL</option>
+                <option value="3">SCRL</option>
+                <option value="4">Indépendant</option>
+                
+              </select>
+            </div>
+        </div> 
+    </div>
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color: steelblue;">
+            <div class="form-group">
+                <label for="sel1"><h3 class="text-white">&nbsp;&nbsp;Adresse siège&nbsp;:&nbsp;</h3></label>
+                <input type="text" id="numTva" name="numTva" placeholder="Adresse du siège de la Société">
+            </div>    
+        </div>
+    </div>
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color:steelblue;">
+            <div class="form-group">
+                <label for="sel1"><h3 class="text-white">&nbsp;&nbsp;Contact-Tél&nbsp;:&nbsp;</h3></label>
+                <input type="text" id="numTva" name="numTva" placeholder="Contact téléphonique">
+            </div>    
+        </div>
+    </div>
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color:steelblue;">
+            <div class="form-group">
+                <label for="sel1"><h3 class="text-white">Adresse-Email&nbsp;:&nbsp;</h3></label>
+                <input type="text" id="numTva" name="numTva" placeholder="adresse email">
+            </div>    
+        </div>
+    </div>
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color: steelblue;">
+            <div class="form-group">
+                <label for="sel1"><h3 class="text-white">Pays&nbsp;:&nbsp;</h3></label>
+                <select class="browser-default custom-select custom-select-lg mb-3">
+                  <option selected>Sélectionnez le pays</option>
+                  <option value="3">Afrique du Sud</option>
+                  <option value="3">Australie</option>
+                  <option value="3">Allemagne</option>
+                  <option value="1">Belgique</option>
+                  <option value="2">France</option>
+                  <option value="3">Etats unis</option>
+                  <option value="1">Italie</option>
+                  <option value="2">Espagne</option>
+                  <option value="3">Portugal</option>
+                </select>
+            </div>    
+        </div>
+    </div>
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color: steelblue;">
+            <div class="form-group">
+                <label for="sel1"><h3 class="text-white">N° TVA&nbsp;:&nbsp;</h3></label>
+                <input type="text" id="numTva" name="numTva" placeholder="Entrez le N° Tva">
+            </div>    
+        </div>
+    </div>
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color: steelblue;">
+            <div class="form-group">
+                <label for="sel1"><h3 class="text-white">Taux Tva&nbsp;:&nbsp;</h3></label>
+                <input type="text" id="numTva" name="numTva" placeholder="Entrez le taux de Tva applicable">
+            </div> 
+        </div>
+    </div>
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color: steelblue;">
+            <div class="form-group">
+                <label for="sel1"><h3 class="text-white">Devise/Monnaie&nbsp;:&nbsp;</h3></label>
+                <input type="text" id="numTva" name="numTva" placeholder="Entrez la devise ou la monnaieutilisée">
+            </div>
+        </div>
+    </div>
+    <br> 
+    <div class="row">      
+      <div class="col" style="background-color:wheat;">
+        <button type="button" class="btn btn-secondary btn-block"><h3>Parcourir</h3></button>    
+      </div>
+      <div class="col" style="background-color:wheat;">
+        <h2 style="text-align: center;">LOGO</h2>
+        <img src="assets/Images/edit.png" class="rounded mx-auto d-block" alt="LOGO">    
+      </div>
+    </div>
+  </form>   
+</div>
+<hr>
+<div class="container">
+  <div class="row row-cols-3">
+    <div class="col">
+          <button type="button" class="btn btn-info btn-block"><h2>QUITTER</h2></button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-success btn-block" disabled><h2>ENREGISTRER</h2></button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-danger btn-block"><h2>ANNULER</h2></button>
+    </div>
+    
+  </div>
+</div>
+
+
