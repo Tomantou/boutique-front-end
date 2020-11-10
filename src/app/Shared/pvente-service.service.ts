@@ -15,7 +15,7 @@ import { pointvente } from '../Models/pointvente';
 export class PventeServiceService {
 
   private pointventes : pointvente [];
-  private lien ='http://[::1]:3000/pointsventes';
+  private lien ='https://boutique-back-end.azurewebsites.net/pointsventes';
   constructor(private readonly http: HttpClient) { }
 
 
