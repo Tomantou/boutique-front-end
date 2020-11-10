@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target":"http://monmssql.database.windows.net",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

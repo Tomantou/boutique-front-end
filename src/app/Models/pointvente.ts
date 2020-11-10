@@ -1,9 +1,10 @@
 export class pointvente{
-    PV_Id: string;
-    PV_GER_Id: string;
-    PV_Adresse: string;
-    PV_Contact: string;
-    PV_Email: string;
-    CodePostal: string;
-    PV_Ville: string;
+    Id: number;
+    gerantId: number;
+    adresse: string;
+    codePostal: number;
+    ville: string;
+    contact: string;
+    email: string;
+    
 }

@@ -3,28 +3,44 @@ import { NgForm } from '@angular/forms';
 import { pointvente } from 'src/app/Models/pointvente';
 import { PventeServiceService } from 'src/app/Shared/pvente-service.service';
 import { ToastrModule } from 'ngx-toastr'; 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { url } from 'inspector';
 import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-pventes',
   templateUrl: './pventes.component.html',
-  styleUrls: ['./pventes.component.css']
+  styleUrls: ['./pventes.component.css'],
+  providers: [PventeServiceService],
 })
 export class PventesComponent implements OnInit {
-  pventes: pointvente[];
-  pointvente: pointvente;
-  private formData: pointvente;
-  constructor(private pventeservice: PventeServiceService,
-    private http: HttpClientModule) { }
+  pointventes : pointvente [];
 
-  ngOnInit(): void {
-    // this.resetForm();
-      let pventes = this.pventeservice.getPVENTES();
-      pventes.subscribe((data) => this.pventes=(data));  
-     console.log(pventes); 
+  constructor(
+    private pventeservice: PventeServiceService
+    ) { }
+
+  ngOnInit() {
+      this.pventeservice.getPVENTES().subscribe(
+
+        (pointventes) => { this.pointventes = pointventes;
+        console.log('POINTS DE VENTE',this.pointventes);
+        alert('c\'est ok Bravo!!!!');
+        },
+        (error) => {
+          alert('probleme d\'acces a l api');
+
+        },
+
+
+
+
+        
+      );
+    
+        
+    
+      
   }
-  
 
 }

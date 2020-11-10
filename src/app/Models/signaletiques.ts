@@ -1,5 +1,5 @@
 export class signaletiques{
-    numTva: string;
+    numeroTva: number;
     raisonSoc: string;
     typeSociete: string;
     logo: string;
@@ -7,7 +7,7 @@ export class signaletiques{
     contact: string;
     email: string;
     pays: string;
-    devise: string;
     taux_Tva: number;
+    devise: string;
     
 }
