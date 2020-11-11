@@ -6,7 +6,7 @@ import { ProduitsService } from './Shared/produits.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private produitservice: ProduitsService) { }
+  constructor() { }
   opened = true;
   title = 'NCL *  Nutri-Cosmétique en Ligne';
   toggleSidebar(){

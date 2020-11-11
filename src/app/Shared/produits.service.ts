@@ -1,6 +1,6 @@
 import { ErrorHandler, Injectable } from '@angular/core';
 import { ProduitsComponent } from '../Pages/produits/produits.component';
-import { HttpClient, HttpHeaders } from '@angular/common/http'; 
+import { HttpClient,HttpClientModule, HttpHeaders } from '@angular/common/http'; 
 import { produit } from 'src/app/Models/produit'; 
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
@@ -13,23 +13,18 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProduitsService {
-  lesproduits: produit[];
   leproduit: produit;
   private formData: produit;
+  private url ='https://boutique-back-end.azurewebsites.net/produits';
   
   
-  constructor(private http: HttpClient,
+  constructor(private readonly http: HttpClient,
     private toastr : ToastrService) { }
   
 
-    public getProduitList(): Observable<any>{
-       const options={ headers: new HttpHeaders ({
-         'X-Requested-Width': 'HttpClient'
-       })
-       };
-       const url ="http://[::1]:3000/produits?"
-         return this.http.get(url);   
-                
+    getProduitList(): Observable<any>{
+       
+         return this.http.get<produit []>(this.url);           
                 
      }
       

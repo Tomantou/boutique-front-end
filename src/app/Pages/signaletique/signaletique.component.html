@@ -1,7 +1,6 @@
 <router-outlet></router-outlet>
-<br><br><br><br>
 
-<div class="container">
+<div class="container-fluid">
   <h1 class="text-white" style="text-align: center; background-color:firebrick;">CONFIGURATION DE LA BOUTIQUE</h1>
   <br>
   <hr>
@@ -125,7 +124,7 @@
           <button type="button" class="btn btn-info btn-block"><h2>QUITTER</h2></button>
     </div>
     <div class="col">
-      <button [disabled] = "formconfig.invalid" (click)="addconfig(formconfig.value)" class="btn btn-success btn-block"><h2>ENREGISTRER</h2></button>
+      <button [disabled] = "formconfig.invalid"  class="btn btn-success btn-block"><h2>ENREGISTRER</h2></button>
     </div>
     <div class="col">
       <button type="button" class="btn btn-danger btn-block"><h2>ANNULER</h2></button>
@@ -133,5 +132,4 @@
     
   </div>
 </div>
-
 

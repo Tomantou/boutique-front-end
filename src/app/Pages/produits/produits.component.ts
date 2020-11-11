@@ -14,17 +14,16 @@ import {Observable} from 'rxjs';
   styleUrls: ['./produits.component.css']
 })
 export class ProduitsComponent implements OnInit {
-   ListProduits: produit[];
+   produits: produit[];
    public Produit: produit;
    public formData: produit;
    
   constructor(public produitservice: ProduitsService, private http: HttpClientModule) { }
 
-  ngOnInit(): void {
-    // this.resetForm();
-      let ListProduits = this.produitservice.getProduitList();
-      ListProduits.subscribe((data) => this.ListProduits=(data));  
-     // console.log(ListProduits); 
+  ngOnInit(){
+    
+      this.produitservice.getProduitList().subscribe((produits) => {this.produits=produits});  
+     console.log(this.produits); 
      
     
   }

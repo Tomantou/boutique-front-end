@@ -8,14 +8,16 @@ import { ContactComponent } from './Pages/contact/contact.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { DetailsComponent} from './Pages/details/details.component';
 import { PanierComponent} from './Pages/panier/panier.component';
-import { ConfigurationComponent} from './Pages/configuration/configuration.component';
 import { ProduitsComponent } from './Pages/produits/produits.component';
 import { PventesComponent } from './Pages/pventes/pventes.component';
+import { SignaletiqueComponent } from './Pages/signaletique/signaletique.component';
 
 const routes: Routes = [
   {path: '', component: AccueilComponent
   },
   {path: 'accueil', component: AccueilComponent
+  },
+  {path: 'signaletique', component: SignaletiqueComponent
   },
   {path: 'achats', component: AchatsComponent
   },
@@ -30,8 +32,6 @@ const routes: Routes = [
   {path: 'details', component: DetailsComponent
   },
   {path: 'panier', component: PanierComponent
-  },
-  {path: 'configuration', component: ConfigurationComponent
   },
   {path: 'produits', component:  ProduitsComponent
   },

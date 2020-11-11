@@ -23,6 +23,7 @@ import { ConfigurationComponent } from './Pages/configuration/configuration.comp
 import { ProduitsComponent } from './Pages/produits/produits.component';
 import { ProduitsService } from './Shared/produits.service';
 import { PventesComponent } from './Pages/pventes/pventes.component';
+import { SignaletiqueComponent } from './Pages/signaletique/signaletique.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PventesComponent } from './Pages/pventes/pventes.component';
     PanierComponent,
     ConfigurationComponent,
     ProduitsComponent,
-    PventesComponent
+    PventesComponent,
+    SignaletiqueComponent
   ],
   imports: [
     BrowserModule,
