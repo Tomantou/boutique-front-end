@@ -25,7 +25,7 @@ export class PventesComponent implements OnInit {
 
         (pointventes) => { this.pointventes = pointventes;
         console.log('POINTS DE VENTE',this.pointventes);
-        alert('c\'est ok Bravo!!!!');
+        //alert('c\'est ok Bravo!!!!');
         },
         (error) => {
           alert('probleme d\'acces a l api');

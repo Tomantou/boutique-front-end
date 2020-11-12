@@ -92,51 +92,28 @@
 </div>
       
 <div class="container-fluid">
-  <table class="table">
+  <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">POINT VENTE</th>
-      <th scope="col">GERANT</th>
       <th scope="col">VILLE</th>
       <th scope="col">ADRESSE</th>
+      <th scope="col">CODE POSTAL</th>
       <th scope="col">CONTACT</th>
       <th scope="col">Email</th>
+      <th scope="col">GERANT</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="col">POINT VENTE</th>
-      <th scope="col">GERANT</th>
-      <th scope="col">VILLE</th>
-      <th scope="col">ADRESSE</th>
-      <th scope="col">CONTACT</th>
-      <th scope="col">Email</th>
-    </tr>
-    <tr>
-      <th scope="col">POINT VENTE</th>
-      <th scope="col">GERANT</th>
-      <th scope="col">VILLE</th>
-      <th scope="col">ADRESSE</th>
-      <th scope="col">CONTACT</th>
-      <th scope="col">Email</th>
-      </tr>
-      <tr>
-        <th scope="col">POINT VENTE</th>
-        <th scope="col">GERANT</th>
-        <th scope="col">VILLE</th>
-        <th scope="col">ADRESSE</th>
-        <th scope="col">CONTACT</th>
-        <th scope="col">Email</th>
-      </tr>
-      <tr>
-        <th scope="col">POINT VENTE</th>
-        <th scope="col">GERANT</th>
-        <th scope="col">VILLE</th>
-        <th scope="col">ADRESSE</th>
-        <th scope="col">CONTACT</th>
-        <th scope="col">Email</th>
-      </tr>
-        
+    <tr *ngFor = "let pvente of pointventes">
+        <td>{{pvente.Id}}</td>
+        <td>{{pvente.ville}}</td>
+        <td>{{pvente.adresse}}</td>
+        <td>{{pvente.codePostal}}</td>
+        <td>{{pvente.contact}}</td>
+        <td>{{pvente.email}}</td>
+        <td>{{pvente.gerantId}}</td>
+    </tr>    
   </tbody>
 </table>
 </div>

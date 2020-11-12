@@ -36,7 +36,7 @@ const routes: Routes = [
   },
   {path: 'pventes', component:  PventesComponent
   },
-  {path: 'categories', component:  PventesComponent
+  {path: 'categories', component:  CategoriesComponent
   },
   {path: 'configurer', component:  ConfigurerComponent
   }

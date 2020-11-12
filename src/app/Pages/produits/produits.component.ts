@@ -11,7 +11,8 @@ import {Observable} from 'rxjs';
 @Component({
   selector: 'app-produits',
   templateUrl: './produits.component.html',
-  styleUrls: ['./produits.component.css']
+  styleUrls: ['./produits.component.css'],
+  providers:[ProduitsService]
 })
 export class ProduitsComponent implements OnInit {
    produits: produit[];
@@ -22,7 +23,8 @@ export class ProduitsComponent implements OnInit {
 
   ngOnInit(){
     
-      this.produitservice.getProduitList().subscribe((produits) => {this.produits=produits});  
+      this.produitservice.getProduits().subscribe(
+         (produits) => {this.produits=produits});  
      console.log(this.produits); 
      
     

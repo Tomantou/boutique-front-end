@@ -19,7 +19,7 @@ export class PventeServiceService {
   constructor(private readonly http: HttpClient) { }
 
 
- public getPVENTES(): Observable<any> {
+ public getPVENTES(): Observable<pointvente []> {
 
      const opts = {
     headers: new HttpHeaders({ 

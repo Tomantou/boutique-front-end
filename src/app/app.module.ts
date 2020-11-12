@@ -24,6 +24,14 @@ import { ProduitsService } from './Shared/produits.service';
 import { PventesComponent } from './Pages/pventes/pventes.component';
 import { CategoriesComponent } from './Pages/categories/categories.component';
 import { ConfigurerComponent } from './Pages/configurer/configurer.component';
+import { MarquesComponent } from './Pages/marques/marques.component';
+import { ClientsComponent } from './Pages/clients/clients.component';
+import { GerantsComponent } from './Pages/gerants/gerants.component';
+import { FacturesComponent } from './Pages/factures/factures.component';
+import { CmdesclientsComponent } from './Pages/cmdesclients/cmdesclients.component';
+import { CmdesfournisComponent } from './Pages/cmdesfournis/cmdesfournis.component';
+import { FournisseursComponent } from './Pages/fournisseurs/fournisseurs.component';
+import { PromotionsComponent } from './Pages/promotions/promotions.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +47,15 @@ import { ConfigurerComponent } from './Pages/configurer/configurer.component';
     ProduitsComponent,
     PventesComponent,
     CategoriesComponent,
-    ConfigurerComponent
+    ConfigurerComponent,
+    MarquesComponent,
+    ClientsComponent,
+    GerantsComponent,
+    FacturesComponent,
+    CmdesclientsComponent,
+    CmdesfournisComponent,
+    FournisseursComponent,
+    PromotionsComponent
   ],
   imports: [
     BrowserModule,
