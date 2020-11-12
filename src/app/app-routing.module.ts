@@ -10,14 +10,13 @@ import { DetailsComponent} from './Pages/details/details.component';
 import { PanierComponent} from './Pages/panier/panier.component';
 import { ProduitsComponent } from './Pages/produits/produits.component';
 import { PventesComponent } from './Pages/pventes/pventes.component';
-import { SignaletiqueComponent } from './Pages/signaletique/signaletique.component';
+import { CategoriesComponent } from './Pages/categories/categories.component';
+import { ConfigurerComponent } from './Pages/configurer/configurer.component';
 
 const routes: Routes = [
   {path: '', component: AccueilComponent
   },
   {path: 'accueil', component: AccueilComponent
-  },
-  {path: 'signaletique', component: SignaletiqueComponent
   },
   {path: 'achats', component: AchatsComponent
   },
@@ -36,7 +35,12 @@ const routes: Routes = [
   {path: 'produits', component:  ProduitsComponent
   },
   {path: 'pventes', component:  PventesComponent
+  },
+  {path: 'categories', component:  PventesComponent
+  },
+  {path: 'configurer', component:  ConfigurerComponent
   }
+
 ];
 
   

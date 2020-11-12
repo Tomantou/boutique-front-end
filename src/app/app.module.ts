@@ -19,11 +19,11 @@ import { ContactComponent } from './Pages/contact/contact.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { DetailsComponent } from './Pages/details/details.component';
 import { PanierComponent } from './Pages/panier/panier.component';
-import { ConfigurationComponent } from './Pages/configuration/configuration.component';
 import { ProduitsComponent } from './Pages/produits/produits.component';
 import { ProduitsService } from './Shared/produits.service';
 import { PventesComponent } from './Pages/pventes/pventes.component';
-import { SignaletiqueComponent } from './Pages/signaletique/signaletique.component';
+import { CategoriesComponent } from './Pages/categories/categories.component';
+import { ConfigurerComponent } from './Pages/configurer/configurer.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +36,10 @@ import { SignaletiqueComponent } from './Pages/signaletique/signaletique.compone
     LoginComponent,
     DetailsComponent,
     PanierComponent,
-    ConfigurationComponent,
     ProduitsComponent,
     PventesComponent,
-    SignaletiqueComponent
+    CategoriesComponent,
+    ConfigurerComponent
   ],
   imports: [
     BrowserModule,
