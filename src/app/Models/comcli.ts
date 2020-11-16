@@ -6,4 +6,5 @@ export class comcli{
     COMC_Total: number;
     COMC_date: Date;
     COMC_Adres_Fact: string;
+    
 }

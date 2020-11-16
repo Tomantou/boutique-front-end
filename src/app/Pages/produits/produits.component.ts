@@ -15,17 +15,36 @@ import {Observable} from 'rxjs';
   providers:[ProduitsService]
 })
 export class ProduitsComponent implements OnInit {
-   produits: produit[];
-   public Produit: produit;
-   public formData: produit;
+   lesproduits: produit[];
+   Produit: produit;
+   Categories: string[];
+   Marques: string[];
    
-  constructor(public produitservice: ProduitsService, private http: HttpClientModule) { }
+   
+  constructor(public produitservice: ProduitsService) { }
 
   ngOnInit(){
+
+   this.Categories = [
+      "INFORMATIQUE",
+      "REASEAUX",
+      "IMPRESSION",
+      "CONSOMMABLES",
+      "BUREAUTIQUE"
+     ];
+
+    this.Marques = ["APPLE", "HP", "CANON", "BROTHER", "SAMSUNG", "TOSHIBA"
+    ];
     
       this.produitservice.getProduits().subscribe(
-         (produits) => {this.produits=produits});  
-     console.log(this.produits); 
+         (produits) => {this.lesproduits=produits;
+         console.log('liste produits',this.lesproduits);
+         },
+         (error) => {
+            alert('probleme d\'acces a l api');
+         }
+         );  
+           
      
     
   }
@@ -36,26 +55,6 @@ export class ProduitsComponent implements OnInit {
 
   
 
-    /* refreshProduitList(){
-       this.produitservice.getProduitList().subscribe((data) => this.ListProd=data)
-      
-
-    } */
-           
-
-  /* onSubmit(form: NgForm){
-  //    this.insererProd(form)
-  
-  } */
-   /* insererProd(form: NgForm){
-     
-     this.produitservice.postProd(form.value).subscribe(res => {
-       this.produitservice.toastr.success('Produit ajouté avec succès','Enregistrement produit');
-       this.resetForm(form);
-     }
-
-
-  }   */
-  
+    
 
 }

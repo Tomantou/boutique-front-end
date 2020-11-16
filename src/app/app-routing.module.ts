@@ -12,6 +12,15 @@ import { ProduitsComponent } from './Pages/produits/produits.component';
 import { PventesComponent } from './Pages/pventes/pventes.component';
 import { CategoriesComponent } from './Pages/categories/categories.component';
 import { ConfigurerComponent } from './Pages/configurer/configurer.component';
+import { SouscategoriesComponent } from './Pages/souscategories/souscategories.component';
+import { GerantsComponent } from './Pages/gerants/gerants.component';
+import { MarquesComponent } from './Pages/marques/marques.component';
+import { ClientsComponent } from './Pages/clients/clients.component';
+import { FournisseursComponent } from './Pages/fournisseurs/fournisseurs.component';
+import { CmdesclientsComponent } from './Pages/cmdesclients/cmdesclients.component';
+import { PromotionsComponent } from './Pages/promotions/promotions.component';
+import { CmdesfournisComponent } from './Pages/cmdesfournis/cmdesfournis.component';
+import { FacturesComponent } from './Pages/factures/factures.component';
 
 const routes: Routes = [
   {path: '', component: AccueilComponent
@@ -38,9 +47,27 @@ const routes: Routes = [
   },
   {path: 'categories', component:  CategoriesComponent
   },
+  {path: 'souscategories', component:  SouscategoriesComponent
+  },
   {path: 'configurer', component:  ConfigurerComponent
+  },
+  {path: 'gerants', component:  GerantsComponent
+  },
+  {path: 'marques', component:  MarquesComponent
+  },
+  {path: 'clients', component:  ClientsComponent
+  },
+  {path: 'fournisseurs', component:  FournisseursComponent
+  },
+  {path: 'factures', component:  FacturesComponent
+  },
+  {path: 'cmdesclients', component:  CmdesclientsComponent
+  },
+  {path: 'cmdesfournis', component:  CmdesfournisComponent
+  },
+  {path: 'promotions', component:  PromotionsComponent
   }
-
+ 
 ];
 
   

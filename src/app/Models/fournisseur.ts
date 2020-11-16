@@ -4,4 +4,5 @@ export class fournisseur{
     FOURN_Contact: string;
     FOURN_Adresse: string;
     FOURN_Email: string;
+    
 }

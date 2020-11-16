@@ -3,4 +3,5 @@ export class promoprod{
     PROMO_Code: string;
     PROD_ID: string;
     PROMO_Discount:number;
+    
 }

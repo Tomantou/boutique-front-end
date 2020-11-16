@@ -1,1 +1,157 @@
-<p>cmdesfournis works!</p>
+<router-outlet></router-outlet>
+<br><br><br><br><br>
+
+<br>
+<div class="container-fluid">
+  <h1 class="text-white" style="text-align: center; background-color:darkgreen;">GESTION DES COMMANDES FOURNISSEURS</h1>
+  <br>
+  <hr>
+  <div class="row">
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-6">
+      <form #formconfig ="ngForm">  
+       
+        <div class="form-group row">
+          <label for="nomCli" class="col-sm-2 col-form-label"><h6 class="text-black">NOM:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="nomCli" ngModel name="nomCli" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="prenomCli" class="col-sm-2 col-form-label"><h6 class="text-black">PRENOMS:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="prebomCli" ngModel name="prenomCli" placeholder="">
+          </div>
+         
+        </div>
+        <div class="form-group row">
+          <label for="nomGer" class="col-sm-2 col-form-label"><h6 class="text-black">ADRESSE:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="nomGer" ngModel name="nomGer" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="contact" class="col-sm-2 col-form-label"><h6 class="text-black">CODE POSTAL:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="contact" ngModel name="contact" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="contact" class="col-sm-2 col-form-label"><h6 class="text-black">CONTACT:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="contact" ngModel name="contact" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="email" class="col-sm-2 col-form-label"><h6 class="text-black">Email:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="email" ngModel name="email" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="civilite" class="col-sm-2 col-form-label"><h6 class="text-black">CIVILITE:</h6></label>
+           <!-- <select required name="cicilite" id="civilite" class="form-control" ngModel>
+            <option *ngFor="let civilite of civilites" [value]="cat">{{civilite}}</option>
+          </select> -->
+        </div>
+      </form> 
+    </div>   
+        
+        
+        
+    <div class="col-sm-2">
+      
+    </div>
+    <div class="col-sm-2">
+        <div class="col">
+            <button [disabled] = "formconfig.invalid" class="btn btn-info btn-block"><h2>CREER</h2></button>
+        </div>
+        <br> 
+        <br>
+        <div class="col">
+          <button type="button" class="btn btn-info btn-block"><h2>ANNULER</h2></button>
+        </div>
+         <br>
+        <div class="col">
+            <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
+        </div>
+      
+      </div>
+  </div>
+</div>
+      
+
+<div class="container-fluid">
+  <table class="table table-striped">
+  <thead style="background-color: darkseagreen;">
+    <tr>
+      <th scope="col">ID</th> 
+      <th scope="col">NOMS</th>
+      <th scope="col">PRENOMS</th>
+      <th scope="col">ADRESSE</th>
+      <th scope="col">CODE POSTAL</th>
+      <th scope="col">VILLE</th>
+      <th scope="col">CONTACT</th>
+      <th scope="col">Email</th>
+      <th scope="col">CIVILITE</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <br>
+  <tbody>
+    <!-- <tr *ngFor = "let prod of produits">
+        <td>{{pvente.Id}}</td>
+        <td>{{pvente.ville}}</td>
+        <td>{{pvente.adresse}}</td>
+        <td>{{pvente.codePostal}}</td>
+        <td>{{pvente.contact}}</td>
+        <td>{{pvente.ville}}</td>
+        <td>{{pvente.adresse}}</td>
+        <td>{{pvente.codePostal}}</td>
+        <td>{{pvente.contact}}</td>
+    </tr>    --> 
+
+    <tr>
+        <td>id</td>
+        <td>nom</td>
+        <td>prenoms</td>
+        <td>adresse</td>
+        <td>code postal</td>
+        <td>ville</td>
+        <td>contact</td>
+        <td>email</td>
+        <td>civilité</td>
+        <div class="col">
+          <button type="button" class="btn btn-info">Modifier</button>&nbsp;
+          <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
+          <button type="button" class="btn btn-danger">Supprimer</button>
+        </div>
+    </tr>    
+    <tr>
+        <td>id</td>
+        <td>nom</td>
+        <td>prenoms</td>
+        <td>adresse</td>
+        <td>code postal</td>
+        <td>ville</td>
+        <td>contact</td>
+        <td>email</td>
+        <td>civilité</td>
+        <div class="col">
+            <button type="button" class="btn btn-info">Modifier</button>&nbsp;
+            <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
+            <button type="button" class="btn btn-danger">Supprimer</button>
+        </div>
+  </tr>    
+  
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+

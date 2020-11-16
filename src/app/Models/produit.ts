@@ -1,10 +1,11 @@
 
 export class produit {
-   prodID: number;
-   prodCatId: number;
-   prodMarqId: number;
-   prodNom: string;
-   prodPrix: number;
-   prodPhoto: string;
-   Descript: string;
+   Id: number;
+   CategorieId: number;
+   marqueId: number;
+   libelleProd: string;
+   prix: number;
+   photo: string;
+   description: string;
+
 }

@@ -5,4 +5,5 @@ export class comfourn{
     COMF_Statut: string;
     COMF_Total: number;
     COMF_Date: Date;
+    
 }

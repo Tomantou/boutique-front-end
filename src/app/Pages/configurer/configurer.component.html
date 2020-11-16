@@ -4,8 +4,10 @@
   <h1 class="text-white" style="text-align: center; background-color:firebrick;">CONFIGURATION DE LA BOUTIQUE</h1>
   <br>
   <hr>
-
-  <form #formconfig ="ngForm">  
+  <div *ngIf = "errorMessage" class="alert alert-error">
+      {{errorMessage}}
+  </div>
+  <form #formsignal ="ngForm">  
     <div class="Row">      
       <div class="col" style="background-color: steelblue;">
           <div class="form-group">
@@ -27,17 +29,21 @@
         <div class="col" style="background-color:steelblue;">
             <div class="form-group">
               <label for="typesoc"><h3 class="text-white">Type de Société&nbsp;:&nbsp;</h3></label>
-              <select required type ="text" id="typesoc" ngModel name = "typesoc"  class="browser-default custom-select custom-select-lg mb-3">
-                <option selected>Sélectionnez le type de société</option>
-                <option value="1">ASBL</option>
-                <option value="2">SPRL</option>
-                <option value="3">SCRL</option>
-                <option value="4">Indépendant</option>  
-              </select>
+                <select required name="typesoc" id="typesoc" class="form-control" ngModel>
+                  <option *ngFor="let typesociete of typesocietes" [value]="typesociete">{{typesociete}}</option>
+                </select>
             </div>
         </div> 
     </div>
     <br> 
+    <div class="Row">      
+      <div class="col" style="background-color: steelblue;">
+          <div class="form-group">
+              <label for="logo"><h3 class="text-white">&nbsp;&nbsp;LOGO&nbsp;:&nbsp;</h3></label>
+              <input required type="text" id="logo" ngModel name="logo" placeholder="logo">
+          </div>    
+      </div>
+  </div>
     <div class="Row">      
         <div class="col" style="background-color: steelblue;">
             <div class="form-group">
@@ -69,19 +75,9 @@
         <div class="col" style="background-color: steelblue;">
             <div class="form-group">
                 <label for="pays"><h3 class="text-white">Pays</h3></label>
-                <select required type ="text" id="pays" ngModel name = "pays" class="browser-default custom-select custom-select-lg mb-3">
-                  <option selected>Sélectionnez le pays</option>
-                  <option value="3">Afrique du Sud</option>
-                  <option value="3">Australie</option>
-                  <option value="3">Allemagne</option>
-                  <option value="1">Belgique</option>
-                  <option value="2">France</option>
-                  <option value="3">Etats unis</option>
-                  <option value="1">Italie</option>
-                  <option value="2">Espagne</option>
-                  <option value="3">Portugal</option>
+                <select required name="pays" id="pays" class="form-control" ngModel>
+                  <option *ngFor="let pays of lespays" [value]="pays">{{pays}}</option>
                 </select>
-                <!-- <input type="text" id="pays" ngModel name="pays"> -->
             </div>    
         </div>
     </div>
@@ -124,7 +120,7 @@
           <button type="button" class="btn btn-info btn-block"><h2>QUITTER</h2></button>
     </div>
     <div class="col">
-      <button [disabled] = "formconfig.invalid"  class="btn btn-success btn-block"><h2>ENREGISTRER</h2></button>
+      <button [disabled] = "formsignal.invalid"  class="btn btn-success btn-block" (click) = "addSignal(formsignal)"><h2>ENREGISTRER</h2></button>
     </div>
     <div class="col">
       <button type="button" class="btn btn-danger btn-block"><h2>ANNULER</h2></button>

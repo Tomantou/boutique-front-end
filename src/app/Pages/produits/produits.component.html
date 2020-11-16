@@ -14,25 +14,16 @@
       <form #formconfig ="ngForm">  
         <div class="form-group row">
           <label for="categProd"><h6 class="text-black">CATEGORIE:</h6></label>
-          <select required type ="text" id="categProd" ngModel name = "categProd"  class="browser-default custom-select custom-select-lg mb-3">
-            <option selected>Sélectionnez la catégorie du produit</option>
-            <option value="1">INFORMATIQUE</option>
-            <option value="2">RESEAUX</option>
-            <option value="3">IMPRESSION</option>
-            <option value="4">ACCESSOIRES</option>  
+          <select required name="categProd" id="categProd" class="form-control" ngModel>
+            <option *ngFor="let Categorie of Categories" [value]="Categorie">{{Categorie}}</option>
           </select>
         </div>
         <div class="form-group row">
           <label for="marqProd"><h6 class="text-black">MARQUE:</h6></label>
-          <select required type ="text" id="marqProd" ngModel name = "marqProd"  class="browser-default custom-select custom-select-lg mb-3">
-            <option selected>Sélectionnez la marque du produit</option>
-            <option value="1">APPLE</option>
-            <option value="2">HP</option>
-            <option value="3">CANON</option>
-            <option value="4">BROTHER</option>  
+          <select required name="marqProd" id="marqProd" class="form-control" ngModel>
+            <option *ngFor="let marque of Marques" [value]="marque">{{marque}}</option>
           </select>
         </div>
-        
         <div class="form-group row">
           <label for="nomProd" class="col-sm-2 col-form-label"><h6 class="text-black">NOM:</h6></label>
           <div class="col-sm-10">
@@ -67,70 +58,53 @@
     </div>
     <div class="col-sm-2">
         <div class="col">
-            <button [disabled] = "formconfig.invalid" class="btn btn-info btn-block"><h2>AJOUTER</h2></button>
+            <button type="button" class="btn btn-success btn-block"><h2>CREER</h2></button>
         </div>
         <br>
         <div class="col">
-            <button type="button" class="btn btn-info btn-block"><h2>MODIFIER</h2></button>
+            <button type="button" class="btn btn-info btn-block"><h2>ANNULER</h2></button>
         </div>
         <br>
-        <div class="col">
-            <button type="button" class="btn btn-info btn-block"><h2>SUPPRIMER</h2></button>
-        </div>
-        <br>
-        <div class="col">
-          <button type="button" class="btn btn-info btn-block"><h2>ANNULER</h2></button>
-        </div>
-         <br>
         <div class="col">
             <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
         </div>
-      
+        <br>
       </div>
   </div>
 </div>
       
+
 <div class="container-fluid">
-  <table class="table">
-  <thead>
+  <table class="table table-striped">
+  <thead style="background-color: darkseagreen;">
     <tr>
-      <th scope="col">CATEGORIES</th>
-      <th scope="col">MARQUES</th>
+      <th scope="col">ID</th>
       <th scope="col">NOM</th>
       <th scope="col">PRIX</th>
+      <th scope="col">MARQUES</th>
+      <th scope="col">CATEGORIES</th>
+      <th scope="col">PHOTO</th>
       <th scope="col">DESCRIPTION</th>
+      <th scope="col">ACTIONS</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>categorie</td>
-      <td>marque</td>
-      <td>nom</td>
-      <td>prix</td>
-      <td>description</td>
-    </tr>
-    <tr>
-        <td>categorie</td>
-        <td>marque</td>
-        <td>nom</td>
-        <td>prix</td>
-        <td>description</td>
-      </tr>
-      <tr>
-          <td>categorie</td>
-          <td>marque</td>
-          <td>nom</td>
-          <td>prix</td>
-          <td>description</td>
-      </tr>
-      <tr>
-            <td>categorie</td>
-            <td>marque</td>
-            <td>nom</td>
-            <td>prix</td>
-            <td>description</td>
-      </tr>
-        
+    <tr *ngFor = "let prod of lesproduits">
+        <td>{{prod.Id}}</td>
+        <td>{{prod.libelleProd}}</td>
+        <td>{{prod.prix}}</td>
+        <td>{{prod.marqueId}}</td>
+        <td>{{prod.categorieId}}</td>
+        <td>{{prod.photo}}</td>
+        <td>{{prod.description}}</td>
+        <!-- photo: string;
+        description: string; -->
+        <div class="col">
+          <button type="button" class="btn btn-info">Modifier</button>&nbsp;
+          <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
+          <button type="button" class="btn btn-danger">Supprimer</button>
+        </div>
+    </tr>   
   </tbody>
 </table>
 </div>

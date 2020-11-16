@@ -10,18 +10,26 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProduitsService {
-  leproduit: produit;
-  private formData: produit;
+  private lesproduits: produit;
   private lien ='https://boutique-back-end.azurewebsites.net/produits';
   
   constructor(
     private readonly http: HttpClient,
-    private toastr : ToastrService) { }
+    private toastr : ToastrService){ }
   
 
-    getProduits(): Observable<produit []>{
+    getProduits(): Observable<any>{
        
+      const opts = {
+        headers: new HttpHeaders({ 
+          //'X-Requested-With':'Httpclient',
+          //'Access-Control-Allow-Origin':'http://localhost:3000',
+          //'Access-Control-Allow-Credentials': 'true',
+          //'Access-Control-Allow-Methods': 'POST','GET':'any','PUT':'any','DELETE':'any'
+          })
+         };
          return this.http.get<produit []>(this.lien);           
                 
      }

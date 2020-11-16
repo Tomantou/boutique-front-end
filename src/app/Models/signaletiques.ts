@@ -1,13 +1,13 @@
 export class signaletiques{
     numeroTva: number;
-    raisonSoc: string;
+    raisonSocial: string;
     typeSociete: string;
     logo: string;
     adresseSiege: string;
     contact: string;
-    email: string;
+    emailSiege: string;
     pays: string;
-    taux_Tva: number;
+    tauxTva: number;
     devise: string;
     
 }

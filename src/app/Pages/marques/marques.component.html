@@ -1,1 +1,87 @@
-<p>marques works!</p>
+<router-outlet></router-outlet>
+<br><br><br><br><br>
+
+<div class="container-fluid">
+
+  
+
+  <h1 class="text-white" style="text-align: center; background-color:darkgreen;">GESTION DES MARQUES</h1>
+  <br>
+  <hr>
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-5">
+      <form #formconfig ="ngForm">  
+       
+        <div class="form-group row">
+          <label for="nomCli" class="col-sm-2 col-form-label"><h6 class="text-black">NOM de la Marque:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="nomCli" ngModel name="nomCli" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="prenomCli" class="col-sm-2 col-form-label"><h6 class="text-black">ORIGINE:</h6></label>
+          <!-- <select required name="origine" id="origine" class="form-control" ngModel>
+            <option *ngFor="let origine of origines" [value]="origine">{{origine}}</option>
+          </select> -->
+        </div>
+      </form> 
+    </div>        
+        
+    <!-- <div class="col-sm-2">
+      
+    </div> -->
+
+    <div class="col-sm-2">
+        <div class="col">
+            <button [disabled] = "formconfig.invalid" class="btn btn-success btn-block"><h2>CREER</h2></button>
+        </div>
+        <br> 
+        <div class="col">
+          <button type="button" class="btn btn-info btn-block"><h2>ANNULER</h2></button>
+        </div>
+         <br>
+        <div class="col">
+            <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
+        </div>
+    </div>
+</div>
+<br><hr>
+<div class="container-fluid">
+  <div class="row">
+        <div class="col-sm-2">
+        </div>
+      <div class="col-sm-7">
+        <table class="table table-striped">
+        <thead style="background-color: darkseagreen;">
+          <tr>
+            <th scope="col">ID</th> 
+            <th scope="col">MARQUE</th>
+            <th scope="col">ORIGINE</th>
+            <th scope="col">ACTIONS</th>
+          </tr>
+        </thead>
+        <br>
+        <tbody>
+          <tr *ngFor = "let marque of lesmarques">
+              <td>{{marque.Id}}</td>
+              <td>{{marque.nomMarque}}</td>
+              <td>{{marque.origine}}</td>
+              <div class="col">
+                <button type="button" class="btn btn-info">Modifier</button>&nbsp;
+                <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
+                <button type="button" class="btn btn-danger">Supprimer</button>
+              </div>
+          </tr>   
+        </tbody>
+      </table>
+      </div>  
+  </div>  
+</div>
+
+
+
+
+
+

@@ -4,4 +4,5 @@ export class facture{
     FACT_COMC_Id:number;
     FACT_Date: Date;
     FACT_Statut: string;
+    
 }

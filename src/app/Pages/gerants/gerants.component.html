@@ -1,1 +1,123 @@
-<p>gerants works!</p>
+<router-outlet></router-outlet>
+<br><br><br><br><br>
+
+<br>
+<div class="container-fluid">
+  <h1 class="text-white" style="text-align: center; background-color:darkgreen;">GESTION DES GERANTS</h1>
+  <br>
+  <hr>
+  <div class="row">
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-6">
+      <form #formconfig ="ngForm">  
+        
+        <div class="form-group row">
+          <label for="pointVente" class="col-sm-2 col-form-label"><h6 class="text-black">POINT VENTE:</h6></label>
+         <!--  <select required name="pointVente" id="pointVente" class="form-control" ngModel>
+            <option *ngFor="let pv of pventes" [value]="pv">{{pv}}</option>
+          </select> -->
+         
+        </div>
+        <div class="form-group row">
+          <label for="categorGer" class="col-sm-2 col-form-label"><h6 class="text-black">CATEGORIE GERANT:</h6></label>
+          <!-- <select required name="categorGer" id="categorGer" class="form-control" ngModel>
+            <option *ngFor="let cat of categoriesGer" [value]="cat">{{cat}}</option>
+          </select> -->
+         
+        </div>
+        <div class="form-group row">
+          <label for="nomGer" class="col-sm-2 col-form-label"><h6 class="text-black">NOM:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="nomGer" ngModel name="nomGer" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="prenoms" class="col-sm-2 col-form-label"><h6 class="text-black">PRENOMS:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="prenoms" ngModel name="prenoms" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="contact" class="col-sm-2 col-form-label"><h6 class="text-black">CONTACT:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="contact" ngModel name="contact" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="email" class="col-sm-2 col-form-label"><h6 class="text-black">Email:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="email" ngModel name="email" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="roleId" class="col-sm-2 col-form-label"><h6 class="text-black">ID Role:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="roleId" ngModel name="roleId" placeholder="">
+          </div>
+        </div>
+      </form> 
+    </div>   
+        
+        
+        
+    <div class="col-sm-2">
+      
+    </div>
+    <div class="col-sm-2">
+        <div class="col">
+            <button [disabled] = "formconfig.invalid" class="btn btn-success btn-block"><h2>CREER</h2></button>
+        </div>
+        <br> 
+        <div class="col">
+          <button type="button" class="btn btn-info btn-block"><h2>ANNULER</h2></button>
+        </div>
+         <br>
+        <div class="col">
+            <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
+        </div>
+      
+      </div>
+  </div>
+</div>
+      
+
+<div class="container-fluid">
+  <table class="table table-striped">
+  <thead style="background-color: darkseagreen;">
+    <tr>
+      <th scope="col">ID GERANTS</th> 
+      <th scope="col">NOMS</th>
+      <th scope="col">PRENOMS</th>
+      <th scope="col">CATEGORIES</th>
+      <th scope="col">POINTS VENTE</th>
+      <th scope="col">CONTACT</th>
+      <th scope="col">Email</th>
+      <th scope="col">ROLE</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <br>
+
+  <tbody>
+    <tr *ngFor = "let gerant of gerants">
+        <td>{{gerant.Id}}</td>
+        <td>{{gerant.nom}}</td>
+        <td>{{gerant.prenoms}}</td>
+        <td>{{gerant.categorie}}</td>
+        <td>{{gerant.pointventeId}}</td>
+        <td>{{gerant.contact}}</td>
+        <td>{{gerant.email}}</td>
+        <td>{{gerant.roleId}}</td>
+        <div class="col">
+          <button type="button" class="btn btn-info">Modifier</button>&nbsp;
+          <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
+          <button type="button" class="btn btn-danger">Supprimer</button>
+        </div>
+    </tr>   
+  </tbody>
+</table>
+</div>
+
+

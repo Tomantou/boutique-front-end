@@ -7,4 +7,5 @@ export class detcomcli{
     DCOMC_Prix: number;
     DCOMC_STOCK_ID:number;
     DCOMC_PV_Id: string;
+    
 }

@@ -22,15 +22,8 @@
 
         <div class="form-group row">
           <label for="ville"><h6 class="text-black">VILLE:</h6></label>
-          <select required type ="text" id="ville" ngModel name = "ville"  class="browser-default custom-select custom-select-lg mb-3">
-            <option selected>Sélectionnez le nom de la ville</option>
-            <option value="1">BRUXELLES</option>
-            <option value="2">ANVERS</option>
-            <option value="3">LIEGE</option>
-            <option value="4">NAMUR</option>  
-            <option value="2">MONS</option>
-            <option value="3">WATERLOO</option>
-            <option value="4">GAND</option>  
+          <select required name="laville" id="laville" class="form-control" ngModel>
+            <option *ngFor="let ville of Villes" [value]="ville">{{ville}}</option>
           </select>
         </div>
         
@@ -63,37 +56,29 @@
         
         
         
-    <div class="col-sm-2">
+    <div class="col-sm-1">
       
     </div>
     <div class="col-sm-2">
         <div class="col">
-            <button [disabled] = "formconfig.invalid" class="btn btn-info btn-block"><h2>AJOUTER</h2></button>
+            <button [disabled] = "formconfig.invalid" class="btn btn-success btn-block"><h2>CREER</h2></button>
         </div>
         <br>
         <div class="col">
-            <button type="button" class="btn btn-info btn-block"><h2>MODIFIER</h2></button>
+            <button type="button" class="btn btn-info btn-block"><h2>ANNULER</h2></button>
         </div>
         <br>
-        <div class="col">
-            <button type="button" class="btn btn-info btn-block"><h2>SUPPRIMER</h2></button>
-        </div>
-        <br>
-        <div class="col">
-          <button type="button" class="btn btn-info btn-block"><h2>ANNULER</h2></button>
-        </div>
-         <br>
         <div class="col">
             <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
         </div>
-      
+        <br>
       </div>
   </div>
 </div>
       
 <div class="container-fluid">
   <table class="table table-striped">
-  <thead>
+  <thead style="background-color: darkseagreen;">
     <tr>
       <th scope="col">POINT VENTE</th>
       <th scope="col">VILLE</th>
@@ -102,8 +87,10 @@
       <th scope="col">CONTACT</th>
       <th scope="col">Email</th>
       <th scope="col">GERANT</th>
+      <th scope="col">ACTIONS</th>
     </tr>
   </thead>
+  <br>
   <tbody>
     <tr *ngFor = "let pvente of pointventes">
         <td>{{pvente.Id}}</td>
@@ -113,6 +100,11 @@
         <td>{{pvente.contact}}</td>
         <td>{{pvente.email}}</td>
         <td>{{pvente.gerantId}}</td>
+        <div class="col">
+          <button type="button" class="btn btn-info">Modifier</button>&nbsp;
+          <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
+          <button type="button" class="btn btn-danger">Supprimer</button>
+        </div>
     </tr>    
   </tbody>
 </table>

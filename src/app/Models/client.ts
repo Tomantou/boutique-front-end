@@ -8,4 +8,5 @@ export class client{
     civilite: string;
     codePostal: string;
     ville: string;
+    
 }

@@ -15,12 +15,23 @@ import {Observable} from 'rxjs';
 })
 export class PventesComponent implements OnInit {
   pointventes : pointvente [];
+  Villes: string[];
 
   constructor(
     private pventeservice: PventeServiceService
     ) { }
 
   ngOnInit() {
+
+    this.Villes = [
+      "ANVERS",
+      "BRUXELLES",
+      "LIEGE",
+      "NAMUR",
+      "MONS",
+      "GAND",
+      "WATERLOO"
+     ];
       this.pventeservice.getPVENTES().subscribe(
 
         (pointventes) => { this.pointventes = pointventes;
