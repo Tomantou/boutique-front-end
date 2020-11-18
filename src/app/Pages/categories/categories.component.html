@@ -11,7 +11,7 @@
       <h1 class="text-white" style="text-align: center; background-color:darkgreen;">CATEGORIES</h1>
       <hr>
       <br><br><br><br><br><br>
-      <form #formconfig ="ngForm">  
+      <form #formcategg ="ngForm">  
         <div class="form-group row">
           <label for="categ"><h6 class="text-black">CATEGORIE:</h6></label>
           <input required type ="text" id="categ" ngModel name = "categ">
@@ -31,14 +31,15 @@
       <h1 class="text-white" style="text-align: center; background-color:darkgreen;">SOUS-CATEGORIES</h1>
       <br>
       <hr>
-      <div class="form-group row">
-        <label for="categorie"><h6 class="text-black">CATEGORIES:</h6></label>
-        <!-- <select required name="categorie" id="categorie" class="form-control" ngModel>
-          <option *ngFor="let categ of categories" [value]="categ">{{categ}}</option>
-        </select> -->
-        
-      </div>
-      <form #formconfig ="ngForm">  
+      
+      <form #formsouscateg ="ngForm">  
+        <div class="form-group row">
+          <label for="categorie"><h6 class="text-black">CATEGORIES:</h6></label>
+          <select required name="categorie" id="categorie" class="form-control" ngModel>
+            <option *ngFor="let categ of lescategories" [value]="categ.libelle">{{categ.libelle}}</option>
+          </select>
+        </div>
+        <br><br>
         <div class="form-group row">
           <label for="souscategId" class="col-sm-2 col-form-label"><h6 class="text-black">ID SOUS-CATEGORIE:</h6></label>
           <div class="col-sm-10">

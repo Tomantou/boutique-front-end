@@ -5,21 +5,118 @@
   <br>
   <br><br>
   <div class="row">
-    <div class="col-sm" style="background-color: cadetblue; text-align: center; text-col"><h1 class="alert alert-info">Profitez des nmeilleures promos de la saison, stock limité.</h1> </div>
-    
+    <div class="col-sm" style="background-color: cadetblue; text-align: center; text-col"><h1 class="alert alert-info">Profitez des nmeilleures promos de la saison, stock limité.</h1> </div> 
   </div>
   <br>
   <div class="row">
     <div class="col-sm-6" style="background-color: orange;"></div>
     <div class="col" style="background-color:orange;"></div>
-    
   </div>
-   
   <br>
+
+  <div class="modal fade" id="modalDePromos">
+    <div class="class modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h3 class = "modal-title" style="text-align: center;">DETAILS PRODUIT</h3>
+            <button type ="button" class="close" data-dismiss="modal">x</button>
+            
+          </div>
+          <div class="modal-body">
+              <div class="container">
+                  <div class="row">
+                     <div class="col-xs-4 item-photo">
+                          <img style="max-width:100%;" src="assets/Images/TN2410.png" />
+                      </div>
+                      <div class="col-xs-5" style="border:0px solid gray">
+                          <!-- Datos del vendedor y titulo del producto -->
+                          <h3>Samsung Galaxy S4 I337 16GB 4G LTE Unlocked GSM Android Cell Phone</h3>    
+                          <h5 style="color:#337ab7">vendido por <a href="#">Samsung</a> · <small style="color:#337ab7">(5054 ventas)</small></h5>
+              
+                          <!-- Precios -->
+                          <h6 class="title-price"><small>PRECIO OFERTA</small></h6>
+                          <h3 style="margin-top:0px;">U$S 399</h3>
+              
+                          <!-- Detalles especificos del producto -->
+                          <div class="section">
+                              <h6 class="title-attr" style="margin-top:15px;" ><small>COLOR</small></h6>                    
+                              <div>
+                                  <div class="attr" style="width:25px;background:#5a5a5a;"></div>
+                                  <div class="attr" style="width:25px;background:white;"></div>
+                              </div>
+                          </div>
+                          <div class="section" style="padding-bottom:5px;">
+                              <h6 class="title-attr"><small>CAPACIDAD</small></h6>                    
+                              <div>
+                                  <div class="attr2">16 GB</div>
+                                  <div class="attr2">32 GB</div>
+                              </div>
+                          </div>   
+                          <div class="section" style="padding-bottom:20px;">
+                              <h6 class="title-attr"><small>CANTIDAD</small></h6>                    
+                              <div>
+                                  <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+                                  <input value="1" />
+                                  <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+                              </div>
+                          </div>                
+              
+                          <!-- Botones de compra -->
+                          <div class="section" style="padding-bottom:20px;">
+                              <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar al carro</button>
+                              <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Agregar a lista de deseos</a></h6>
+                          </div>                                        
+                      </div>                              
+              
+                      <div class="col-xs-9">
+                          <ul class="menu-items">
+                              <li class="active">Details du produit</li>
+                              <li>Garantie</li>
+                              <li>Vendedor</li>
+                              <li>Envío</li>
+                          </ul>
+                          <div style="width:100%;border-top:1px solid silver">
+                              <p style="padding:15px;">
+                                  <small>
+                                  
+                                  </small>
+                              </p>
+                              <small>
+                                    
+                              </small>
+                          </div>
+                      </div>		
+                  </div>
+              </div>        
+             
+          
+          </div>
+          <div class="modal-footer">
+
+          <div class="container">     
+          </div>
+
+            <div class="container">
+              <div class="row row-cols-2">
+                <div class="col">
+                      <button type="button" class="btn btn-info btn-block"><h2><< RETOUR</h2></button>
+                </div>
+                <div class="col">
+                  <button type="button" class="btn btn-success btn-block"><h2>AJOUTER AU PANIER</h2></button>
+                </div>
+              </div>
+            </div>
+            <br>
+            <button type="button" data-dismiss="modal">Fermer</button>
+          </div>
+       </div>  
+      </div>    
+  </div>      
+  
 
   <div class="card-deck">
     <div class="card text-center" style="width: 18rem;">
-      <img src="assets/Images/TN2410.png" class="card-img-top" alt="..." height="250" width="170">
+      <a href data-toggle="modal" data-target="#modalDePromos"><img src="assets/Images/TN2410.png" class="card-img-top" alt="..." height="350" width="170"></a>
       <div class="card-body">
         <h5 class="card-title"><strong>TN2410</strong></h5>
         <p class="card-text">Toner TN2410 pour imprimante Laser Brother 2410, 5000 à 8000 copies, rechargeable.</p>
@@ -28,7 +125,7 @@
       </div>
     </div>
     <div class="card text-center">
-      <img src="assets/Images/HP301.png" class="card-img-top" alt="..." height="250" width="170">
+      <a href data-toggle="modal" data-target="#modalDePromos"><img src="assets/Images/HP301.png" class="card-img-top" alt="..." height="350" width="170"></a>
       <div class="card-body">
         <h5 class="card-title"><strong>Encre HP301XL</strong></h5>
         <p class="card-text">Cartouche d'encre pour imprimantes à jet d'encre couleur, format XL, 2 x 21 mm, 400 à 800 copies.</p>
@@ -37,7 +134,7 @@
       </div>
     </div>
     <div class="card text-center">
-      <img src="assets/Images/TN243.png" class="card-img-top" alt="..." height="250" width="170">
+      <a href data-toggle="modal" data-target="#modalDePromos"><img src="assets/Images/TN243.png" class="card-img-top" alt="..." height="350" width="170"></a>
       <div class="card-body">
         <h5 class="card-title"><strong>Toner TN243</strong></h5>
         <p class="card-text">Toner TN243 pour imprimante Laser Brother 243, 5000 à 8000 copies, rechargeable.</p>
@@ -46,7 +143,7 @@
       </div>
     </div>
     <div class="card text-center">
-      <img src="assets/Images/HP304.png" class="card-img-top" alt="..." height="250" width="170">
+      <a href data-toggle="modal" data-target="#modalDePromos"><img src="assets/Images/HP304.png" class="card-img-top" alt="..." height="350" width="170"></a>
       <div class="card-body">
         <h5 class="card-title"><strong>Encre HP304XL</strong></h5>
         <p class="card-text">Cartouche d'encre pour imprimantes à jet d'encre couleur, format XL, 2 x 21 mm, 400 à 800 copies.</p>
@@ -68,7 +165,7 @@
 
   <div class="card-deck">
     <div class="card text-center" style="width: 18rem;">
-      <img src="assets/Images/HP Designjet Z9.png" class="card-img-top" alt="..." height="250" width="170">
+      <a href data-toggle="modal" data-target="#modalDePromos"><img src="assets/Images/HP Designjet Z9.png" class="card-img-top" alt="..." height="350" width="170"></a>
       <div class="card-body">
         <h5 class="card-title"><strong>HP Designjet Z9</strong><span class="badge badge-secondary">New</span></h5>
         <p class="card-text">Imprimante HP Designjet, grand format de A4 à A1, pour des impréssions de grande précision.</p>
@@ -77,7 +174,7 @@
       </div>
     </div>
     <div class="card text-center">
-      <img src="assets/Images/Brother DCP-L3550CDW.png" class="card-img-top" alt="..." height="250" width="170">
+      <a href data-toggle="modal" data-target="#modalDePromos"><img src="assets/Images/Brother DCP-L3550CDW.png" class="card-img-top" alt="..." height="350" width="170"></a>
       <div class="card-body">
         <h5 class="card-title"><strong>Brother DCP-L3550CDW</strong></h5>
         <p class="card-text">Copieur Brother DCP-L3550CDW, grande production allant jusqu'à 50 copies/minute en A4 80 g/m2.</p>
@@ -86,7 +183,7 @@
       </div>
     </div>
     <div class="card text-center">
-      <img src="assets/Images/lenovo Ideapad slim1.jpg" class="card-img-top" alt="..." height="250" width="170">
+      <a href data-toggle="modal" data-target="#modalDePromos"><img src="assets/Images/lenovo Ideapad slim1.jpg" class="card-img-top" alt="..." height="350" width="170"></a>
       <div class="card-body">
         <h5 class="card-title"><strong>LENOVO IDEAPAD SLIM1</strong><span class="badge badge-secondary">New</span></h5>
         <p class="card-text">Pc portable Lenovo IDEAPAD SLIM1 14" 8Go RAM, 120 Go DD SD processeur i5 2,7 Ghz.</p>
@@ -95,7 +192,7 @@
       </div>
     </div>
     <div class="card text-center">
-      <img src="assets/Images/LDLC PC In extensor-SSD.jpg" class="card-img-top" alt="..." height="250" width="170">
+      <a href data-toggle="modal" data-target="#modalDePromos"><img src="assets/Images/LDLC PC In extensor-SSD.jpg" class="card-img-top" alt="..." height="350" width="170"></a>
       <div class="card-body">
         <h5 class="card-title"><strong>LDLC PC In extensor-SSD</strong></h5>
         <p class="card-text">Pc de bureau LDLC PC In extensor-SDD Optiplex 790 Processeur i3 1,8 Ghz, 1 To DD 7200 tr/min 16 Go RAM extensible à 64Go...</p>

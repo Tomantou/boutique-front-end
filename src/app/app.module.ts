@@ -33,6 +33,7 @@ import { CmdesfournisComponent } from './Pages/cmdesfournis/cmdesfournis.compone
 import { FournisseursComponent } from './Pages/fournisseurs/fournisseurs.component';
 import { PromotionsComponent } from './Pages/promotions/promotions.component';
 import { SouscategoriesComponent } from './Pages/souscategories/souscategories.component';
+import { StocksComponent } from './Pages/stocks/stocks.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,9 @@ import { SouscategoriesComponent } from './Pages/souscategories/souscategories.c
     CmdesfournisComponent,
     FournisseursComponent,
     PromotionsComponent,
-    SouscategoriesComponent
+    SouscategoriesComponent,
+    StocksComponent
+    
   ],
   imports: [
     BrowserModule,

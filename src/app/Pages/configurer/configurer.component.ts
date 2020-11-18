@@ -15,12 +15,13 @@ import { Router } from '@angular/router';
   providers: [ConfigurerService]
 })
 export class ConfigurerComponent implements OnInit {
+public signaletique: signaletiques;
  typesocietes: string [];
  lespays: string [];
  errorMessage ='';
 
   constructor(
-    private configSignal: ConfigurerService,
+    public configSignal: ConfigurerService,
     private router: Router
     ) { }
 
@@ -50,6 +51,34 @@ export class ConfigurerComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  resetButton(form? : NgForm){
+    if(form != null)form.reset();
+    this.configSignal.signaletique = {
+
+       numeroTva: null,
+       raisonSocial: '',
+       typeSociete: '',
+       logo: '',
+       adresseSiege: '',
+       contact: '',
+       emailSiege: '',
+       pays: '',
+       tauxTva: null,
+       devise: ''
+
+    }
+  }
+
+  onSubmit(form : NgForm){
+    if(form.value.numeroTva == null){
+         this.configSignal.saveSignaletique(form.value).subscribe(
+           data => {this.resetButton(form);
+     })
+
+    }
+
   }
 
 }

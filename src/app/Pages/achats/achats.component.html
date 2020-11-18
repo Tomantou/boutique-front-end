@@ -131,44 +131,44 @@
 <div class="container-fluid">
     <h1 class="text-white" style="text-align: center; background-color:brown;">EFFECTUEZ VOS ACHATS EN TOUTE SECURITE</h1>
     
-    <div class="row">
-        <div class="col-sm-4" style="background-color: darkgreen;">
-            <div class="form-group">
-                <label for="sel1"><h3 class="text-white">Choix Point de vente:</h3></label>
-                <select class="form-control" id="sel1">
-                <option>Saint Gilles</option>
-                <option>Anderlecht</option>
-                <option>Molembeeck</option>
-                <option>Ixelles</option>
-                </select>
-            </div>
+    
+        
+    <form #formAchatSelect ="ngForm">
+        <div class="row">
+                <div class="col-sm-4" style="background-color: darkgreen;">
+                    <div class="form-group">
+                        
+                        <label for="pointv"><h4 class="text-white">Choix Point de vente:</h4></label>
+                        <select required name="pointv" id="pointv" class="form-control" ngModel>
+                            <option *ngFor="let pointvente of pventes" [value]="pointvente.vile">{{pointvente.ville}}</option>
+                        </select>
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4" style="background-color:darkgreen;">
+                    <div class="form-group">
+                        <label for="categ"><h3 class="text-white">Choix Catégorie article:</h3></label>
+                        <select required name="categ" id="categ" class="form-control" ngModel>
+                            <option *ngFor="let categorie of categories" [value]="categorie.libelle">{{categorie.libelle}}</option>
+                        </select>
+                    </div>
+                </div>        
+                <div class="col-sm-4" style="background-color: darkgreen;">
+                    <div class="form-group">
+                        <label for="souscateg"><h3 class="text-white">Choix Sous-Catégorie article:</h3></label>
+                        <select required name="souscateg" id="souscateg" class="form-control" ngModel>
+                            <option *ngFor="let souscategorie of souscategories" [value]="souscategorie.libelleSousCat">{{souscategorie.libelleSousCat}}</option>
+                        </select>
+                    </div>
+                </div>
         </div>
-        <div class="col-sm-4" style="background-color:darkgreen;">
-            <div class="form-group">
-                <label for="sel1"><h3 class="text-white">Choix Catégorie article:</h3></label>
-                <select class="form-control" id="sel1">
-                <option>Informatique</option>
-                <option>Electromenager</option>
-                <option>Bureautique</option>
-                <option>Télécommunication</option>
-                </select>
-            </div>
-        </div>        
-        <div class="col-sm-4" style="background-color: darkgreen;">
-            <div class="form-group">
-                <label for="sel1"><h3 class="text-white">Choix Sous-Catégorie article:</h3></label>
-                <select class="form-control" id="sel1">
-                <option>ordinateurs</option>
-                <option>Réseaux</option>
-                <option>Consommables</option>
-                <option>Accessoires</option>
-                </select>
-            </div>
-        </div>
-    </div>
+    </form>
+               
+                
+    
 
 </div>
-
+<br>
 
 
 <section id="team" class="pb-5">

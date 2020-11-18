@@ -21,6 +21,7 @@ import { CmdesclientsComponent } from './Pages/cmdesclients/cmdesclients.compone
 import { PromotionsComponent } from './Pages/promotions/promotions.component';
 import { CmdesfournisComponent } from './Pages/cmdesfournis/cmdesfournis.component';
 import { FacturesComponent } from './Pages/factures/factures.component';
+import { StocksComponent } from './Pages/stocks/stocks.component';
 
 const routes: Routes = [
   {path: '', component: AccueilComponent
@@ -66,6 +67,8 @@ const routes: Routes = [
   {path: 'cmdesfournis', component:  CmdesfournisComponent
   },
   {path: 'promotions', component:  PromotionsComponent
+  },
+  {path: 'stocks', component:  StocksComponent
   }
  
 ];

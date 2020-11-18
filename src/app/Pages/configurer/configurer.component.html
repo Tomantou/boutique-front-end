@@ -1,3 +1,139 @@
+<!-- <router-outlet></router-outlet>
+<br><br><br><br>
+<div class="container">
+  <h1 class="text-white" style="text-align: center; background-color:firebrick;">CONFIGURATION DE LA BOUTIQUE</h1>
+  <br>
+  <hr>
+  <div *ngIf = "errorMessage" class="alert alert-error">
+      {{errorMessage}}
+  </div>
+  <form #formsignal ="ngForm">  
+    <div class="Row">      
+      <div class="col" style="background-color: steelblue;">
+          <div class="form-group">
+              <label for="numeroTva"><h3 class="text-white">N° TVA&nbsp;:&nbsp;</h3></label>
+              <input required type="number" name ="numeroTva" #numeroTva = "ngModel" [(ngModel)] = "configSignal.signaletique.numeroTva" placeholder ="Entrez le N° Tva ici">
+          </div>    
+      </div>
+    </div>
+    <div class="row">
+        <div class="col" style="background-color:steelblue;">
+            <div class="form-group">
+                <label for="raisonSocial"><h3 class="text-white">Raison Sociale&nbsp;:&nbsp;</h3></label>
+                <input required  name ="raisonSocial" #raisonSocial = "ngModel" [(ngModel)] = "configSignal.signaletique.raisonSocial" placeholder ="Entrez la raison sociale ici">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="Row">
+        <div class="col" style="background-color:steelblue;">
+            <div class="form-group">
+              <label for="typeSociete"><h3 class="text-white">Type de Société&nbsp;:&nbsp;</h3></label>
+              <input required  name="typeSociete" #typeSociete = "ngModel" [(ngModel)] = "configSignal.signaletique.typeSociete" class="form-control">
+                <!-- <select required  name="typeSociete" #typeSociete = "ngModel" [(ngModel)] = "configSignal.signaletique.typeSociete" class="form-control">
+                  <option *ngFor="let typesociete of typesocietes" [value]="typesociete">{{typesociete}}</option>
+                </select> -->
+          <!--   </div>
+        </div> 
+    </div>
+    <br> 
+    <div class="Row">      
+      <div class="col" style="background-color: steelblue;">
+          <div class="form-group">
+              <label for="logo"><h3 class="text-white">&nbsp;&nbsp;LOGO&nbsp;:&nbsp;</h3></label>
+              <input required  name ="logo" #logo = "ngModel" [(ngModel)] = "configSignal.signaletique.logo" placeholder ="Entrez le logo ici">
+          </div>    
+      </div>
+  </div>
+    <div class="Row">      
+        <div class="col" style="background-color: steelblue;">
+            <div class="form-group">
+                <label for="adresseSiege"><h3 class="text-white">&nbsp;&nbsp;Adresse du siège&nbsp;:&nbsp;</h3></label>
+                <input required name ="adresseSiege" #adresseSiege = "ngModel" [(ngModel)] = "configSignal.signaletique.adresseSiege" placeholder ="Entrez l adresse ici">
+            </div>    
+        </div>
+    </div>
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color:steelblue;">
+            <div class="form-group">
+                <label for="contact"><h3 class="text-white">&nbsp;&nbsp;Contact-Tél&nbsp;:&nbsp;</h3></label>
+                <input required name ="contact" #contact = "ngModel" [(ngModel)] = "configSignal.signaletique.contact" placeholder ="Entrez le contact ici">
+            </div>    
+        </div>
+    </div>
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color:steelblue;">
+            <div class="form-group">
+                <label for="emailSiege"><h3 class="text-white">Adresse-Email&nbsp;:&nbsp;</h3></label>
+                <input required name ="emailSiege" #emailSiege = "ngModel" [(ngModel)] = "configSignal.signaletique.emailSiege" placeholder ="Entrez l'email ici">
+            
+            </div>    
+        </div>
+    </div>
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color: steelblue;">
+            <div class="form-group">
+                <label for="pays"><h3 class="text-white">Pays</h3></label>
+                <input required  name="pays" #pays = "ngModel" [(ngModel)] = "configSignal.signaletique.pays" class="form-control">
+                <select required type = "text" name="pays" #pays = "ngModel" [(ngModel)] = "configSignal.signaletique.pays" class="form-control">
+                  <option *ngFor="let pays of lespays" [value]="pays">{{pays}}</option>
+                </select> 
+            </div>    
+        </div>
+    </div>
+    <br> 
+    
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color: steelblue;">
+            <div class="form-group">
+                <label for="tauxTva"><h3 class="text-white">Taux Tva&nbsp;:&nbsp;</h3></label>
+                <input required type = "number" name ="tauxTva" #tauxTva = "ngModel" [(ngModel)] = "configSignal.signaletique.tauxTva" placeholder ="Entrez le taux tva ici">
+            </div> 
+        </div>
+    </div>
+    <br> 
+    <div class="Row">      
+        <div class="col" style="background-color: steelblue;">
+            <div class="form-group">
+                <label for="devise"><h3 class="text-white">Devise/Monnaie&nbsp;:&nbsp;</h3></label>
+                <input required name ="devise" #devise = "ngModel" [(ngModel)] = "configSignal.signaletique.devise" placeholder ="Entrez la devise ici">
+            </div>
+        </div>
+    </div>
+    <br> 
+    <div class="row">      
+      <div class="col" style="background-color:wheat;">
+        <button type="button" class="btn btn-secondary btn-block"><h3>Parcourir</h3></button>    
+      </div>
+      <div class="col" style="background-color:wheat;">
+        <h2 style="text-align: center;">LOGO</h2>
+        <img src="assets/Images/edit.png" class="rounded mx-auto d-block" alt="LOGO">    
+      </div>
+    </div>
+  </form>   
+</div>
+<hr>
+<div class="container">
+  <div class="row row-cols-3">
+    <div class="col">
+          <button type="button" class="btn btn-info btn-block"><h2>QUITTER</h2></button>
+    </div>
+    <div class="col">
+      <button [disabled] = "formsignal.invalid"  class="btn btn-success btn-block" (click) = "addSignal(formsignal)"><h2>ENREGISTRER</h2></button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-dark btn-lg btn-block" (click) = "resetButton(formsignal)"><h2>REINITIALISATION</h2></button>
+    </div>
+    
+  </div>
+</div> 
+-->
+
+
 <router-outlet></router-outlet>
 <br><br><br><br>
 <div class="container">
@@ -128,5 +264,3 @@
     
   </div>
 </div>
-
-
