@@ -1,27 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { pointvente } from 'src/app/Models/pointvente';
+import { gerant } from 'src/app/Models/gerant';
 import { PventeServiceService } from 'src/app/Shared/pvente-service.service';
-import { ToastrModule } from 'ngx-toastr'; 
+import { GerantsService } from 'src/app/Shared/gerants.service';
+import { ToastrModule,ToastrService } from 'ngx-toastr'; 
+import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { url } from 'inspector';
 import {Observable} from 'rxjs';
+
 
 @Component({
   selector: 'app-pventes',
   templateUrl: './pventes.component.html',
   styleUrls: ['./pventes.component.css'],
-  providers: [PventeServiceService],
+  providers: [PventeServiceService, GerantsService]
 })
 export class PventesComponent implements OnInit {
-  pointventes : pointvente [];
+ public pointventes : pointvente [];
+ public gerants: gerant [];
+ public formData: pointvente;
   Villes: string[];
+  errorMessage = '';
 
   constructor(
-    private pventeservice: PventeServiceService
+    private gerantsservice: GerantsService,
+    private router: Router,
+    private  pointventeservice: PventeServiceService,
+    private toastr: ToastrService
+
     ) { }
 
   ngOnInit() {
+
+     this.formData = new pointvente;
 
     this.Villes = [
       "ANVERS",
@@ -32,7 +45,7 @@ export class PventesComponent implements OnInit {
       "GAND",
       "WATERLOO"
      ];
-      this.pventeservice.getPVENTES().subscribe(
+      this.pointventeservice.getPVENTES().subscribe(
 
         (pointventes) => { this.pointventes = pointventes;
         console.log('POINTS DE VENTE',this.pointventes);
@@ -41,17 +54,52 @@ export class PventesComponent implements OnInit {
         (error) => {
           alert('probleme d\'acces a l api');
 
-        },
-
-
-
-
-        
+        },        
       );
     
         
+      this.gerantsservice.getGerants().subscribe(
+        (gerants) => {this.gerants = gerants;
+        console.log('liste gerants',this.gerants);
+        },
+        (error) => {
+           alert('probleme d\'acces a l api');
+        }
+        ); 
     
       
   }
+
+
+  addPventes(formpvente: NgForm){
+    console.log(formpvente.value);
+    this.pointventeservice.savePventes(formpvente.value).subscribe(
+      (reponse) => {
+             const link = ['configurer'];
+             this.router.navigate(link);
+      },
+      (error) => {
+        this.errorMessage = 'Problème de connexion à votre serveur, prière contacter l\'administrateur';
+        console.log(error);
+      }
+    );
+    this.toastr.success('Point vente enregistré avec succès','Notification!');
+}
+
+resetButton(form? : NgForm){
+  if(form != null)form.reset();
+  this.formData = {
+    Id: 0,
+    gerantId: 0,
+    adresse: '',
+    codePostal: 0,
+    ville: '',
+    contact: '',
+    email: ''
+    
+  }
+  this.toastr.success('formulaire réinitialisé','Notification!');
+  }
+
 
 }

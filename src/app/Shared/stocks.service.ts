@@ -6,7 +6,8 @@ import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
-import { stocks } from 'src/app/Models/stocks';
+import { stock } from 'src/app/Models/stock';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -14,8 +15,8 @@ import { stocks } from 'src/app/Models/stocks';
 })
 
 export class StocksService {
-  stocks: stocks [];
-  private lien ='https://boutique-back-end.azurewebsites.net/stocks';
+  stocks: stock [];
+  private lien =  environment.boutiqueBackend + '/stocks';
   constructor(
     private http : HttpClient,
     private toastr : ToastrService
@@ -24,15 +25,8 @@ export class StocksService {
 
     getStocks(): Observable<any>{
        
-      const opts = {
-        headers: new HttpHeaders({ 
-          //'X-Requested-With':'Httpclient',
-          //'Access-Control-Allow-Origin':'http://localhost:3000',
-          //'Access-Control-Allow-Credentials': 'true',
-          //'Access-Control-Allow-Methods': 'POST','GET':'any','PUT':'any','DELETE':'any'
-          })
-         };
-         return this.http.get<stocks []>(this.lien);           
+      
+         return this.http.get<stock []>(this.lien);           
                 
      }
       

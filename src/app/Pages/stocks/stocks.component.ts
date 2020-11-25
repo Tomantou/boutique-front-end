@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { StocksService } from 'src/app/Shared/stocks.service';
+import { ProduitsService } from 'src/app/Shared/produits.service';
+import { PventeServiceService } from 'src/app/Shared/pvente-service.service';
 import { HttpClient,HttpClientModule, HttpHeaders } from '@angular/common/http'; 
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
-import { stocks } from 'src/app/Models/stocks';
+import { stock } from 'src/app/Models/stock';
+import { produit } from 'src/app/Models/produit';
+import { pointvente } from 'src/app/Models/pointvente';
 
 @Component({
   selector: 'app-stocks',
@@ -14,25 +18,49 @@ import { stocks } from 'src/app/Models/stocks';
   providers: [StocksService]
 })
 export class StocksComponent implements OnInit {
-   lesstocks: stocks [];
+   stocks: stock [];
+   lesproduits: produit [];
+   pventes: pointvente [];
 
   constructor(
      public stockservice : StocksService,
-     public toastr : ToastrService
-     
+     public toastr : ToastrService,
+     public prodservice: ProduitsService,
+     public pventeservice: PventeServiceService
     ) { }
 
   ngOnInit(): void {
 
-         this.stockservice.getStocks().subscribe(
-            (stocks) => {this.lesstocks = stocks;
-            console.log('liste stocks',this.lesstocks);
+        this.stockservice.getStocks().subscribe(
+            (stocks) => {this.stocks = stocks;
+            console.log('liste stocks',this.stocks);
             },
             (error) => {
-               alert('probleme d\'acces a l api');
+               alert('probleme d\'acces au serveur, veuillez contacter votre administrateur');
             }
             );  
-              
+
+            this.prodservice.getProduits().subscribe(
+              (produits) => {this.lesproduits=produits;
+              console.log('liste produits',this.lesproduits);
+              },
+              (error) => {
+                 alert('probleme d\'acces a l api');
+              }
+              );  
+
+              this.pventeservice.getPVENTES().subscribe(
+
+                (pointventes) => { this.pventes = pointventes;
+                console.log('POINTS DE VENTE',this.pventes);
+                //alert('c\'est ok Bravo!!!!');
+                },
+                (error) => {
+                  alert('probleme d\'acces a l api');
+        
+                },        
+              );
+               
 
   }
 

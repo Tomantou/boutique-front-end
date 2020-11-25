@@ -1,7 +1,7 @@
 
 export class produit {
    Id: number;
-   CategorieId: number;
+   categorieId: number;
    marqueId: number;
    libelleProd: string;
    prix: number;

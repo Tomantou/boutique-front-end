@@ -6,22 +6,38 @@ import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
 import { gerant } from '../Models/gerant';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class GerantsService {
-  lesgerants: gerant [];
-  private lien ='https://boutique-back-end.azurewebsites.net/gerants';
+
+  private lien = environment.boutiqueBackend + '/gerants';
 
 
-  constructor(private http: HttpClient,
+  constructor(
+    private http: HttpClient,
     private toastr : ToastrService
     ) { }
 
     getGerants(): Observable<any>{
 
       return this.http.get<gerant []>(this.lien);                 
-    }    
+    }  
+    
+    
+    saveGerant(gerant: gerant) {
+      const headerDict = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      }
+  
+      const requestOptions = {
+        headers: new HttpHeaders(headerDict),
+      };
+      return this.http.post(environment.boutiqueBackend + '/gerants', gerant, requestOptions);
+    }
 }

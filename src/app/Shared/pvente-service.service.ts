@@ -7,6 +7,7 @@ import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
 import { pointvente } from '../Models/pointvente';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ import { pointvente } from '../Models/pointvente';
 export class PventeServiceService {
 
   private pointventes : pointvente [];
-  private lien ='https://boutique-back-end.azurewebsites.net/pointsventes';
+  private lien = environment.boutiqueBackend + '/pointsventes';
   constructor(private readonly http: HttpClient) { }
 
 
@@ -34,6 +35,20 @@ export class PventeServiceService {
     return this.http.get<pointvente []>(this.lien);    
              
              
+  }
+
+
+  savePventes(pointvente: pointvente ) {
+    const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    }
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+    return this.http.post(environment.boutiqueBackend + '/pventes', pointvente, requestOptions);
   }
 
 

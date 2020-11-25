@@ -6,13 +6,14 @@ import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
 import { souscategorie } from '../Models/souscategorie';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SouscategoriesService {
   private lessouscategories: souscategorie;
-  private lien ='https://boutique-back-end.azurewebsites.net/souscategories';
+  private lien = environment.boutiqueBackend + '/souscategories';
 
   constructor(
     private http: HttpClient,

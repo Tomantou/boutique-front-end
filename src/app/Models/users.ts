@@ -1,7 +1,7 @@
 export class user{
-    UserID: string;
-    Pseudo: string;
-    PasswordUser: string;
-    ID_Cli: number;
-    CodeRole: string;
+    Id: string;
+    pseudo: string;
+    passwordUser: string;
+    IdClient: number;
+    codeRole: number;
 }

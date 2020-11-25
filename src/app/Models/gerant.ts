@@ -6,6 +6,6 @@ export class gerant{
     prenoms: string;
     contact: string;
     email: string;
-    roleId: string;
+    roleId: number;
     
 }

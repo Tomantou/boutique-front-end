@@ -1,12 +1,12 @@
 export class client{
-    cliId: number;
-    cliNom: string;
-    cliPrenom: string;
-    cliAdresse: string;
-    cliContact: string;
-    cliEmail: string;
-    civilite: string;
-    codePostal: string;
+    Id: number;
+    nom: string;
+    prenom: string;
+    adresse: string;
+    codePostal: number;
     ville: string;
-    
+    civilite: string;
+    contact: string;
+    email: string;
+   
 }

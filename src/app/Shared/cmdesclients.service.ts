@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ClientsComponent } from '../Pages/clients/clients.component';
+import { CmdesclientsComponent } from '../Pages/cmdesclients/cmdesclients.component';
 import { HttpClient,HttpClientModule, HttpHeaders } from '@angular/common/http'; 
-import { client } from 'src/app/Models/client'; 
+import { cmdesclient } from 'src/app/Models/cmdesclient'; 
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
@@ -11,18 +11,17 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-
-export class ClientsService {
-  private lesclients: client [];
+export class CmdesclientsService {
+  private lescmdesclients: cmdesclient [];
   private lien = environment.boutiqueBackend + '/clientts';
-  
+
   constructor(
     private http: HttpClient,
-    private toastr: ToastrService
+    toastr: ToastrService
     ) { }
 
 
-    saveClient(client: client) {
+    saveCmdesclients(cmdesclient: cmdesclient) {
       const headerDict = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -32,11 +31,11 @@ export class ClientsService {
       const requestOptions = {
         headers: new HttpHeaders(headerDict),
       };
-      return this.http.post(environment.boutiqueBackend + '/clients', client, requestOptions);
+      return this.http.post(environment.boutiqueBackend + '/cmdesclients', cmdesclient, requestOptions);
     }
 
 
-    getClients(): Observable<any>{
+    getCmdesclients(): Observable<any>{
        
       const opts = {
         headers: new HttpHeaders({ 
@@ -46,8 +45,7 @@ export class ClientsService {
           //'Access-Control-Allow-Methods': 'POST','GET':'any','PUT':'any','DELETE':'any'
           })
          };
-         return this.http.get<client []>(this.lien);           
+         return this.http.get<cmdesclient []>(this.lien);           
                 
      }
-
 }

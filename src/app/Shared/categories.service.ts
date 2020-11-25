@@ -7,13 +7,14 @@ import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
 import { categorie } from '../Models/categorie';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriesService {
   private lescategories: categorie;
-  private lien ='https://boutique-back-end.azurewebsites.net/categories';
+  private lien = environment.boutiqueBackend + '/categories';
 
   constructor(private readonly http: HttpClient,
     private toastr : ToastrService) { }

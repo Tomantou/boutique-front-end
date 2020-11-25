@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { signaletiques } from 'src/app/Models/signaletiques';
 import { ConfigurerService } from 'src/app/Shared/configurer.service';
-import { ToastrModule } from 'ngx-toastr'; 
+import { ToastrModule, ToastrService } from 'ngx-toastr'; 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { url } from 'inspector';
 import {Observable} from 'rxjs';
@@ -15,15 +15,17 @@ import { Router } from '@angular/router';
   providers: [ConfigurerService]
 })
 export class ConfigurerComponent implements OnInit {
-public signaletique: signaletiques;
+public formData: signaletiques;
  typesocietes: string [];
  lespays: string [];
  errorMessage ='';
 
   constructor(
     public configSignal: ConfigurerService,
-    private router: Router
-    ) { }
+    private router: Router,
+    private toastr: ToastrService
+    ) { 
+    }
 
   ngOnInit(): void {
      this.typesocietes = [
@@ -33,16 +35,14 @@ public signaletique: signaletiques;
         "SPRL",
         "INDEPENDANT"
        ];
-
+       this.formData = new signaletiques();
       this.lespays = ["Australie", "Allemagne", "Belgique", "France", "USA", "Italie", "Espagne", "Portugal", "Suisse", "Pays-bas", "Suède", "Pologne"
       ];
   }
 
-  addSignal(formsignal: NgForm){
-      
+   addSignal(formsignal: NgForm){
       this.configSignal.saveSignaletique(formsignal.value).subscribe(
         (reponse) => {
-               console.log(formsignal.value);
                const link = ['configurer'];
                this.router.navigate(link);
         },
@@ -51,13 +51,14 @@ public signaletique: signaletiques;
           console.log(error);
         }
       );
+      this.toastr.success('Congifuration enregistrée avec succès','Notification!');
   }
 
   resetButton(form? : NgForm){
     if(form != null)form.reset();
-    this.configSignal.signaletique = {
+    this.formData = {
 
-       numeroTva: null,
+       numeroTva: 0,
        raisonSocial: '',
        typeSociete: '',
        logo: '',
@@ -65,10 +66,11 @@ public signaletique: signaletiques;
        contact: '',
        emailSiege: '',
        pays: '',
-       tauxTva: null,
+       tauxTva: 0,
        devise: ''
 
     }
+    this.toastr.success('formulaire réinitialisé','Notification!');
   }
 
   onSubmit(form : NgForm){

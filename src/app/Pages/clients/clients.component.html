@@ -1,88 +1,89 @@
 <router-outlet></router-outlet>
 <br><br><br><br><br>
 
-<br>
+
+
 <div class="container-fluid">
   <h1 class="text-white" style="text-align: center; background-color:darkgreen;">GESTION DES CLIENTS</h1>
   <br>
   <hr>
   <div class="row">
-    <div class="col-sm-2">
+                  <div class="col-sm-2">
 
-    </div>
-    <div class="col-sm-6">
-      <form #formconfig ="ngForm">  
+                  </div>
+        <div class="col-sm-6">
+                  <form #formclient ="ngForm">  
+                      <div class="form-group row">     
+                        <label class="col-sm-2 col-form-label"><h4 class="text-black">NOM :</h4></label> 
+                        <div class="col-sm-10">
+                            <input required name ="nom" #nom = "ngModel" [(ngModel)] = "formData.nom" class="form-control" placeholder ="nom">
+                        </div>    
+                     </div>
+                     <div class="form-group row">
+                          <label class="col-sm-2 col-form-label"><h4 class="text-black">ADRESSE :</h4></label>
+                          <div class="col-sm-10">
+                              <input required  name ="adresse" #adresse = "ngModel" [(ngModel)] = "formData.adresse" class="form-control" placeholder ="adresse">
+                          </div>
+                     </div>
+                      <div class="form-group row">
+                              <label class="col-sm-2 col-form-label"><h4 class="text-black">CODE POSTAL :</h4></label>
+                              <div class="col-sm-10">
+                                  <input required type="number" name ="codePostal" #codePostal = "ngModel" [(ngModel)] = "formData.codePostal" class="form-control" placeholder ="code postal">
+                              </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"><h4 class="text-black">VILLE:</h4></label>
+                        <div class="col-sm-10">
+                            <input required  name ="ville" #ville = "ngModel" [(ngModel)] = "formData.ville" class="form-control" placeholder ="ville">
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"><h4 class="text-black">CIVILITE :</h4></label>
+                        <div class="col-sm-10">
+                            <select required  name ="cicilite" #civilite = "ngModel" [(ngModel)] = "formData.civilite" class="form-control" placeholder ="cicilite">
+                                <option *ngFor="let civilite of civilites" [value]="civilite">{{civilite}}</option>
+                            </select> 
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"><h4 class="text-black">CONTACT :</h4></label>
+                        <div class="col-sm-10">
+                            <input required  name ="contact" #contact = "ngModel" [(ngModel)] = "formData.contact" class="form-control" placeholder ="contact">
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"><h4 class="text-black">Email :</h4></label>
+                        <div class="col-sm-10">
+                            <input required  name ="email" #email = "ngModel" [(ngModel)] = "formData.email" class="form-control" placeholder ="email">
+                        </div>
+                    </div> 
+                     
+                  </form>              
+        </div> 
+        <div class="col-sm-1">
+      
+        </div>
+        <div class="col-sm-2">
+            <div class="col">
+              <button [disabled] = "formclient.invalid"  class="btn btn-success btn-block" (click) = "addClient(formclient)"><h2>CREER</h2></button>
+            </div>
+            <br>
+            <div class="col">
+              <button type="button" class="btn btn-dark btn-lg btn-block" (click) = "resetButton(formclient)"><h2>REINITIALISATION</h2></button>
+            </div>
+            <br>
+            <div class="col">
+                <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
+            </div>
+            <br>
+        </div>  
+  </div>   
+
        
-        <div class="form-group row">
-          <label for="nomCli" class="col-sm-2 col-form-label"><h6 class="text-black">NOM:</h6></label>
-          <div class="col-sm-10">
-            <input required type="text" id="nomCli" ngModel name="nomCli" placeholder="">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="prenomCli" class="col-sm-2 col-form-label"><h6 class="text-black">PRENOMS:</h6></label>
-          <div class="col-sm-10">
-            <input required type="text" id="prebomCli" ngModel name="prenomCli" placeholder="">
-          </div>
-         
-        </div>
-        <div class="form-group row">
-          <label for="nomGer" class="col-sm-2 col-form-label"><h6 class="text-black">ADRESSE:</h6></label>
-          <div class="col-sm-10">
-            <input required type="text" id="nomGer" ngModel name="nomGer" placeholder="">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="contact" class="col-sm-2 col-form-label"><h6 class="text-black">CODE POSTAL:</h6></label>
-          <div class="col-sm-10">
-            <input required type="text" id="contact" ngModel name="contact" placeholder="">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="contact" class="col-sm-2 col-form-label"><h6 class="text-black">CONTACT:</h6></label>
-          <div class="col-sm-10">
-            <input required type="text" id="contact" ngModel name="contact" placeholder="">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="email" class="col-sm-2 col-form-label"><h6 class="text-black">Email:</h6></label>
-          <div class="col-sm-10">
-            <input required type="text" id="email" ngModel name="email" placeholder="">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="civilite" class="col-sm-2 col-form-label"><h6 class="text-black">CIVILITE:</h6></label>
-           <!-- <select required name="cicilite" id="civilite" class="form-control" ngModel>
-            <option *ngFor="let civilite of civilites" [value]="cat">{{civilite}}</option>
-          </select> -->
-        </div>
-      </form> 
-    </div>   
-        
-        
-        
-    <div class="col-sm-2">
-      
-    </div>
-    <div class="col-sm-2">
-        <div class="col">
-            <button [disabled] = "formconfig.invalid" class="btn btn-info btn-block"><h2>CREER</h2></button>
-        </div>
-        <br> 
-        <br>
-        <div class="col">
-          <button type="button" class="btn btn-info btn-block"><h2>ANNULER</h2></button>
-        </div>
-         <br>
-        <div class="col">
-            <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
-        </div>
-      
-      </div>
-  </div>
-</div>
-      
+    
+</div> 
 
+      
 <div class="container-fluid">
   <table class="table table-striped">
   <thead style="background-color: darkseagreen;">
@@ -101,57 +102,20 @@
   </thead>
   <br>
   <tbody>
-    <!-- <tr *ngFor = "let prod of produits">
+    <!-- <tr *ngFor = "let pvente of pointventes">
         <td>{{pvente.Id}}</td>
         <td>{{pvente.ville}}</td>
         <td>{{pvente.adresse}}</td>
         <td>{{pvente.codePostal}}</td>
         <td>{{pvente.contact}}</td>
-        <td>{{pvente.ville}}</td>
-        <td>{{pvente.adresse}}</td>
-        <td>{{pvente.codePostal}}</td>
-        <td>{{pvente.contact}}</td>
-    </tr>    --> 
-
-    <tr>
-        <td>id</td>
-        <td>nom</td>
-        <td>prenoms</td>
-        <td>adresse</td>
-        <td>code postal</td>
-        <td>ville</td>
-        <td>contact</td>
-        <td>email</td>
-        <td>civilité</td>
+        <td>{{pvente.email}}</td>
+        <td>{{pvente.gerantId}}</td> 
         <div class="col">
           <button type="button" class="btn btn-info">Modifier</button>&nbsp;
           <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
           <button type="button" class="btn btn-danger">Supprimer</button>
         </div>
-    </tr>    
-    <tr>
-        <td>id</td>
-        <td>nom</td>
-        <td>prenoms</td>
-        <td>adresse</td>
-        <td>code postal</td>
-        <td>ville</td>
-        <td>contact</td>
-        <td>email</td>
-        <td>civilité</td>
-        <div class="col">
-            <button type="button" class="btn btn-info">Modifier</button>&nbsp;
-            <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
-            <button type="button" class="btn btn-danger">Supprimer</button>
-        </div>
-  </tr>    
-  
+    </tr> -->
   </tbody>
 </table>
 </div>
-
-
-
-
-
-

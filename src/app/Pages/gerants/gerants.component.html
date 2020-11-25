@@ -11,50 +11,49 @@
 
     </div>
     <div class="col-sm-6">
-      <form #formconfig ="ngForm">  
+      <form #formgerant ="ngForm">  
         
         <div class="form-group row">
-          <label for="pointVente" class="col-sm-2 col-form-label"><h6 class="text-black">POINT VENTE:</h6></label>
-         <!--  <select required name="pointVente" id="pointVente" class="form-control" ngModel>
-            <option *ngFor="let pv of pventes" [value]="pv">{{pv}}</option>
-          </select> -->
-         
+          <label class="col-sm-2 col-form-label"><h4 class="text-black">POINT VENTE:</h4></label>
+          <select required type="number" name ="pointventeId" #pointventeId = "ngModel" [(ngModel)] = "formData.pointventeId" class="form-control" placeholder ="">
+            <option *ngFor="let pointVente of lespointventes" [value]="pointVente.ville">{{pointVente.ville}}</option>
+          </select> 
         </div>
         <div class="form-group row">
-          <label for="categorGer" class="col-sm-2 col-form-label"><h6 class="text-black">CATEGORIE GERANT:</h6></label>
-          <!-- <select required name="categorGer" id="categorGer" class="form-control" ngModel>
-            <option *ngFor="let cat of categoriesGer" [value]="cat">{{cat}}</option>
-          </select> -->
-         
+          <label class="col-sm-2 col-form-label"><h4 class="text-black">CATEGORIE GERANT:</h4></label>
+          <select required  name ="categorie" #categorie = "ngModel" [(ngModel)] = "formData.categorie" class="form-control" placeholder ="">
+            <option *ngFor="let categorie of lescategories" [value]="categorie">{{categorie}}</option>
+          </select> 
         </div>
+        
         <div class="form-group row">
-          <label for="nomGer" class="col-sm-2 col-form-label"><h6 class="text-black">NOM:</h6></label>
+          <label class="col-sm-2 col-form-label"><h4 class="text-black">NOM:</h4></label>
           <div class="col-sm-10">
-            <input required type="text" id="nomGer" ngModel name="nomGer" placeholder="">
+            <input required name ="nom" #nom = "ngModel" [(ngModel)] = "formData.nom" class="form-control" placeholder ="nom">
           </div>
         </div>
         <div class="form-group row">
-          <label for="prenoms" class="col-sm-2 col-form-label"><h6 class="text-black">PRENOMS:</h6></label>
+          <label class="col-sm-2 col-form-label"><h4 class="text-black">PRENOMS:</h4></label>
           <div class="col-sm-10">
-            <input required type="text" id="prenoms" ngModel name="prenoms" placeholder="">
+            <input required name ="prenoms" #prenoms = "ngModel" [(ngModel)] = "formData.prenoms" class="form-control" placeholder ="prenoms">
           </div>
         </div>
         <div class="form-group row">
-          <label for="contact" class="col-sm-2 col-form-label"><h6 class="text-black">CONTACT:</h6></label>
+          <label class="col-sm-2 col-form-label"><h4 class="text-black">CONTACT:</h4></label>
           <div class="col-sm-10">
-            <input required type="text" id="contact" ngModel name="contact" placeholder="">
+            <input required name ="contact" #contact = "ngModel" [(ngModel)] = "formData.contact" class="form-control" placeholder ="contact">
           </div>
         </div>
         <div class="form-group row">
-          <label for="email" class="col-sm-2 col-form-label"><h6 class="text-black">Email:</h6></label>
+          <label class="col-sm-2 col-form-label"><h4 class="text-black">Email:</h4></label>
           <div class="col-sm-10">
-            <input required type="text" id="email" ngModel name="email" placeholder="">
+            <input required name ="email" #email = "ngModel" [(ngModel)] = "formData.email" class="form-control" placeholder ="email">
           </div>
         </div>
         <div class="form-group row">
-          <label for="roleId" class="col-sm-2 col-form-label"><h6 class="text-black">ID Role:</h6></label>
+          <label class="col-sm-2 col-form-label"><h4 class="text-black">ID Role:</h4></label>
           <div class="col-sm-10">
-            <input required type="text" id="roleId" ngModel name="roleId" placeholder="">
+            <input required type="number" name ="roleId" #roleId = "ngModel" [(ngModel)] = "formData.roleId" class="form-control" placeholder ="Role">
           </div>
         </div>
       </form> 
@@ -66,19 +65,20 @@
       
     </div>
     <div class="col-sm-2">
-        <div class="col">
-            <button [disabled] = "formconfig.invalid" class="btn btn-success btn-block"><h2>CREER</h2></button>
-        </div>
-        <br> 
-        <div class="col">
-          <button type="button" class="btn btn-info btn-block"><h2>ANNULER</h2></button>
-        </div>
-         <br>
-        <div class="col">
-            <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
-        </div>
-      
+      <div class="col">
+        <button [disabled] = "formgerant.invalid"  class="btn btn-success btn-block" (click) = "addGerant(formgerant)"><h2>CREER</h2></button>
       </div>
+      <br>
+      <div class="col">
+        <button type="button" class="btn btn-dark btn-lg btn-block" (click) = "resetButton(formgerant)"><h2>REINITIALISATION</h2></button>
+      </div>
+      <br>
+      <div class="col">
+          <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
+      </div>
+      <br>
+      
+    </div>
   </div>
 </div>
       
@@ -101,7 +101,7 @@
   <br>
 
   <tbody>
-    <tr *ngFor = "let gerant of gerants">
+    <tr *ngFor = "let gerant of lesgerants">
         <td>{{gerant.Id}}</td>
         <td>{{gerant.nom}}</td>
         <td>{{gerant.prenoms}}</td>

@@ -17,9 +17,15 @@ import { marque } from 'src/app/Models/marque';
 
 export class MarquesComponent implements OnInit {
 lesmarques: marque [];
+origines: string [];
   constructor(public marquesservice: MarquesService) { }
 
   ngOnInit(): void {
+
+
+    this.origines = ["AUSTRALIE","ANGLETERRE", "ALLEMAGNE", "BELGIQUE", "FRANCE", "USA", "ITALIE", "ESPAGNE", "PORTUGAL", "SUISSE", "PAYS-BAS", "SUEDE", "POLOGNE",
+    "JAPON","CHINE","RUSSIE","COREE DU SUDd","AFRIQUE DU SUD","TCHAD","CAMEROUN","COTE D\'IVOIRE"
+    ];
 
     this.marquesservice.getMarques().subscribe(
       (marques) => {this.lesmarques = marques;

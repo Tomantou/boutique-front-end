@@ -25,8 +25,9 @@
             ],
             "styles": [
               "node_modules/animate.css/animate.min.css/",
-              "src/styles.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "src/styles.css"
+              
               
             ],
             "scripts": []

@@ -6,14 +6,14 @@ import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ProduitsService {
-  private lesproduits: produit;
-  private lien ='https://boutique-back-end.azurewebsites.net/produits';
+  private lien = environment.boutiqueBackend + '/produits';
   
   constructor(
     private readonly http: HttpClient,
@@ -34,5 +34,16 @@ export class ProduitsService {
                 
      }
       
-        
+     saveProduit(produit: produit) {
+      const headerDict = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      }
+  
+      const requestOptions = {
+        headers: new HttpHeaders(headerDict),
+      };
+      return this.http.post(environment.boutiqueBackend + '/produitss', produit, requestOptions);
+    }
 }

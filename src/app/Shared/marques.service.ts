@@ -7,6 +7,7 @@ import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
 import { marque } from '../Models/marque';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,9 @@ import { marque } from '../Models/marque';
 
 export class MarquesService {
   lesmarques: marque [];
-  private lien ='https://boutique-back-end.azurewebsites.net/marques';
-
+  
+  // private lien = 'https://boutique-back-end.azurewebsites.net/marques';
+  private lien = environment.boutiqueBackend + '/marques';
 
   constructor(
     private http: HttpClient,
