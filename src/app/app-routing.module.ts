@@ -15,13 +15,14 @@ import { ConfigurerComponent } from './Pages/configurer/configurer.component';
 import { SouscategoriesComponent } from './Pages/souscategories/souscategories.component';
 import { GerantsComponent } from './Pages/gerants/gerants.component';
 import { MarquesComponent } from './Pages/marques/marques.component';
-import { ClientsComponent } from './Pages/clients/clients.component';
+import { CustumersComponent } from './Pages/custumers/custumers.component';
 import { FournisseursComponent } from './Pages/fournisseurs/fournisseurs.component';
 import { CmdesclientsComponent } from './Pages/cmdesclients/cmdesclients.component';
 import { PromotionsComponent } from './Pages/promotions/promotions.component';
 import { CmdesfournisComponent } from './Pages/cmdesfournis/cmdesfournis.component';
 import { FacturesComponent } from './Pages/factures/factures.component';
 import { StocksComponent } from './Pages/stocks/stocks.component';
+import { SignupComponent } from './Pages/signup/signup.component';
 
 const routes: Routes = [
   {path: '', component: AccueilComponent
@@ -56,7 +57,7 @@ const routes: Routes = [
   },
   {path: 'marques', component:  MarquesComponent
   },
-  {path: 'clients', component:  ClientsComponent
+  {path: 'custumers', component:  CustumersComponent
   },
   {path: 'fournisseurs', component:  FournisseursComponent
   },
@@ -69,8 +70,9 @@ const routes: Routes = [
   {path: 'promotions', component:  PromotionsComponent
   },
   {path: 'stocks', component:  StocksComponent
+  },
+  {path: 'signup', component:  SignupComponent
   }
- 
 ];
 
   

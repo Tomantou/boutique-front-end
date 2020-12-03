@@ -13,12 +13,18 @@ import { environment } from 'src/environments/environment';
 })
 export class CmdesclientsService {
   private lescmdesclients: cmdesclient [];
-  private lien = environment.boutiqueBackend + '/clientts';
+  private lien = environment.boutiqueBackend + '/cmdesclients';
 
   constructor(
     private http: HttpClient,
     toastr: ToastrService
-    ) { }
+    ) { 
+      let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
+   /*  this.people = http.get('http://www.mocky.io/v2/5715f1f3a1100004d1187d9e1', { headers: headers })
+   .map(response => response.json()); */
+    }
 
 
     saveCmdesclients(cmdesclient: cmdesclient) {
@@ -39,10 +45,10 @@ export class CmdesclientsService {
        
       const opts = {
         headers: new HttpHeaders({ 
-          //'X-Requested-With':'Httpclient',
+          'X-Requested-With':'Httpclient',
           //'Access-Control-Allow-Origin':'http://localhost:3000',
-          //'Access-Control-Allow-Credentials': 'true',
-          //'Access-Control-Allow-Methods': 'POST','GET':'any','PUT':'any','DELETE':'any'
+          'Access-Control-Allow-Credentials': 'true',
+          'Access-Control-Allow-Methods': 'POST','GET':'any','PUT':'any','DELETE':'any'
           })
          };
          return this.http.get<cmdesclient []>(this.lien);           

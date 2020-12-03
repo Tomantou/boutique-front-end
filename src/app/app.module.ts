@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule, HttpErrorResponse, HttpClientJsonpModule, HttpHeaders } from '@angular/common/http';
-import {Observable, pipe} from 'rxjs';
+import {from, Observable, pipe} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
@@ -25,7 +25,7 @@ import { PventesComponent } from './Pages/pventes/pventes.component';
 import { CategoriesComponent } from './Pages/categories/categories.component';
 import { ConfigurerComponent } from './Pages/configurer/configurer.component';
 import { MarquesComponent } from './Pages/marques/marques.component';
-import { ClientsComponent } from './Pages/clients/clients.component';
+import { CustumersComponent } from './Pages/custumers/custumers.component';
 import { GerantsComponent } from './Pages/gerants/gerants.component';
 import { FacturesComponent } from './Pages/factures/factures.component';
 import { CmdesclientsComponent } from './Pages/cmdesclients/cmdesclients.component';
@@ -34,6 +34,10 @@ import { FournisseursComponent } from './Pages/fournisseurs/fournisseurs.compone
 import { PromotionsComponent } from './Pages/promotions/promotions.component';
 import { SouscategoriesComponent } from './Pages/souscategories/souscategories.component';
 import { StocksComponent } from './Pages/stocks/stocks.component';
+import { Ng2SearchPipeModule} from 'ng2-search-filter';
+import { Ng2OrderModule} from 'ng2-order-pipe';
+import { NgxPaginationModule} from 'ngx-pagination';
+import { SignupComponent } from './Pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,7 @@ import { StocksComponent } from './Pages/stocks/stocks.component';
     CategoriesComponent,
     ConfigurerComponent,
     MarquesComponent,
-    ClientsComponent,
+    CustumersComponent,
     GerantsComponent,
     FacturesComponent,
     CmdesclientsComponent,
@@ -59,7 +63,9 @@ import { StocksComponent } from './Pages/stocks/stocks.component';
     FournisseursComponent,
     PromotionsComponent,
     SouscategoriesComponent,
-    StocksComponent
+    StocksComponent,
+    SignupComponent,
+  
     
   ],
   imports: [
@@ -69,7 +75,10 @@ import { StocksComponent } from './Pages/stocks/stocks.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule
   
     
     

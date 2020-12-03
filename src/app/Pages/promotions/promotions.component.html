@@ -3,27 +3,54 @@
 
 <div class="container-fluid">
   <div class="row">  
-    <div class="col-sm-1">
+    <!-- <div class="col-sm-1">
 
-    </div> 
+    </div>  -->
 
     <div class="col-sm-3">
       <h1 class="text-white" style="text-align: center; background-color:darkgreen;">PROMOTIONS</h1>
       <hr>
-      <br><br><br><br><br><br>
-      <form #formcategg ="ngForm">  
-        <div class="form-group row">
-          <label for="categ"><h6 class="text-black">CATEGORIE:</h6></label>
-          <input required type ="text" id="categ" ngModel name = "categ" class="form-control">
-        </div>
-        <br><br><br><br><br><br>
-        <div>
-          <button type="button" class="btn btn-info btn-block"><h2>CREER</h2></button>
-        </div>
+      <br><br><br><br>
+      
+      <form #formpromo ="ngForm">  
+            <div class="form-group row">     
+              <label class="col-sm-2 col-form-label"><h4 class="text-black">Début:</h4></label> 
+              <div class="col-sm-10">
+                  <input type ="datetime-local" name ="dateDebut" #dateDebut = "ngModel" [(ngModel)] = "formDataprom.dateDebut" class="form-control" placeholder ="date début">
+              </div>    
+            </div>
+            <div class="form-group row">     
+              <label class="col-sm-2 col-form-label"><h4 class="text-black">Fin:</h4></label> 
+              <div class="col-sm-10">
+                  <input type ="datetime-local" name ="dateFin" #dateFin = "ngModel" [(ngModel)] = "formDataprom.dateFin" class="form-control" placeholder ="date fin">
+              </div>    
+            </div>
+            <div class="form-group row">     
+              <label class="col-sm-2 col-form-label"><h4 class="text-black">LIBELLE:</h4></label> 
+              <div class="col-sm-10">
+                  <input required name ="libellePromo" #libellePromo = "ngModel" [(ngModel)] = "formDataprom.libellePromo" class="form-control" placeholder ="libéllé">
+              </div>    
+            </div>
       </form> 
     </div>
+      <div class="col-sm-2">
+          <br><br><br><br><br>
+        <div class="col">
+          <button [disabled] = "formpromo.invalid"  class="btn btn-success btn-block" (click) = "addPromos(formpromo)"><h2>CREER</h2></button>
+        </div>
+        <br>
+        <div class="col">
+          <button type="button" class="btn btn-dark btn-lg btn-block" (click) = "resetButton(formpromo)"><h2>REINITIALISATION</h2></button>
+        </div>
+        <br>
+        <div class="col">
+            <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
+        </div>
+        <br>
+     </div>
+    
 
-    <div class="col-sm-3">
+    <div class="col-sm-2">
 
     </div> 
 
@@ -31,44 +58,43 @@
       <h1 class="text-white" style="text-align: center; background-color:darkgreen;">PROMOUVOIR</h1>
       <br>
       <hr>
-      
-      <form #formsouscateg ="ngForm">  
-        <div class="form-group row">
-          <label for="categorie"><h6 class="text-black">CATEGORIES:</h6></label>
-          <select required name="categorie" id="categorie" class="form-control" ngModel class="form-control">
-            <!-- <option *ngFor="let categ of lescategories" [value]="categ.libelle">{{categ.libelle}}</option> -->
-          </select>
-        </div>
-        <br>
-        <div class="form-group row">
-          <label for="souscategId" class="col-sm-2 col-form-label"><h6 class="text-black">ID SOUS-CATEGORIE:</h6></label>
-          <div class="col-sm-10">
-            <input required type="text" id="souscategId" ngModel name="souscategId" class="form-control" placeholder="Id sous-categorie">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="libelScat" class="col-sm-2 col-form-label"><h6 class="text-black">LIBELLE:</h6></label>
-          <div class="col-sm-10">
-            <input required type="libelScat" id="libelScat" ngModel name="libelScat" class="form-control" placeholder="libéllé">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="categor" class="col-sm-2 col-form-label"><h6 class="text-black">CATEGORIE:</h6></label>
-          <div class="col-sm-10">
-            <input required type="text" id="categor" ngModel name="categor"  class="form-control"placeholder="catégorie">
-          </div>
-        </div>
-        <div>
-          <button type="button" class="btn btn-info btn-block"><h2>CREER</h2></button>
-          <br>
-          <button type="button" class="btn btn-dark btn-block"><h2>REINITIALISATION</h2></button>
-          <br>
-          <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
-        </div>
+      <form #formpromouvoir ="ngForm">  
+            <div class="form-group row">     
+              <label class="col-sm-2 col-form-label"><h4 class="text-black">PROMOTION:</h4></label> 
+              <select required type="number" name="promoId" #promoId = "ngModel" [(ngModel)] = "formDatapromouvoir.promoId" class="form-control">
+                <option *ngFor="let promo of lespromos" [value]="promo.promoId">{{promo.promoId}}</option>
+              </select>
+            </div>
+            <div class="form-group row">     
+              <label class="col-sm-2 col-form-label"><h4 class="text-black">ID PROD.:</h4></label> 
+              <div class="col-sm-10">
+                  <input type="number" required name ="produitId" #produitId = "ngModel" [(ngModel)] = "formDatapromouvoir.produitId" class="form-control" placeholder ="">
+              </div>    
+            </div>
+            <div class="form-group row">     
+              <label class="col-sm-2 col-form-label"><h4 class="text-black">% DICOUNT:</h4></label> 
+              <div class="col-sm-10">
+                  <input type ="number"required name ="discount" #discount = "ngModel" [(ngModel)] = "formDatapromouvoir.discount" class="form-control" placeholder ="">
+              </div>    
+            </div>
+        
       </form> 
-    
     </div>
-
+    <div class="col-sm-2">
+        <br><br><br><br><br>
+      <div class="col">
+        <button [disabled] = "formpromouvoir.invalid"  class="btn btn-success btn-block" (click) = "addPromotions(formpromouvoir)"><h2>CREER</h2></button>
+      </div>
+      <br>
+      <div class="col">
+        <button type="button" class="btn btn-dark btn-lg btn-block" (click) = "resetButton(formpromouvoir)"><h2>REINITIALISATION</h2></button>
+      </div>
+      <br>
+      <div class="col">
+          <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
+      </div>
+      <br>
+   </div> 
 
   </div>
 </div>
@@ -76,85 +102,60 @@
 <br><br>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-4"> 
+    <div class="col-sm-5"> 
         <table class="table">
         <thead style="background-color: darkseagreen;">
           <tr>
-            <th scope="col">ID CATEGORIE</th>
+            <th scope="col">ID</th>
             <th scope="col">LIBELLE</th>
-            <th scope="col">ACTION</th>
+            <th scope="col">DEBUT</th>
+            <th scope="col">FIN</th>
+            <th scope="col">ACTIONS</th>
           </tr>
         </thead>
         <br>
         <tbody>
-          <!-- <tr *ngFor = "let categorie of lescategories">
-            <td>{{categorie.Id}}</td>
-            <td>{{categorie.libelle}}</td>
+           <tr *ngFor = "let promo of lespromos">
+            <td>{{promo.Id}}</td>
+            <td>{{promo.dateDebut}}</td>
+            <td>{{promo.dateFin}}</td>
+            <td>{{promo.libellePromo}}</td>
             <div class="col">
+              <button type="button" class="btn btn-info">Détails</button>&nbsp;
+              <button type="button" class="btn btn-success">Modifier</button>&nbsp;
               <button type="button" class="btn btn-danger">Supprimer</button>
-           </div>
-          </tr>      -->
+            </div>
+          </tr>   
         </tbody>
       </table>
     </div>>
-    <div class="col-sm-1"> 
+    <div class="col-sm-2"> 
 
     </div>> 
-    <div class="col-sm-6"> 
+    <div class="col-sm-4"> 
       <table class="table">
       <thead style="background-color: darkseagreen;">
         <tr>
-          <th scope="col">ID SOUS-CATEGORIES</th>
-          <th scope="col">LIBELLE</th>
-          <th scope="col">LIBELLE</th>
+          <th scope="col">ID</th>
+          <th scope="col">PROMOTION</th>
+          <th scope="col">PRODUIT</th>
+          <th scope="col">TAUX DISCOUNT</th>
           <th scope="col">ACTIONS</th>
         </tr>
       </thead>
       <br>
       <tbody>
-        <!-- <tr *ngFor = "let souscategorie of lessouscategories">
-          <td>{{souscategorie.Id}}</td>
-          <td>{{souscategorie.libelleSousCat}}</td>
-          <td>{{souscategorie.catId}}</td>
+         <tr *ngFor = "let promouvoir of lespromouvoirs">
+          <td>{{promouvoir.Id}}</td>
+          <td>{{promouvoir.promoId}}</td>
+          <td>{{promouvoir.produitId}}</td>
+          <td>{{promouvoir.discount}}</td>
           <div class="col">
-            <button type="button" class="btn btn-info">Modifier</button>&nbsp;
-            <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
+            <button type="button" class="btn btn-info">Détails</button>&nbsp;
+            <button type="button" class="btn btn-success">Modifier</button>&nbsp;
             <button type="button" class="btn btn-danger">Supprimer</button>
           </div>
-         
-        
         </tr>
-        <tr>
-            <td>Id S/categorie</td>
-            <td>libéllé</td>
-            <td>catégorie</td>
-            <div class="col">
-              <button type="button" class="btn btn-info">Modifier</button>&nbsp;
-              <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
-              <button type="button" class="btn btn-danger">Supprimer</button>
-            </div>
-          </tr>
-          <tr>
-            <td>Id S/categorie</td>
-            <td>libéllé</td>
-            <td>catégorie</td>
-            <div class="col">
-              <button type="button" class="btn btn-info">Modifier</button>&nbsp;
-              <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
-              <button type="button" class="btn btn-danger">Supprimer</button>
-            </div>
-          </tr>
-          <tr>
-              <td>Id S/categorie</td>
-              <td>libéllé</td>
-              <td>catégorie</td>
-              <div class="col">
-                <button type="button" class="btn btn-info">Modifier</button>&nbsp;
-                <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
-                <button type="button" class="btn btn-danger">Supprimer</button>
-              </div>
-            </tr>
-             -->
       </tbody>
     </table>
   </div>>  

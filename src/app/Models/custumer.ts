@@ -1,7 +1,7 @@
-export class client{
+export class custumer{
     Id: number;
-    nom: string;
-    prenom: string;
+    nomCli: string;
+    prenomCli: string;
     adresse: string;
     codePostal: number;
     ville: string;

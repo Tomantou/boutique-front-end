@@ -7,10 +7,11 @@ import { ProduitsService } from 'src/app/Shared/produits.service';
 import { MarquesService } from 'src/app/Shared/marques.service';
 import { CategoriesService } from 'src/app/Shared/categories.service';
 import { ToastrService } from 'ngx-toastr'; 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { url } from 'inspector';
 import {Observable} from 'rxjs';
 import { Router } from '@angular/router';
+import { Key } from 'readline';
 
 
 @Component({
@@ -19,13 +20,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./produits.component.css'],
   providers:[ProduitsService]
 })
+
 export class ProduitsComponent implements OnInit {
-   public lesproduits: produit[];
+   public lesproduits: produit[] = [];
    public formData: produit;
-   public lescategories: categorie [];
-   marques: marque [];
+   public lescategories: categorie [] = [];
+   marques: marque [] = [];
    errorMessage='';
-   
+   nom: any;
+   p: number =1;
    
   constructor(
      public produitservice: ProduitsService,
@@ -35,7 +38,8 @@ export class ProduitsComponent implements OnInit {
      private toastr: ToastrService
      ) { }
 
-  ngOnInit(){
+  ngOnInit(): void{
+
      this.formData = new produit();
    this.categorieservice.getCategories().subscribe(
       (categories) => {this.lescategories = categories;
@@ -48,7 +52,7 @@ export class ProduitsComponent implements OnInit {
 
       this.marqueservice.getMarques().subscribe(
          (marques) => {this.marques = marques;
-         //console.log('liste marquess',this.marques);
+         // console.log('liste marquess',this.marques);
          },
          (error) => {
             alert('probleme d\'acces a l api');
@@ -66,12 +70,34 @@ export class ProduitsComponent implements OnInit {
          );  
   }
 
+   Search(){
+       if(this.nom ==''){
+           this.ngOnInit();
+       }else
+       {
+          this.lesproduits = this.lesproduits.filter(res => {
+             return res.libelleProd.toLocaleLowerCase().match(this.nom.toLocaleLowerCase());
+          });
+            
+       }
 
-  addProduit(formProd: NgForm){
-   console.log(formProd.value);
-   this.produitservice.saveProduit(formProd.value).subscribe(
+   }
+
+   key: string = 'Id';
+   reverse: boolean = false;
+
+   sort(Key){
+     this.key = this.key;
+     this.reverse = !this.reverse;
+
+   }
+
+
+  addProduit(){
+   console.log(this.formData);
+   this.produitservice.saveProduit(this.formData).subscribe(
      (reponse) => {
-            const link = ['configurer'];
+            const link = ['produits'];
             this.router.navigate(link);
      },
      (error) => {
@@ -80,6 +106,13 @@ export class ProduitsComponent implements OnInit {
      }
    );
    this.toastr.success('Client enregistrée avec succès','Notification!');
+}
+
+onChangeMarqueId(id: number) {
+   this.formData.marqueId = Number(id);
+}
+onChangeCategoryId(id: number) {
+   this.formData.categorieId = Number(id);
 }
     
      loggerform(formProd: NgForm){

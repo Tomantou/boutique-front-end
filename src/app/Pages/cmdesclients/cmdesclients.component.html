@@ -33,25 +33,25 @@
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label"><h4 class="text-black">STATUT:</h4></label>
                       <div class="col-sm-10">
-                          <input required  name ="statut" #statut = "ngModel" [(ngModel)] = "formData.statut" class="form-control" placeholder ="ville">
+                          <input required  name ="statutCmde" #statutCmde = "ngModel" [(ngModel)] = "formData.statutCmde" class="form-control" placeholder ="statut commande">
                       </div>
                   </div>
                   <div class="form-group row">
                       <label class="col-sm-2 col-form-label"><h4 class="text-black">TOTAL :</h4></label>
                       <div class="col-sm-10">
-                          <input required type="number" name ="total" #total = "ngModel" [(ngModel)] = "formData.total" class="form-control" placeholder =""> 
+                          <input required type="number" name ="totalCmde" #totalCmde = "ngModel" [(ngModel)] = "formData.totalCmde" class="form-control" placeholder =""> 
                       </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label"><h4 class="text-black">DATE :</h4></label>
                     <div class="col-sm-10">
-                        <input required type="date" name ="date" #date = "ngModel" [(ngModel)] = "formData.date" class="form-control" placeholder ="">
+                        <input required type="date" name ="dateCmde" #dateCmde = "ngModel" [(ngModel)] = "formData.dateCmde" class="form-control" placeholder ="date">
                     </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label"><h4 class="text-black">ADRESSE FACTURATION :</h4></label>
                   <div class="col-sm-10">
-                      <input required  name ="adresFact" #adresFact = "ngModel" [(ngModel)] = "formData.adresFact" class="form-control" placeholder ="">
+                      <input required  name ="adresseFact" #adresseFact = "ngModel" [(ngModel)] = "formData.adresseFact" class="form-control" placeholder ="Adresse de facturation">
                   </div>
               </div>
                     
@@ -98,50 +98,20 @@
   </thead>
   <br>
   <tbody>
-    <!-- <tr *ngFor = "let prod of produits">
-        <td>{{pvente.Id}}</td>
-        <td>{{pvente.ville}}</td>
-        <td>{{pvente.adresse}}</td>
-        <td>{{pvente.codePostal}}</td>
-        <td>{{pvente.contact}}</td>
-        <td>{{pvente.ville}}</td>
-        <td>{{pvente.adresse}}</td>
-        <td>{{pvente.codePostal}}</td>
-        <td>{{pvente.contact}}</td>
-    </tr>    --> 
-
-    <tr>
-        <td>id</td>
-        <td>nom</td>
-        <td>prenoms</td>
-        <td>adresse</td>
-        <td>code postal</td>
-        <td>ville</td>
-        <td>contact</td>
-        <td>email</td>
+    <tr *ngFor = "let cmdeclient of lescmdesclients">
+        <td>{{cmdeclient.Id}}</td>
+        <td>{{cmdeclient.clientId}}</td>
+        <td>{{cmdeclient.pointventeId}}</td>
+        <td>{{cmdeclient.statutCmde}}</td>
+        <td>{{cmdeclient.totalCmde}}</td>
+        <td>{{cmdeclient.dateCmde}}</td>
+        <td>{{cmdeclient.adresFact}}</td>
         <div class="col">
-          <button type="button" class="btn btn-info">Modifier</button>&nbsp;
-          <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
+          <button type="button" class="btn btn-info">Détails</button>&nbsp;
+          <button type="button" class="btn btn-success">Modifier</button>&nbsp;
           <button type="button" class="btn btn-danger">Supprimer</button>
         </div>
-    </tr>    
-    <tr>
-        <td>id</td>
-        <td>nom</td>
-        <td>prenoms</td>
-        <td>adresse</td>
-        <td>code postal</td>
-        <td>ville</td>
-        <td>contact</td>
-        <td>email</td>
-    
-        <div class="col">
-            <button type="button" class="btn btn-info">Modifier</button>&nbsp;
-            <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
-            <button type="button" class="btn btn-danger">Supprimer</button>
-        </div>
-  </tr>    
-  
+    </tr>
   </tbody>
 </table>
 </div>

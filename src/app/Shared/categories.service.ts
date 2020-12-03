@@ -16,8 +16,16 @@ export class CategoriesService {
   private lescategories: categorie;
   private lien = environment.boutiqueBackend + '/categories';
 
-  constructor(private readonly http: HttpClient,
-    private toastr : ToastrService) { }
+  constructor(
+    private readonly http: HttpClient,
+    private toastr : ToastrService
+    ) {
+      let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
+   /*  this.people = http.get('http://www.mocky.io/v2/5715f1f3a1100004d1187d9e1', { headers: headers })
+   .map(response => response.json()); */
+     }
 
 
     getCategories(): Observable<any>{

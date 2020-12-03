@@ -16,7 +16,7 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label"><h4 class="text-black">POINT VENTE:</h4></label>
           <select required type="number" name ="pointventeId" #pointventeId = "ngModel" [(ngModel)] = "formData.pointventeId" class="form-control" placeholder ="">
-            <option *ngFor="let pointVente of lespointventes" [value]="pointVente.ville">{{pointVente.ville}}</option>
+            <option *ngFor="let pointvente of lespointventes" [value]="pointvente.pointventeId">{{pointvente.ville}}</option>
           </select> 
         </div>
         <div class="form-group row">
@@ -111,8 +111,8 @@
         <td>{{gerant.email}}</td>
         <td>{{gerant.roleId}}</td>
         <div class="col">
-          <button type="button" class="btn btn-info">Modifier</button>&nbsp;
-          <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
+          <button type="button" class="btn btn-info">Détails</button>&nbsp;
+          <button type="button" class="btn btn-success">Modifier</button>&nbsp;
           <button type="button" class="btn btn-danger">Supprimer</button>
         </div>
     </tr>   

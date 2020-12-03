@@ -12,13 +12,19 @@
 
                   </div>
         <div class="col-sm-6">
-                  <form #formclient ="ngForm">  
+                  <form #formcustumer ="ngForm">  
                       <div class="form-group row">     
                         <label class="col-sm-2 col-form-label"><h4 class="text-black">NOM :</h4></label> 
                         <div class="col-sm-10">
-                            <input required name ="nom" #nom = "ngModel" [(ngModel)] = "formData.nom" class="form-control" placeholder ="nom">
+                            <input required name ="nomCli" #nomCli = "ngModel" [(ngModel)] = "formData.nomCli" class="form-control" placeholder ="nom">
                         </div>    
                      </div>
+                     <div class="form-group row">     
+                      <label class="col-sm-2 col-form-label"><h4 class="text-black">PRENOMS :</h4></label> 
+                      <div class="col-sm-10">
+                          <input required name ="prenomCli" #prenomCli = "ngModel" [(ngModel)] = "formData.prenomCli" class="form-control" placeholder ="nom">
+                      </div>    
+                   </div>
                      <div class="form-group row">
                           <label class="col-sm-2 col-form-label"><h4 class="text-black">ADRESSE :</h4></label>
                           <div class="col-sm-10">
@@ -40,7 +46,7 @@
                      <div class="form-group row">
                         <label class="col-sm-2 col-form-label"><h4 class="text-black">CIVILITE :</h4></label>
                         <div class="col-sm-10">
-                            <select required  name ="cicilite" #civilite = "ngModel" [(ngModel)] = "formData.civilite" class="form-control" placeholder ="cicilite">
+                            <select required  name ="civilite" #civilite = "ngModel" [(ngModel)] = "formData.civilite" class="form-control" placeholder ="civilite">
                                 <option *ngFor="let civilite of civilites" [value]="civilite">{{civilite}}</option>
                             </select> 
                         </div>
@@ -65,11 +71,11 @@
         </div>
         <div class="col-sm-2">
             <div class="col">
-              <button [disabled] = "formclient.invalid"  class="btn btn-success btn-block" (click) = "addClient(formclient)"><h2>CREER</h2></button>
+              <button [disabled] = "formcustumer.invalid"  class="btn btn-success btn-block" (click) = "addCustumer(formcustumer)"><h2>CREER</h2></button>
             </div>
             <br>
             <div class="col">
-              <button type="button" class="btn btn-dark btn-lg btn-block" (click) = "resetButton(formclient)"><h2>REINITIALISATION</h2></button>
+              <button type="button" class="btn btn-dark btn-lg btn-block" (click) = "resetButton(formcustumer)"><h2>REINITIALISATION</h2></button>
             </div>
             <br>
             <div class="col">
@@ -85,7 +91,7 @@
 
       
 <div class="container-fluid">
-  <table class="table table-striped">
+  <table id="tableclient" class="table table-striped table-bordered table-sm row-border hover" cellespacing ="0" width="100%">
   <thead style="background-color: darkseagreen;">
     <tr>
       <th scope="col">ID</th> 
@@ -102,18 +108,20 @@
   </thead>
   <br>
   <tbody>
-    <!-- <tr *ngFor = "let pvente of pointventes">
-        <td>{{pvente.Id}}</td>
-        <td>{{pvente.ville}}</td>
-        <td>{{pvente.adresse}}</td>
-        <td>{{pvente.codePostal}}</td>
-        <td>{{pvente.contact}}</td>
-        <td>{{pvente.email}}</td>
-        <td>{{pvente.gerantId}}</td> 
+    <tr *ngFor = "let client of lescustumers">
+        <td>{{client.Id}}</td>
+        <td>{{client.nomCli}}</td>
+        <td>{{client.prenomCli}}</td>
+        <td>{{client.adresse}}</td>
+        <td>{{client.codePostal}}</td>
+        <td>{{client.ville}}</td>
+        <td>{{client.civilite}}</td>
+        <td>{{client.contact}}</td>
+        <td>{{client.email}}</td> 
         <div class="col">
-          <button type="button" class="btn btn-info">Modifier</button>&nbsp;
-          <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
-          <button type="button" class="btn btn-danger">Supprimer</button>
+          <button type="button" class="btn btn-info" (click) = "getCustumerByid(formData.Id)">Détails</button>&nbsp;
+          <button type="button" class="btn btn-success" (click) = "editerCustumer(formData)">Modifier</button>&nbsp;
+          <button type="button" class="btn btn-danger" (click) = "supprimerCustumer(formData.Id)">Supprimer</button>
         </div>
     </tr> -->
   </tbody>

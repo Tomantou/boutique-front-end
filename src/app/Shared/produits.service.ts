@@ -44,6 +44,6 @@ export class ProduitsService {
       const requestOptions = {
         headers: new HttpHeaders(headerDict),
       };
-      return this.http.post(environment.boutiqueBackend + '/produitss', produit, requestOptions);
+      return this.http.post(environment.boutiqueBackend + '/produits', produit, requestOptions);
     }
 }

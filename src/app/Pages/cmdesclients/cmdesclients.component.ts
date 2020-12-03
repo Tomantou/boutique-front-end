@@ -26,7 +26,13 @@ export class CmdesclientsComponent implements OnInit {
     private cmdesclientservice: CmdesclientsService,
     private router: Router,
     private toastr: ToastrService
-    ) { }
+    ) { 
+      let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
+   /*  this.people = http.get('http://www.mocky.io/v2/5715f1f3a1100004d1187d9e1', { headers: headers })
+   .map(response => response.json()); */
+    }
 
   ngOnInit(): void {
     this.civilites = [
@@ -49,7 +55,7 @@ export class CmdesclientsComponent implements OnInit {
     console.log(formcmdesclient.value);
     this.cmdesclientservice.saveCmdesclients(formcmdesclient.value).subscribe(
       (reponse) => {
-             const link = ['configurer'];
+             const link = ['cmdesclients'];
              this.router.navigate(link);
       },
       (error) => {
@@ -62,16 +68,16 @@ export class CmdesclientsComponent implements OnInit {
 
 resetButton(form? : NgForm){
   if(form != null)form.reset();
-  // this.formData = {
-  //    Id: 0,
-  //    clientId: 0,
-  //    pointventeId: 0,
-  //    statut: '',
-  //    total: 0,
-  //   date: '',
-  //    adresFact: ''
+    this.formData = {
+       Id: 0,
+       clientId: 0,
+       pointventeId: 0,
+       statutCmde: '',
+       totalCmde: 0,
+       dateCmde: new Date,
+       adresseFact: ''
   
-  // }
+     }
   this.toastr.success('formulaire réinitialisé','Notification!');
   }
 

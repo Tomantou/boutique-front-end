@@ -1,11 +1,7 @@
 <router-outlet></router-outlet>
-<br><br><br><br><br>
-
-<br>
+<br><br><br><br>
 <div class="container-fluid">
   <h1 class="text-white" style="text-align: center; background-color:darkgreen;">GESTION DES PRODUITS</h1>
-  <br>
-  <hr>
   <div class="row">
     <div class="col-sm-2">
 
@@ -13,15 +9,15 @@
     <div class="col-sm-6">
       <form #formprod ="ngForm">  
         <div class="form-group row">
-          <label><h4 class="text-black">CATEGORIE:</h4></label>
-          <select required type="number" name="categorieId" #categorieId = "ngModel" [(ngModel)] = "formData.categorieId" class="form-control">
-            <option *ngFor="let categorie of lescategories" [value]="categorie.libelle">{{categorie.libelle}}</option>
+          <label for="categorieId"><h4 class="text-black">CATEGORIE ID:</h4></label>
+          <select required name ="categorieId" [(ngModel)] = "formData.categorieId" class="form-control" (change)="onChangeCategoryId($event.target.value)">
+            <option *ngFor="let categorie of lescategories" [value]="categorie.Id">{{categorie.libelle}}</option>
           </select>
         </div>
         <div class="form-group row">
           <label><h4 class="text-black">MARQUE:</h4></label>
-          <select required type="number" name="marqueId" #marqueId = "ngModel" [(ngModel)] = "formData.marqueId" class="form-control">
-            <option *ngFor="let marque of marques" [value]="marque.nomMarque">{{marque.nomMarque}}</option>
+          <select required name="marqueId" [(ngModel)] = "formData.marqueId" class="form-control" (change)="onChangeMarqueId($event.target.value)">
+            <option *ngFor="let marque of marques" [value]="marque.Id">{{marque.nomMarque}}</option>
           </select>
         </div>
         <div class="form-group row">
@@ -75,37 +71,39 @@
       
 
 <div class="container-fluid">
-  <table class="table table-striped">
+    <div> 
+      <nav class="navbar">
+          <input class="form-control" type="text" name="nom" [(ngModel)] = "nom" (ngModelChange) = "Search()"  placeholder="Entrez le nom du produit recherché">
+      </nav>
+    </div>
+  <table class="table table-bordered">
   <thead style="background-color: darkseagreen;">
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">NOM</th>
-      <th scope="col">PRIX</th>
+      <th (click) = "sort('Id')" scope="col">ProduitID&nbsp;<i class="fa fa-sort"></i></th>
+      <th (click) = "sort('libelleProd')" scope="col">NOM du PRODUIT&nbsp;<i class="fa fa-sort"></i></th>
+      <th scope="col">PRIX></th>
       <th scope="col">MARQUES</th>
       <th scope="col">CATEGORIES</th>
-      <th scope="col">PHOTO</th>
       <th scope="col">DESCRIPTION</th>
       <th scope="col">ACTIONS</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor = "let prod of lesproduits">
+    <tr *ngFor = "let prod of lesproduits | orderBy: key: reverse | paginate: {itemsPerPage: 10, currentPage: p }">
         <td>{{prod.Id}}</td>
         <td>{{prod.libelleProd}}</td>
         <td>{{prod.prix}}</td>
         <td>{{prod.marqueId}}</td>
         <td>{{prod.categorieId}}</td>
-        <td>{{prod.photo}}</td>
         <td>{{prod.description}}</td>
-        <!-- photo: string;
-        description: string; -->
         <div class="col">
-          <button type="button" class="btn btn-info">Modifier</button>&nbsp;
-          <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
+          <button type="button" class="btn btn-info">Détails</button>&nbsp;
+          <button type="button" class="btn btn-success">Modifier</button>&nbsp;
           <button type="button" class="btn btn-danger">Supprimer</button>
         </div>
     </tr>   
   </tbody>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </table>
 </div>
 
