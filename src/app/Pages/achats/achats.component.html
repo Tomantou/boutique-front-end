@@ -125,9 +125,105 @@
          </div>  
         </div>    
       </div>      
-      
-      <!-- Fin MODAL panier -->
 </div>
+<!-- Fin MODAL panier -->
+
+<!-- Debut MODAL détails -->
+
+<div class="container">
+     
+  <div class="modal fade" id="modalDetProduits">
+    <div class="class modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h3 class = "modal-title" style="text-align: center;">DETAILS PRODUIT</h3>
+            <button type ="button" class="close" data-dismiss="modal">x</button>
+            
+          </div>
+          <div class="modal-body">
+              <div class="container">
+                  <div class="row">
+                     <div class="col-xs-4 item-photo">
+                          <img style="max-width:100%;" src="assets/Images/{{selectedProduct.photo}}" />
+                      </div>
+                      <div class="col-xs-5" style="border:0px solid gray">
+                          <!-- Datos del vendedor y titulo del producto -->
+                          <h3>{{selectedProduct.libelleProd}}</h3>    
+                          <!-- Precios -->
+                          <h3 class="title-price">PRIX</h3>
+                          <h4 style="margin-top:0px;">{{selectedProduct.prix}} EUR   HT</h4>
+                          <h4 style="margin-top:0px;">TVA 21%    EUR</h4>
+                          <h4 style="margin-top:0px;">{{selectedProduct.prix}} EUR   TTC</h4>
+                          <!-- Detalles especificos del producto -->
+                          <div class="section">
+                              <h6 class="title-attr" style="margin-top:15px;" ><small>{{selectedProduct.description}}</small></h6>                    
+                              <div>
+                                  <div class="attr" style="width:25px;background:#5a5a5a;"></div>
+                                  <div class="attr" style="width:25px;background:white;"></div>
+                              </div>
+                          </div>
+                          
+                          <!-- <div class="section" style="padding-bottom:20px;">
+                              <h6 class="title-attr"><small>Quantité</small></h6>                    
+                              <div>
+                                  <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+                                  <input value="1" />
+                                  <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+                              </div>
+                          </div>                 -->
+              
+                          <!-- Botones de compra -->
+                                                              
+                      </div>                              
+              
+                      <div class="col-xs-9">
+                          <ul class="menu-items">
+                              <li class="active">infos complémentaires</li>
+                              <li>Garantie</li>
+                              <li>Vendeur</li>
+                              <li>divers</li>
+                          </ul>
+                          <div style="width:100%;border-top:1px solid silver">
+                              <p style="padding:15px;">
+                                  <small>
+                                  
+                                  </small>
+                              </p>
+                              <small>
+                                    
+                              </small>
+                          </div>
+                      </div>		
+                  </div>
+              </div>        
+             
+          
+          </div>
+          <div class="modal-footer">
+
+                  <div class="container">     
+                  </div>
+
+                    <div class="container">
+                      <div class="row row-cols-2">
+                        <div class="col">
+                              <button type="button" class="btn btn-info btn-block"><h2><< RETOUR</h2></button>
+                        </div>
+                        <div class="col">
+                          <button type="button" class="btn btn-success btn-block"><h2>AJOUTER AU PANIER</h2></button>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <button type="button" data-dismiss="modal">Fermer</button>
+          </div>
+       </div>  
+      </div>    
+  </div>      
+    
+</div>
+<!-- Fin MODAL détails -->
+
 
 <div class="container-fluid">
     <h1 class="text-white" style="text-align: center; background-color:brown;">EFFECTUEZ VOS ACHATS EN TOUTE SECURITE</h1>
@@ -175,202 +271,119 @@
 <!-- Fin formulaire Select pv cat et scategorie -->
 <br>
 
-<section id="team" class="pb-5">
-  <div class="container-fluid">
-      
-      <div class="row" style="background-color:skyblue">
-          
-          <table class="table table-bordered">
-
-              <thead style="background-color: darkseagreen;"> 
-                <tr>
-                  <!-- <th (click) = "sort('Id')" scope="col">ProduitID&nbsp;<i class="fa fa-sort"></i></th> -->
-                  <th scope="col" style="text-align: center;">IMAGES</th>
-                  <th (click) = "sort('libelleProd')" scope="col" style="text-align: center;">NOM du PRODUIT &  DESCRIPTION &nbsp;&nbsp;<i class="fa fa-sort"></i></th>
-                  <!-- <th scope="col">DESCRIPTION</th> -->
-                  <th scope="col" style="text-align: center;">PRIX></th>
-                </tr>
-              </thead> 
-
-             <tbody>
-                 
-                   
-                   <tr *ngFor = "let prod of lesproduits | orderBy: key: reverse | paginate: {itemsPerPage: 6, currentPage: p }">
-                           
-                                 <td>
-                                  
-                                      <div class="col"> 
-                                      <div class="image-flip" >
-                                          <div class="mainflip flip-0">
-                                              <div class="frontside">
-                                                  <div class="card">
-                                                      <div class="card-body text-center">
-                                                          <p><img class=" img-thumbnail" src="assets/Images/{{prod.photo}}" alt="card image"></p>
-                                                          <h4 class="card-title">{{prod.libelleProd}}</h4>
-                                                           <p class="card-text">{{prod.description}}</p>
-                                                          <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="backside">
-                                                  <div class="card">
-                                                      <div class="card-body text-center mt-4">
-                                                         <h4 class="card-title">{{prod.libelleProd}}</h4><br>
-                                                          <h4 class="card-title">{{prod.description}}</h4>
-                                                           <p class="card-text">PRIX HT:&nbsp;{{prod.prix}} EUR</p>
-                                                          <button class="btn btn-danger">Ajouter au panier d'achats</button>
-                                                          <ul class="list-inline">
-                                                              <li class="list-inline-item">
-                                                                  <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                      <i class="fa fa-facebook"></i>
-                                                                  </a>
-                                                              </li>
-                                                              <li class="list-inline-item">
-                                                                  <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                      <i class="fa fa-twitter"></i>
-                                                                  </a>
-                                                              </li>
-                                                              <li class="list-inline-item">
-                                                                  <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                      <i class="fa fa-skype"></i>
-                                                                  </a>
-                                                              </li>
-                                                              <li class="list-inline-item">
-                                                                  <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                      <i class="fa fa-google"></i>
-                                                                  </a>
-                                                              </li>
-                                                          </ul>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                   
-                                 </td>
-                                 <td>
-                                   
-                                   <div class="col">
-                                    
-                                  
-                                        <div class="image-flip" >
-                                          <div class="mainflip flip-0">
-                                              <div class="frontside">
-                                                  <div class="card">
-                                                      <div class="card-body text-center">
-                                                           <!-- <p><img class=" img-thumbnail" src="assets/Images/{{prod.photo}}" alt="card image"></p>  -->
-                                                          <h4 class="card-title">{{prod.libelleProd}}</h4>
-                                                          <p class="card-text">{{prod.description}}</p>
-                                                          <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                                      </div>
-                                                  </div>
-                                              </div> 
-                                              <div class="backside">
-                                                <div class="card">
-                                                    <div class="card-body text-center mt-4">
-                                                        <h4 class="card-title">{{prod.libelleProd}}</h4>
-                                                        <p class="card-text">{{prod.description}}</p>
-                                                        
-                                                        
-                                                        <button class="btn btn-danger">Ajouter au panier d'achats</button>
-                                                        <ul class="list-inline">
-                                                            <li class="list-inline-item">
-                                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                    <i class="fa fa-facebook"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                    <i class="fa fa-twitter"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                    <i class="fa fa-skype"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                    <i class="fa fa-google"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div> 
-                                           </div>
-                                      </div> 
-                                  </div>
-                                   
-                                 </td>
-                                 <td>
-                                
-                                   <div class="col">
-                                      <div class="image-flip" >
-                                          <div class="mainflip flip-0">
-                                              <div class="frontside">
-                                                  <div class="card">
-                                                      <div class="card-body text-center">
-                                                          <!-- <p><img class=" img-thumbnail" src="assets/Images/{{prod.photo}}" alt="card image"></p>
-                                                          <h4 class="card-title">{{prod.libelleProd}}</h4>
-                                                          <p class="card-text">{{prod.description}}</p> -->
-                                                          <p class="card-text">PRIX HT:&nbsp;{{prod.prix}} EUR</p><br>
-                                                          <p class="card-text">PRIX TTC (*21%):&nbsp;{{prod.prix}} EUR</p>
-                                                          <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="backside">
-                                                <div class="card">
-                                                    <div class="card-body text-center mt-4">
-                                                       
-                                                        <p class="card-text">PRIX HT:&nbsp;{{prod.prix}} EUR</p><br>
-                                                        <p class="card-text">PRIX TTC (*21%):&nbsp;{{prod.prix}} EUR</p>
-                                                        <p>Ces prix peuvent être modifiés à tout moment selon les prix sur le marché</p>
-                                                        <button class="btn btn-danger">Ajouter au panier d'achats</button>
-                                                        <ul class="list-inline">
-                                                            <li class="list-inline-item">
-                                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                    <i class="fa fa-facebook"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                    <i class="fa fa-twitter"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                    <i class="fa fa-skype"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                                    <i class="fa fa-google"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                          </div>
-                                      </div>
-                                  </div>
-                                   
-                                 </td>
-                                 
-                        
-                     </tr>  
-              
-             </tbody>
-             <pagination-controls (pageChange)="p = $event"></pagination-controls> 
-           </table>
 
 
-      </div>
+<!-- Debut model accueil -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6" style="background-color:orange;">&nbsp;</div>
+    <div class="col-sm-6" style="background-color:orange;">&nbsp;</div>
   </div>
-</section>
+
+   <div class="row">
+  
+        <div class="col-sm-2">
+            
+        </div>
+                <table class="table table-responsive">
+
+                  <thead style="background-color: darkseagreen;">
+                  <!-- <tr>
+                    <th scope="col">ID</th> 
+                    <th scope="col">NOMS</th>
+                    <th scope="col">PRENOMS</th>
+                    <th scope="col">ADRESSE</th>
+                    <th scope="col">CODE POSTAL</th>
+                    <th scope="col">VILLE</th>
+                    <th scope="col">CONTACT</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">CIVILITE</th>
+                    <th scope="col">Actions</th>
+                  </tr> -->
+                </thead> 
+
+                <tbody>
+                    <div class="row">
+                      
+                      <tr *ngFor = "let prod of lesproduits | orderBy: key: reverse | paginate: {itemsPerPage: 7, currentPage: p }">
+                        <!-- <tr *ngFor = "let prod of lesproduits"> -->
+                            
+                              <div class="col">
+                                    <td scope = "col">
+                                      <div class="card text-center">
+                                        <a href data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)"><img src= "assets/Images/{{prod.photo}}" class="card-img-top" alt="..." height="200" width="100"></a>
+                                          <div class="card-body" style="width: 18rem;">
+                                            <!-- <p class="card-text">{{prod.description}}</p>
+                                            <h5 class="card-title"><strong>PRIX HT</strong></h5>
+                                            <h5 class="card-title"><strong>{{prod.prix}} EUR</strong></h5>
+                                             -->
+                                          </div>
+                                      </div>
+                                    </td>
+                                    <td scope = "col">
+                                      <div class="card text-center">
+                                          <div class="card-body" style="width: 18rem;">
+                                            <h5 class="card-title"><strong>{{prod.libelleProd}}</strong></h5>
+                                            <!-- <p class="card-text">{{prod.description}}</p>
+                                            <h5 class="card-title"><strong>PRIX HT</strong></h5>
+                                            <h5 class="card-title"><strong>{{prod.prix}} EUR</strong></h5>
+                                             -->
+                                          </div>
+                                      </div>
+                                    </td>
+                                    <td scope = "col">
+                                      <div class="card text-center">
+                                          <div class="card-body" style="width: 18rem;">
+                                            <p class="card-text">{{prod.description}}</p>
+                                            <!-- <h5 class="card-title"><strong>{{prod.libelleProd}}</strong></h5>
+                                            <h5 class="card-title"><strong>PRIX HT</strong></h5>
+                                            <h5 class="card-title"><strong>{{prod.prix}} EUR</strong></h5> -->
+                                          </div>
+                                      </div>
+                                    </td>
+                                    <td scope = "col">
+                                      <div class="card text-center">
+                                          <div class="card-body" style="width: 18rem;">
+                                            <!-- <h5 class="card-title"><strong>{{prod.libelleProd}}</strong></h5>
+                                            <p class="card-text">{{prod.description}}</p> -->
+                                            <h5 class="card-title"><strong>PRIX</strong></h5>
+                                            <h5 class="card-title"><strong>{{prod.prix}} EUR HT</strong></h5>
+                                            <!-- <h5 class="card-title"><strong>TVA 21% EUR HT</strong></h5>
+                                            <h5 class="card-title"><strong>{{prod.prix}} EUR TTC</strong></h5> -->
+                                          </div>
+                                      </div>
+                                    </td>
+                                     <td scope = "col">
+                                      <div class="card text-center">
+                                          <div class="card-body" style="width: 18rem;">
+                                            <h5 class="card-title"><strong>ACTIONS</strong></h5>
+                                            <h5 class="card-title"><strong></strong></h5>
+                                            <button class="btn btn-info btn-lg"><strong>Ajouter au panier</strong></button>
+                                          </div>
+                                      </div>
+                                    </td>
+                            </div>
+                        </tr>  
+                    </div>    
+                </tbody>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls> 
+              </table>
+  </div>           
+  <br> 
+  <div class="row">
+    <div class="col-sm-6" style="background-color:orange;">&nbsp;</div>
+    <div class="col" style="background-color:orange;">&nbsp;</div>
+    
+  </div>
+  <br>
+
+<!-- Fin model accueil -->
+
+
+
+
+
 
 
 

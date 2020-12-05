@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { url } from 'inspector';
 import {Observable} from 'rxjs';
 import { Router } from '@angular/router';
+import { FilemangerService } from 'src/app/Shared/filemanger.service';
 
 @Component({
   selector: 'app-configurer',
@@ -19,9 +20,11 @@ public formData: signaletiques;
  typesocietes: string [];
  lespays: string [];
  errorMessage ='';
+ public logo: File;
 
   constructor(
     public configSignal: ConfigurerService,
+    public filemanagerservice: FilemangerService,
     private router: Router,
     private toastr: ToastrService
     ) { 
@@ -76,11 +79,25 @@ public formData: signaletiques;
   onSubmit(form : NgForm){
     if(form.value.numeroTva == null){
          this.configSignal.saveSignaletique(form.value).subscribe(
-           data => {this.resetButton(form);
+           response => {
+            this.filemanagerservice.uploadImage(this.logo)
+             this.resetButton(form);
      })
 
     }
 
   }
+  
+  processImage(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+       this.logo = file;
+       this.formData.logo = file.name
+       console.log(this.formData)
+    });
+    reader.readAsDataURL(file);
+ }
 
 }

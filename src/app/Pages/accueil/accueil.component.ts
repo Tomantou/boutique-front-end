@@ -22,6 +22,7 @@ import { Key } from 'readline';
 export class AccueilComponent implements OnInit {
   lesproduits: produit [];
   panier: produit [];
+  selectedProduct: produit;
   p: number = 1;
 
 
@@ -37,7 +38,7 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
     this.toggleSidebar();
 
-    
+    this.selectedProduct  = new produit;
     this.produitservice.getProduits().subscribe(
       (produits) => {this.lesproduits=produits;
       console.log('liste produits',this.lesproduits);
@@ -48,6 +49,17 @@ export class AccueilComponent implements OnInit {
       );  
 
   }
+
+
+// Get a product
+// getProduit(id: number): produit{
+//   return this.lesproduits.find(p => p.Id === id);
+// }
+
+getProduit(id: number){
+  this.selectedProduct = this.lesproduits.find(p => p.Id == id);
+  console.log(this.selectedProduct);
+}
 
 
   key: string = 'Id';

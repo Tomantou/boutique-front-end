@@ -26,6 +26,7 @@ import { Key } from 'readline';
 
 export class PromosComponent implements OnInit {
   public lesproduits: produit[] = [];
+  selectedProduct: produit;
   pventes: pointvente [];
   categories: categorie [];
   souscategories: souscategorie [];
@@ -40,6 +41,7 @@ export class PromosComponent implements OnInit {
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
+     this.selectedProduct = new produit;
     this.produitservice.getProduits().subscribe(
       (produits) => {this.lesproduits=produits;
       console.log('liste produits',this.lesproduits);
@@ -80,6 +82,11 @@ export class PromosComponent implements OnInit {
        }
        );  
 
+  }
+
+
+  getProduit(id: number){
+    this.selectedProduct = this.lesproduits.find(p => p.Id == id);
   }
 
   Search(){

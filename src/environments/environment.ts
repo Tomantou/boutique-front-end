@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  boutiqueBackend: 'http://[::1]:3000'
+  boutiqueBackend: 'http://[::1]:3000',
+  boutiqueContainer: "https://epibfilemanager.blob.core.windows.net/boutique/boutique/"
   // boutiqueBackend:'https://boutique-back-end.azurewebsites.net'
 };
 

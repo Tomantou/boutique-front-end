@@ -67,13 +67,17 @@ export class PromosService {
      // Get client by Id
 
      getPromobyId(id: number): Observable<any>{
-       return this.http.get<promos>(environment.boutiqueBackend + '/${id}')
+       return this.http.get<promos>(this.lien + '/${id}' );
      }
 
      // Delete client by id
 
      deleteCustumer(id: number){
-        return this.http.delete(environment.boutiqueBackend + '/${id}' );
+        return this.http.delete(this.lien+ '/${id}');
+     }
+
+     updatePromo(promo: promos, id:number){
+        return this.http.put(this.lien + '/${id}',promo)
      }
 
 }

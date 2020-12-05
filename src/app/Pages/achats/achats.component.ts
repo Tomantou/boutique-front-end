@@ -12,6 +12,7 @@ import { url } from 'inspector';
 import {Observable} from 'rxjs';
 import { produit } from 'src/app/Models/produit';
 import { ProduitsService } from 'src/app/Shared/produits.service';
+import { PanierService } from 'src/app/Shared/panier.service';
 import { MarquesService } from 'src/app/Shared/marques.service';
 import { Router } from '@angular/router';
 import { Key } from 'readline';
@@ -24,6 +25,7 @@ import { Key } from 'readline';
 })
 export class AchatsComponent implements OnInit {
 public lesproduits: produit[] = [];
+selectedProduct: produit;
 pventes: pointvente [];
 categories: categorie [];
 souscategories: souscategorie [];
@@ -41,6 +43,7 @@ p: number =1;
     ) { }
 
   ngOnInit(): void{
+    this.selectedProduct = new produit;
 
     this.produitservice.getProduits().subscribe(
       (produits) => {this.lesproduits=produits;
@@ -83,6 +86,11 @@ p: number =1;
        );  
 
   }
+
+  getProduit(id: number){
+    this.selectedProduct = this.lesproduits.find(p => p.Id == id);
+  }
+
 
   Search(){
     if(this.nom ==''){

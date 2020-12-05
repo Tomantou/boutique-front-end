@@ -38,6 +38,8 @@ import { Ng2SearchPipeModule} from 'ng2-search-filter';
 import { Ng2OrderModule} from 'ng2-order-pipe';
 import { NgxPaginationModule} from 'ngx-pagination';
 import { SignupComponent } from './Pages/signup/signup.component';
+import { TableprodComponent } from './Pages/produits/tableprod/tableprod.component';
+
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { SignupComponent } from './Pages/signup/signup.component';
     SouscategoriesComponent,
     StocksComponent,
     SignupComponent,
+    TableprodComponent,
+    
   
     
   ],

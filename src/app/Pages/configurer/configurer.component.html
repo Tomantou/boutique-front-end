@@ -40,7 +40,8 @@
       <div class="col" style="background-color: steelblue;">
             <div class="form-group">
                 <label><h3 class="text-white">&nbsp;&nbsp;LOGO&nbsp;:&nbsp;</h3></label>
-                <input required name ="logo #logo = "ngModel" [(ngModel)] = "formData.logo" placeholder ="">
+                <!-- <input required name ="logo #logo = "ngModel" [(ngModel)] = "formData.logo" placeholder =""> -->
+                <input #imageInput type="file" accept="image/*" (change)="processImage(imageInput)">
             </div>          
       </div>
   </div>

@@ -25,8 +25,7 @@ import { StocksComponent } from './Pages/stocks/stocks.component';
 import { SignupComponent } from './Pages/signup/signup.component';
 
 const routes: Routes = [
-  {path: '', component: AccueilComponent
-  },
+  {path: '', redirectTo: 'accueil', pathMatch: 'full' },
   {path: 'accueil', component: AccueilComponent
   },
   {path: 'achats', component: AchatsComponent

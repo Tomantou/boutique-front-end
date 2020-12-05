@@ -10,7 +10,9 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { url } from 'inspector';
 import {Observable} from 'rxjs';
+import { Key } from 'readline';
 import { Router } from '@angular/router';
+import { DatePipe, getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-promotionss',
@@ -70,25 +72,39 @@ export class PromotionsComponent implements OnInit {
 
   }
 
-  addPromotions(formpromouvoir: NgForm){
-    console.log(formpromouvoir.value);
-    this.promouvoirservice.savePromotions(formpromouvoir.value).subscribe(
-      (reponse) => {
-             const link = ['promotions'];
-             this.router.navigate(link);
+
+  onChangePromoId(id: number) {
+    this.formDatapromouvoir.promoId = Number(id);
+ }
+ onChangeProduitId(id: number) {
+    this.formDatapromouvoir.produitId = Number(id);
+ }
+
+//  onChangeDate(date: Date) {
+//   this.formDataprom.dateDebut = getLocaleDateTimeFormat(date);
+// }
+
+  addPromotions(){
+    // console.log(formDatapromouvoir.value);
+    this.promouvoirservice.savePromotions(this.formDatapromouvoir).subscribe({
+      next: (response) => {
+        this.toastr.success('Client enregistrée avec succès', 'Notification!');
+        const link = ['promotions'];
+        this.router.navigate(link);
       },
-      (error) => {
-        // this.errorMessage = 'Problème de connexion à votre serveur, prière contacter l\'administrateur';
+     error: (error) => {
+        this.errorMessage = 'Problème de connexion à votre serveur, prière contacter l\'administrateur';
         console.log(error);
-      }
+     }
+    }  
     );
-    this.toastr.success('Produit promu avec succès','Notification!');
   }
 
   addPromos(formpromo: NgForm){
     console.log(formpromo.value);
     this.promoservice.savePromos(formpromo.value).subscribe(
       (reponse) => {
+            this.toastr.success('Promo enregistrée avec succès','Notification!');
              const link = ['promotions'];
              this.router.navigate(link);
       },
@@ -97,7 +113,7 @@ export class PromotionsComponent implements OnInit {
         console.log(error);
       }
     );
-    this.toastr.success('Promo enregistrée avec succès','Notification!');
+    
 
   }
 

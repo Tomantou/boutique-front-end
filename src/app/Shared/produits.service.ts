@@ -1,11 +1,7 @@
-import { ErrorHandler, Injectable } from '@angular/core';
-import { ProduitsComponent } from '../Pages/produits/produits.component';
-import { HttpClient,HttpClientModule, HttpHeaders } from '@angular/common/http'; 
-import { produit } from 'src/app/Models/produit'; 
-import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
-import { ToastrService } from 'ngx-toastr';
-import { Pipe, PipeTransform } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { produit } from 'src/app/Models/produit';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,36 +10,57 @@ import { environment } from 'src/environments/environment';
 
 export class ProduitsService {
   private lien = environment.boutiqueBackend + '/produits';
-  
+   productAdded = new Subject();
   constructor(
-    private readonly http: HttpClient,
-    private toastr : ToastrService){ }
-  
+    private readonly http: HttpClient) { }
 
-    getProduits(): Observable<any>{
-       
-      const opts = {
-        headers: new HttpHeaders({ 
-          //'X-Requested-With':'Httpclient',
-          //'Access-Control-Allow-Origin':'http://localhost:3000',
-          //'Access-Control-Allow-Credentials': 'true',
-          //'Access-Control-Allow-Methods': 'POST','GET':'any','PUT':'any','DELETE':'any'
-          })
-         };
-         return this.http.get<produit []>(this.lien);           
-                
-     }
-      
-     saveProduit(produit: produit) {
-      const headerDict = {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      }
-  
-      const requestOptions = {
-        headers: new HttpHeaders(headerDict),
-      };
-      return this.http.post(environment.boutiqueBackend + '/produits', produit, requestOptions);
+   
+  getProduits(): Observable<any> {
+
+    return this.http.get<produit[]>(this.lien);
+
+  }
+
+  saveProduit(produit: produit): Observable<Response> {
+    const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
     }
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+    return this.http.post<Response>(environment.boutiqueBackend + '/produits', produit, requestOptions);
+  }
+
+// CRUD Operations
+
+  createProduct(obj){
+     return this.http.post(environment.boutiqueBackend + '/produits', obj)
+
+  }
+
+  getLatestProducts(){
+
+  }
+
+  getProductById(id: number){
+    return this.http.get(this.lien + '/${id}');
+  }
+
+  updateProduct(id: number, prod:produit){
+    return this.http.put(this.lien + '/${id}',prod);
+  }
+
+  deleteProduct(id: number){
+    return this.http.delete(this.lien+ '/${id}');
+  }
 }
+
+ 
+
+
+
+
+// Delete client by id
