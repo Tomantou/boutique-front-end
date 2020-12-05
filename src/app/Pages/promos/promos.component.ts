@@ -15,6 +15,7 @@ import { ProduitsService } from 'src/app/Shared/produits.service';
 import { MarquesService } from 'src/app/Shared/marques.service';
 import { Router } from '@angular/router';
 import { Key } from 'readline';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -33,6 +34,7 @@ export class PromosComponent implements OnInit {
   panier: produit [];
   nom: any;
   p: number =1;
+  public boutiqueContainer = environment.boutiqueContainer;
   constructor(private http: HttpClient,
     private ptventeservice: PventeServiceService,
     private categoservice: CategoriesService,

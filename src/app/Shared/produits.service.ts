@@ -46,15 +46,15 @@ export class ProduitsService {
   }
 
   getProductById(id: number){
-    return this.http.get(this.lien + '/${id}');
+    return this.http.get(this.lien + '/' + id);
   }
 
   updateProduct(id: number, prod:produit){
-    return this.http.put(this.lien + '/${id}',prod);
+    return this.http.put(this.lien + '/' + id, prod);
   }
 
   deleteProduct(id: number){
-    return this.http.delete(this.lien+ '/${id}');
+    return this.http.delete(this.lien + '/' + id );
   }
 }
 

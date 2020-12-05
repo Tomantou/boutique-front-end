@@ -67,7 +67,10 @@ export class ProduitsComponent implements OnInit {
          }
       );
 
+      this.refreshProduits()
+   }
 
+   refreshProduits() {
       this.produitservice.getProduits().subscribe(
          (produits) => {
             this.lesproduits = produits;
@@ -76,8 +79,8 @@ export class ProduitsComponent implements OnInit {
          (error) => {
             alert('probleme d\'acces a l api');
          }
-      );
-   }
+      )
+      ;}
 
    Search() {
       if (this.nom == '') {
@@ -184,9 +187,10 @@ export class ProduitsComponent implements OnInit {
 
    delProduct(id: number){
       return this.produitservice.deleteProduct(id).subscribe(res =>{
-         this.toastr.success('Client enregistrée avec succès', 'Notification!');
-         const link = ['produits'];
-         this.router.navigate(link);
+         this.refreshProduits()
+         this.toastr.success('Client supprimé avec succès', 'Notification!');
+         // const link = ['produits'];
+         // this.router.navigate(link);
       });
    }
 

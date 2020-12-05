@@ -16,6 +16,7 @@ import { PanierService } from 'src/app/Shared/panier.service';
 import { MarquesService } from 'src/app/Shared/marques.service';
 import { Router } from '@angular/router';
 import { Key } from 'readline';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-achats',
@@ -32,6 +33,7 @@ souscategories: souscategorie [];
 panier: produit [];
 nom: any;
 p: number =1;
+public boutiqueContainer = environment.boutiqueContainer;
 
   constructor(
     private http: HttpClient,

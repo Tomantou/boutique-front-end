@@ -1,42 +1,50 @@
 <br><br><br>
 
 <div class="container">
-    
+
     <div id="login">
-        
-        
-        
+
         <div class="container">
-            <h3 class="text-center text-info pt-5">FORMULAIRE D'INSCRIPTION</h3>
+            <h3 class="text-center text-info pt-5">Formulaire LOGIN</h3>
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form #formlog ="ngForm">
-                            <h3 class="text-center text-info">inscription</h3>
-                            <div class="form-group">
-                                <label for="username" class="text-info"><h4>Peudonyme:</h4></label><br>
-                                <input id="username" type="text" ngModel name="username"  class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="username" class="text-info"><h4>Adresse email:</h4></label><br>
-                                <input id="username" type="text" ngModel name="username"  class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="text-info"><h4>Mot de passe:</h4></label><br>
-                                <input id="password" type="password" ngModel name="password" class="form-control"> 
-                            </div>
-                            <br><br>
-                            <div class="form-group">
-                                <label for="remember-me" class="text-info"></label><br>
-                                <!-- <input type="submit" name="submit" class="btn btn-info btn-md" value="Connexion"> -->
-                                <!-- <button (click)="Connecter(formlog)" class="btn btn-info btn-md">VALIDER</button> -->
-                                <button class="btn btn-info btn-md"><h3>S'inscrire</h3></button>
-                            </div>
-                        </form>
+                    <div id="login-box" class="col-md-12"
+                        style="display: grid; height: fit-content; padding-bottom: 1rem; padding-top: 1rem;">
+                        <label for="email">Email Address:</label>
+                        <input id="email" type="email" [(ngModel)]="this.user.email">
+
+                        <label for="password">Password:</label>
+                        <input id="password" type="password" [(ngModel)]="this.user.password">
+
+                        <label for="password">Confirm Password:<a class="text-red"
+                                *ngIf="this.passwordDuplicate && this.passwordDuplicate !== this.user.password">
+                                Passwords don't
+                                match</a></label>
+
+                        <input id="passwordDuplicate" type="password" [(ngModel)]="this.passwordDuplicate">
+
+                        <hr>
+
+                        <label for="name">Name:</label>
+                        <input id="name" type="text" [(ngModel)]="this.user.name">
+
+                        <label for="surname">Surname:</label>
+                        <input id="surname" type="text" [(ngModel)]="this.user.surname">
+
+                        <label for="phone">Phone Number:</label>
+                        <input id="phone" type="text" [(ngModel)]="this.user.phone">
+
+                        <label for="gender">Gender:</label>
+                        <input id="gender" type="text" [(ngModel)]="this.user.gender">
+
+                        <label for="birthDate">Birthday:</label>
+                        <input id="birthDate" type="date" min="1900-0&-01" pattern="\d{4}-\d{2}-\d{2}"
+                            [(ngModel)]="this.user.birthday">
+
+                        <button id="btnSave" (click)="onClickSave()" style="margin-top: 2rem;">Save</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
- 

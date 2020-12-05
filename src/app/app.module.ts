@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { HttpClientModule, HttpErrorResponse, HttpClientJsonpModule, HttpHeaders } from '@angular/common/http';
-import {from, Observable, pipe} from 'rxjs';
-import {catchError} from 'rxjs/operators';
+import { HttpClientModule, HttpErrorResponse, HttpClientJsonpModule, HttpHeaders, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { from, Observable, pipe } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr'; 
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarModule } from 'ng-sidebar';
@@ -34,11 +34,13 @@ import { FournisseursComponent } from './Pages/fournisseurs/fournisseurs.compone
 import { PromotionsComponent } from './Pages/promotions/promotions.component';
 import { SouscategoriesComponent } from './Pages/souscategories/souscategories.component';
 import { StocksComponent } from './Pages/stocks/stocks.component';
-import { Ng2SearchPipeModule} from 'ng2-search-filter';
-import { Ng2OrderModule} from 'ng2-order-pipe';
-import { NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { SignupComponent } from './Pages/signup/signup.component';
 import { TableprodComponent } from './Pages/produits/tableprod/tableprod.component';
+import { TokenInterceptor } from './Shared/token-interceptor';
+import { AuthServiceService } from './Shared/auth-service.service';
 
 
 @NgModule({
@@ -68,9 +70,9 @@ import { TableprodComponent } from './Pages/produits/tableprod/tableprod.compone
     StocksComponent,
     SignupComponent,
     TableprodComponent,
-    
-  
-    
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -83,11 +85,19 @@ import { TableprodComponent } from './Pages/produits/tableprod/tableprod.compone
     Ng2SearchPipeModule,
     Ng2OrderModule,
     NgxPaginationModule
-  
-    
-    
+
+
+
   ],
-  providers: [ProduitsService],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  },
+    ProduitsService,
+    AuthServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

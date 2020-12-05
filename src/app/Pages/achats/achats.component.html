@@ -312,7 +312,8 @@
                               <div class="col">
                                     <td scope = "col">
                                       <div class="card text-center">
-                                        <a href data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)"><img src= "assets/Images/{{prod.photo}}" class="card-img-top" alt="..." height="200" width="100"></a>
+                                        <a href data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)"><img style="max-width:100%;" src="{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" alt="nope" width="200" height="100"></a>
+                                          <!-- class="card-img-top" alt="..." height="200" width="100"> -->
                                           <div class="card-body" style="width: 18rem;">
                                             <!-- <p class="card-text">{{prod.description}}</p>
                                             <h5 class="card-title"><strong>PRIX HT</strong></h5>

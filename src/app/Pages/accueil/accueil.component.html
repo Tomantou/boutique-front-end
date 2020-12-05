@@ -20,7 +20,8 @@
                 <div class="container">
                     <div class="row">
                        <div class="col-xs-4 item-photo">
-                            <img style="max-width:100%;" src="assets/Images/{{selectedProduct.photo}}" />
+                            <img style="max-width:100%;" src="{{(!selectedProduct.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + selectedProduct.photo}}" alt="nope" width="200" height="100">
+                             
                         </div>
                         <div class="col-xs-5" style="border:0px solid gray">
                             <!-- Datos del vendedor y titulo del producto -->
@@ -258,7 +259,8 @@
                                 
                                     <td>
                                       <div class="card text-center" style="width: 18rem;">
-                                        <a href data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)"><img src= "assets/Images/{{prod.photo}}" class="card-img-top" alt="..." height="200" width="100"></a>
+                                        <!-- <img style="max-width:100%;" src="{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" alt="nope" width="200" height="100"> -->
+                                        <a href data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)"><img src= "{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" class="card-img-top" alt="..." height="200" width="100"></a>
                                           <div class="card-body">
                                             <h5 class="card-title"><strong>{{prod.libelleProd}}</strong></h5>
                                             <p class="card-text">{{prod.description}}</p>

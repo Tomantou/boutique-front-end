@@ -8,7 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 
-      <li class="nav-item dropdown">
+      <li *ngIf="this.userrole === 'ADMIN'" class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <h4>Back Office</h4>
         </a>
@@ -58,10 +58,13 @@
           <a class="dropdown-item" href="#"><h4>Autres</h4></a>
         </div>
       </li>
-      <li class="nav-item">
+      <li *ngIf="!this.authService.isAuthenticated()" class="nav-item">
         <a class="nav-link" routerLink= "login"><h4>Login</h4></a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="this.authService.isAuthenticated()" class="nav-item">
+        <a class="nav-link" (click)="this.Logout()"><h4>Logout</h4></a>
+      </li>
+      <li *ngIf="!this.authService.isAuthenticated()" class="nav-item">
         <a class="nav-link" routerLink= "signup"><h4>S'inscrire</h4></a>
       </li>
     </ul>

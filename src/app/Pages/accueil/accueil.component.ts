@@ -12,6 +12,7 @@ import { url } from 'inspector';
 import {Observable} from 'rxjs';
 import { Router } from '@angular/router';
 import { Key } from 'readline';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-accueil',
@@ -24,7 +25,7 @@ export class AccueilComponent implements OnInit {
   panier: produit [];
   selectedProduct: produit;
   p: number = 1;
-
+  public boutiqueContainer = environment.boutiqueContainer;
 
   constructor(
     private produitservice: ProduitsService
