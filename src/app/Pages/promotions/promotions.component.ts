@@ -85,7 +85,6 @@ export class PromotionsComponent implements OnInit {
 // }
 
   addPromotions(){
-    // console.log(formDatapromouvoir.value);
     this.promouvoirservice.savePromotions(this.formDatapromouvoir).subscribe({
       next: (response) => {
         this.toastr.success('Client enregistrée avec succès', 'Notification!');
@@ -100,9 +99,11 @@ export class PromotionsComponent implements OnInit {
     );
   }
 
-  addPromos(formpromo: NgForm){
-    console.log(formpromo.value);
-    this.promoservice.savePromos(formpromo.value).subscribe(
+  addPromos(){
+    this.formDataprom.dateDebut = new Date(this.formDataprom.dateDebut).toISOString()
+    this.formDataprom.dateFin = new Date(this.formDataprom.dateFin).toISOString()
+    console.log(this.formDataprom)
+    this.promoservice.savePromos(this.formDataprom).subscribe(
       (reponse) => {
             this.toastr.success('Promo enregistrée avec succès','Notification!');
              const link = ['promotions'];
