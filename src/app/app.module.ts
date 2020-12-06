@@ -41,6 +41,7 @@ import { SignupComponent } from './Pages/signup/signup.component';
 import { TableprodComponent } from './Pages/produits/tableprod/tableprod.component';
 import { TokenInterceptor } from './Shared/token-interceptor';
 import { AuthServiceService } from './Shared/auth-service.service';
+import { PanierDropDownComponent } from './Pages/panier-drop-down/panier-drop-down.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { AuthServiceService } from './Shared/auth-service.service';
     StocksComponent,
     SignupComponent,
     TableprodComponent,
+    PanierDropDownComponent,
 
 
 

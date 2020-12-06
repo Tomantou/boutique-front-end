@@ -360,7 +360,8 @@
                                           <div class="card-body" style="width: 18rem;">
                                             <h5 class="card-title"><strong>ACTIONS</strong></h5>
                                             <h5 class="card-title"><strong></strong></h5>
-                                            <button class="btn btn-info btn-lg"><strong>Ajouter au panier</strong></button>
+                                            <button *ngIf="this.useremail"
+                                            class="btn btn-info btn-lg" (click)="this.addToPanier(prod.Id)"><strong>Ajouter au panier</strong></button>
                                           </div>
                                       </div>
                                     </td>

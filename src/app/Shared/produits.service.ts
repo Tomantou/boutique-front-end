@@ -14,6 +14,10 @@ export class ProduitsService {
   constructor(
     private readonly http: HttpClient) { }
 
+    public getById(id: number) {
+      const filter = '{"where": {"Id": "' + id + '"}}'
+      return this.http.get<produit[]>(this.lien + "?filter=" + filter);
+    }
    
   getProduits(): Observable<any> {
 

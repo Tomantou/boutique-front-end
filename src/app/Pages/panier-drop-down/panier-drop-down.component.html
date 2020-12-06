@@ -1,0 +1,28 @@
+<div class="drop-down">
+    <h3>Panier: {{this.produits.length}}</h3>
+
+    <table class="table table-bordered">
+        <thead style="background-color: darkseagreen;">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">NOM du PRODUIT</th>
+                <th scope="col">PRIX></th>
+                <th scope="col">ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of produits">
+                <td>
+                    <img src="{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}"
+                        alt="nope" width="125" height="80">
+                </td>
+                <td>{{prod.libelleProd}}</td>
+                <td>{{prod.prix}}</td>
+                <div class="col">
+                    <button type="button" class="btn btn-danger" (click) = "deleteProduct(prod.panierId)">Supprimer</button>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success btn-lg"><strong>Acheter</strong></button>
+</div>

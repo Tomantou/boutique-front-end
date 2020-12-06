@@ -17,6 +17,8 @@ import { MarquesService } from 'src/app/Shared/marques.service';
 import { Router } from '@angular/router';
 import { Key } from 'readline';
 import { environment } from 'src/environments/environment';
+import { ProduitDuPanierService } from 'src/app/Shared/produit-du-panier.service';
+import { ProduitIdDuPanier } from 'src/app/Models/produit-id-du-panier';
 
 @Component({
   selector: 'app-achats',
@@ -34,6 +36,7 @@ panier: produit [];
 nom: any;
 p: number =1;
 public boutiqueContainer = environment.boutiqueContainer;
+useremail: string;
 
   constructor(
     private http: HttpClient,
@@ -41,10 +44,12 @@ public boutiqueContainer = environment.boutiqueContainer;
     private categoservice: CategoriesService,
     private souscategservice: SouscategoriesService,
     private produitservice: ProduitsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private produitDuPanierService: ProduitDuPanierService
     ) { }
 
   ngOnInit(): void{
+    this.useremail = localStorage.getItem("useremail");
     this.selectedProduct = new produit;
 
     this.produitservice.getProduits().subscribe(
@@ -115,6 +120,16 @@ public boutiqueContainer = environment.boutiqueContainer;
      this.key = this.key;
      this.reverse = !this.reverse;
 
+  }
+
+  public addToPanier(productId: number) {
+    this.useremail = localStorage.getItem("useremail");
+    if (!this.useremail) {
+      alert("Connectez-vous SVP");
+      return;
+    }
+    const produitDuPanier = new ProduitIdDuPanier(productId, this.useremail, 1);
+    this.produitDuPanierService.addProduct(produitDuPanier).subscribe();
   }
 
 }

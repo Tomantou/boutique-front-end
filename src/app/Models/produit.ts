@@ -1,4 +1,3 @@
-
 export class produit {
    Id: number;
    categorieId: number;
