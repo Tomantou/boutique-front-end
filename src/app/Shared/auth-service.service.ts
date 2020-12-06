@@ -2,7 +2,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { UserInfo } from '../Models/userinfo';
+import { UserInfo } from '../Models/userInfo';
 import { TokenEnvelope } from '../Models/tokenEnvelope';
 import { UserAccountModel } from '../Models/user';
 import { ResponseEnvelope } from '../Models/responseEnvelope';
