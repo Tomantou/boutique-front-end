@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CategoriesComponent } from '../Pages/categories/categories.component';
-import { HttpClient,HttpClientModule, HttpHeaders } from '@angular/common/http'; 
-import { produit } from 'src/app/Models/produit'; 
-import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
-import { ToastrService } from 'ngx-toastr';
-import { Pipe, PipeTransform } from '@angular/core';
+import { HttpClient } from '@angular/common/http'; 
+import {Observable} from 'rxjs';
 import { categorie } from '../Models/categorie';
 import { environment } from 'src/environments/environment';
 
@@ -13,13 +8,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CategoriesService {
-  private lescategories: categorie;
   private lien = environment.boutiqueBackend + '/categories';
 
   constructor(
-    private readonly http: HttpClient,
-    private toastr : ToastrService
-    ) {
+    private readonly http: HttpClient    ) {
       let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', '*');
