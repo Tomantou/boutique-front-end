@@ -34,11 +34,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SignupComponent } from './Pages/signup/signup.component';
-import { TableprodComponent } from './Pages/produits/tableprod/tableprod.component';
+import { TableprodComponent } from './Pages/tableprod/tableprod.component';
 import { TokenInterceptor } from './Shared/token-interceptor';
 import { AuthServiceService } from './Shared/auth-service.service';
 import { PanierDropDownComponent } from './Pages/panier-drop-down/panier-drop-down.component';
-import { ProduitListComponent } from './Pages/produit-list/produit-list.component';
+import { ProduitDetailModalComponent } from './Pages/produit-detail-modal/produit-detail-modal.component';
 
 
 @NgModule({
@@ -69,10 +69,7 @@ import { ProduitListComponent } from './Pages/produit-list/produit-list.componen
     SignupComponent,
     TableprodComponent,
     PanierDropDownComponent,
-    ProduitListComponent,
-
-
-
+    ProduitDetailModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,20 +81,17 @@ import { ProduitListComponent } from './Pages/produit-list/produit-list.componen
     ToastrModule.forRoot(),
     Ng2SearchPipeModule,
     Ng2OrderModule,
-    NgxPaginationModule
-
-
-
+    NgxPaginationModule,
   ],
   providers: [
     {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  },
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
     ProduitsService,
-    AuthServiceService
+    AuthServiceService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

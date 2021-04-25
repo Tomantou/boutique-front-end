@@ -1,237 +1,157 @@
-<router-outlet></router-outlet>
-<br><br><br><br>
+<router-outlet></router-outlet> <br /><br /><br /><br />
 <div class="container-fluid">
-  <h1 class="text-white" style="text-align: center; background-color:darkgreen;">GESTION DES PRODUITS</h1>
+  <h1
+    class="text-white"
+    style="text-align: center; background-color: darkgreen"
+  >
+    GESTION DES PRODUITS
+  </h1>
   <div class="row">
-
-    <div class="col-sm-2">
-
-    </div>
+    <div class="col-sm-2"></div>
 
     <!-- Début form détails produits -->
-    <div class="container">
-     
-      <div class="modal fade" id="modalDetProduits">
-        <div class="class modal-dialog modal-lg">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h3 class = "modal-title" style="text-align: center;">DETAILS PRODUIT</h3>
-                <button type ="button" class="close" data-dismiss="modal">x</button>
-                
-              </div>
-              <div class="modal-body">
-                  <div class="container">
-                      <div class="row">
-                         <div class="col-xs-4 item-photo">
-                              <img style="max-width:100%;" src="assets/Images/{{selectedProduct.photo}}" />
-                          </div>
-                          <div class="col-xs-5" style="border:0px solid gray">
-                              <!-- Datos del vendedor y titulo del producto -->
-                              <h3>{{selectedProduct.libelleProd}}</h3>    
-                              <div class="section">
-                                <h6 class="title-attr" style="margin-top:15px;" ><small>{{selectedProduct.description}}</small></h6>                    
-                                <div>
-                                    <div class="attr" style="width:25px;background:#5a5a5a;"></div>
-                                    <div class="attr" style="width:25px;background:white;"></div>
-                                </div>
-                            </div>
-                              <h3 class="title-price">PRIX: {{selectedProduct.prix}} EUR   HT</h3>
-                              <h3 class="title-price">Marque: {{selectedProduct.prix}} EUR   HT</h3>
-                              
-                              
-                              
-                              <!-- <div class="section" style="padding-bottom:20px;">
-                                  <h6 class="title-attr"><small>Quantité</small></h6>                    
-                                  <div>
-                                      <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
-                                      <input value="1" />
-                                      <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
-                                  </div>
-                              </div>                 -->
-                  
-                              <!-- Botones de compra -->
-                                                                  
-                          </div>                              
-                  
-                          
-                      </div>
-                  </div>        
-                 
-              
-              </div>
-              <div class="modal-footer">
-  
-              <div class="container">     
-              </div>
-  
-                <div class="container">
-                  <div class="row row-cols-2">
-                    <div class="col">
-                          <button type="button" class="btn btn-info btn-block"><h2><< RETOUR</h2></button>
-                    </div>
-                    <div class="col">
-                      <button type="button" class="btn btn-success btn-block"><h2>AJOUTER AU PANIER</h2></button>
-                    </div>
-                  </div>
-                </div>
-                <br>
-                <button type="button" data-dismiss="modal">Fermer</button>
-              </div>
-           </div>  
-          </div>    
-      </div>      
-        
-  </div>
-  
+    
+
     <!-- Fin form détails produits -->
 
     <!-- Début form edit  produits -->
 
     <!-- Fin form edit produits -->
 
-
     <div class="col-sm-6">
-      <form #formprod ="ngForm">  
+      <form #formprod="ngForm">
         <div class="form-group row">
-          <label for="categorieId"><h4 class="text-black">CATEGORIE ID:</h4></label>
-          <select required name ="categorieId" [(ngModel)] = "formData.categorieId" class="form-control" (change)="onChangeCategoryId($event.target.value)">
-            <option *ngFor="let categorie of lescategories" [value]="categorie.Id">{{categorie.libelle}}</option>
+          <label for="categorieId"
+            ><h4 class="text-black">CATEGORIE ID:</h4></label
+          >
+          <select
+            required
+            name="categorieId"
+            [(ngModel)]="formData.categorieId"
+            class="form-control"
+            (change)="onChangeCategoryId($event.target.value)"
+          >
+            <option
+              *ngFor="let categorie of lescategories"
+              [value]="categorie.Id"
+            >
+              {{ categorie.libelle }}
+            </option>
           </select>
         </div>
         <div class="form-group row">
           <label><h4 class="text-black">MARQUE:</h4></label>
-          <select required name="marqueId" [(ngModel)] = "formData.marqueId" class="form-control" (change)="onChangeMarqueId($event.target.value)">
-            <option *ngFor="let marque of marques" [value]="marque.Id">{{marque.nomMarque}}</option>
+          <select
+            required
+            name="marqueId"
+            [(ngModel)]="formData.marqueId"
+            class="form-control"
+            (change)="onChangeMarqueId($event.target.value)"
+          >
+            <option *ngFor="let marque of marques" [value]="marque.Id">
+              {{ marque.nomMarque }}
+            </option>
           </select>
         </div>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label"><h4 class="text-black">NOM:</h4></label>
+          <label class="col-sm-2 col-form-label"
+            ><h4 class="text-black">NOM:</h4></label
+          >
           <div class="col-sm-10">
-            <input required name="libelleProd" #libelleProd = "ngModel" [(ngModel)] = "formData.libelleProd" class="form-control" placeholder="nom du produit">
+            <input
+              required
+              name="libelleProd"
+              #libelleProd="ngModel"
+              [(ngModel)]="formData.libelleProd"
+              class="form-control"
+              placeholder="nom du produit"
+            />
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label"><h4 class="text-black">PRIX:</h4></label>
+          <label class="col-sm-2 col-form-label"
+            ><h4 class="text-black">PRIX:</h4></label
+          >
           <div class="col-sm-10">
-            <input required type="number" name="prix" #prix = "ngModel" [(ngModel)] = "formData.prix" class="form-control" placeholder="prix du roduit">
+            <input
+              required
+              type="number"
+              name="prix"
+              #prix="ngModel"
+              [(ngModel)]="formData.prix"
+              class="form-control"
+              placeholder="prix du roduit"
+            />
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label"><h4 class="text-black">PHOTO:</h4></label>
+          <label class="col-sm-2 col-form-label"
+            ><h4 class="text-black">PHOTO:</h4></label
+          >
           <div class="col-sm-10">
-            <!-- <input required name="photo" #photo = "ngModel" [(ngModel)] = "formData.photo" class="form-control" placeholder="photo"> -->
-            <input #imageInput type="file" accept="image/*" (change)="processImage(imageInput)">
+            <input
+              #imageInput
+              type="file"
+              accept="image/*"
+              (change)="processImage(imageInput)"
+            />
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label"><h4 class="text-black">DESCRIPTION:</h4></label>
+          <label class="col-sm-2 col-form-label"
+            ><h4 class="text-black">DESCRIPTION:</h4></label
+          >
           <div class="col-sm-10">
-            <input required name="description" #description = "ngModel" [(ngModel)] = "formData.description" class="form-control" placeholder="Entrez la description du produit ici">
+            <input
+              required
+              name="description"
+              #description="ngModel"
+              [(ngModel)]="formData.description"
+              class="form-control"
+              placeholder="Entrez la description du produit ici"
+            />
           </div>
         </div>
-      </form> 
-    </div>   
-        
-        
-        
-    <div class="col-sm-2">
-      
+      </form>
     </div>
+
+    <div class="col-sm-2"></div>
     <div class="col-sm-2">
       <div class="col">
-        <button [disabled] = "formprod.invalid"  class="btn btn-success btn-block" (click) = "addProduit()"><h2>CREER</h2></button>
+        <button
+          [disabled]="formprod.invalid"
+          class="btn btn-success btn-block"
+          (click)="addProduit()"
+        >
+          <h2>CREER</h2>
+        </button>
       </div>
-      <br>
+      <br />
       <div class="col">
-        <button type="button" class="btn btn-dark btn-lg btn-block" (click) = "resetButton(formprod)"><h2>REINITIALISATION</h2></button>
+        <button
+          type="button"
+          class="btn btn-dark btn-lg btn-block"
+          (click)="resetButton(formprod)"
+        >
+          <h2>REINITIALISATION</h2>
+        </button>
       </div>
-      <br>
+      <br />
       <div class="col">
-          <button type="button" class="btn btn-danger btn-block" (click) = "retouralaccueil()"><h2>QUITTER</h2></button>
+        <button
+          type="button"
+          class="btn btn-danger btn-block"
+          (click)="retouralaccueil()"
+        >
+          <h2>QUITTER</h2>
+        </button>
       </div>
-      <br>
-   </div>
+      <br />
+    </div>
   </div>
 </div>
 
-<app-produit-list [lesproduits] = "this.lesproduits">
-  <table class="table table-bordered">
-    <thead style="background-color: darkseagreen;">
-      <tr>
-        <th (click) = "sort('Id')" scope="col">ProduitID&nbsp;<i class="fa fa-sort"></i></th>
-        <th (click) = "sort('libelleProd')" scope="col">NOM du PRODUIT&nbsp;<i class="fa fa-sort"></i></th>
-        <th scope="col">PRIX></th>
-        <th scope="col">DESCRIPTION</th>
-        <th scope="col">ACTIONS</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor = "let prod of lesproduits | orderBy: key: reverse | paginate: {itemsPerPage: 10, currentPage: p }">
-          <!-- <td>{{prod.Id}}</td> -->
-          <td>
-            <img src="{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" alt="nope" width="125" height="80">
-          </td>
-          <td>{{prod.libelleProd}}</td>
-          <td>{{prod.prix}}</td>
-          <td>{{prod.description}}</td>
-          <div class="col">
-            <button class="btn btn-info" data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)">Détails</button>
-            <button type="button" class="btn btn-success">Modifier</button>&nbsp;
-            <button type="button" class="btn btn-danger" (click) = "delProduct(prod.Id)">Supprimer</button>
-            <!-- <button class="btn btn-info" data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)">Détails</button> -->
-          </div>
-      </tr>   
-    </tbody>
-    <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
-    </table>
-</app-produit-list>
- <!-- <app-tableprod [lesproduits] = "this.lesproduits"></app-tableprod> -->
-  <div>
-    --------------------------------------------------------------------------------------------------------------------------------------------------
-  </div>
+<hr>
 
-
-  <div class="container-fluid">
-    <div> 
-      <nav class="navbar">
-          <input class="form-control" type="text" name="nom" [(ngModel)] = "nom" (ngModelChange) = "Search()"  placeholder="Entrez le nom du produit recherché">
-      </nav>
-    </div>
-  <table class="table table-bordered">
-  <thead style="background-color: darkseagreen;">
-    <tr>
-      <th (click) = "sort('Id')" scope="col">ProduitID&nbsp;<i class="fa fa-sort"></i></th>
-      <th (click) = "sort('libelleProd')" scope="col">NOM du PRODUIT&nbsp;<i class="fa fa-sort"></i></th>
-      <th scope="col">PRIX></th>
-      <th scope="col">DESCRIPTION</th>
-      <th scope="col">ACTIONS</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor = "let prod of lesproduits | orderBy: key: reverse | paginate: {itemsPerPage: 10, currentPage: p }">
-        <!-- <td>{{prod.Id}}</td> -->
-        <td>
-          <img src="{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" alt="nope" width="125" height="80">
-        </td>
-        <td>{{prod.libelleProd}}</td>
-        <td>{{prod.prix}}</td>
-        <td>{{prod.description}}</td>
-        <div class="col">
-          <button class="btn btn-info" data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)">Détails</button>
-          <button type="button" class="btn btn-success">Modifier</button>&nbsp;
-          <button type="button" class="btn btn-danger" (click) = "delProduct(prod.Id)">Supprimer</button>
-          <!-- <button class="btn btn-info" data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)">Détails</button> -->
-        </div>
-    </tr>   
-  </tbody>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  </table>
-  </div>
-
-
-  
-
-
-
-
+<app-tableprod #tableprod></app-tableprod>
 

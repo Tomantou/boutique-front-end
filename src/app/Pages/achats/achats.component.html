@@ -1,169 +1,194 @@
-<router-outlet></router-outlet>
-<br><br><br><br><br><br>
+<router-outlet></router-outlet> <br /><br /><br /><br /><br /><br />
 <div class="container-fluid">
-     
-    <div class="modal fade" id="modalDetails">
-      <div class="class modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class = "modal-title" style="text-align: center;">DETAILS PANIER</h3>
-              <button type ="button" class="close" data-dismiss="modal">x</button>
-              
-            </div>
-            <div class="modal-body">
-
-              <h3>Achat N°: 1102</h3>
-              <div class="table-responsive">
-                  <table class="table table-hover">
-                      <thead class="thead-dark">
-                      <tr>
-                          <th scope="col">ID PRODUIT</th>
-                          <th scope="col">DESCRIPTION</th>
-                          <th scope="col">QUANTITE</th>
-                          <th scope="col">PRIX</th>
-                          <th scope="col">MONTANT-EUR.</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr>
-                          <td scope="row">CA1240</td>
-                          <td>Toner Canon 1240</td>
-                          <td>2</td>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;43,00</td>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;86,00</td>
-                      </tr>
-                      <tr>
-                          <td scope="row">COP1214</td>
-                          <td>Copieur Canon 1214</td>
-                          <td>1</td>
-                          <td>1.645,00</td>
-                          <td>1.645,00</td>
-                      </tr>
-                      <tr>
-                          <td scope="row">HP301XL</td>
-                          <td>Encre HP301XL</td>
-                          <td>2</td>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;34,50</td>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;69,00</td>
-                      </tr>
-                      <tr>
-                          <td scope="row">HP302XL</td>
-                          <td>Encre HP302XL</td>
-                          <td>1</td>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;45,00</td>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;45,00</td>
-                      </tr>
-                      <tr>
-                          <td scope="row">TN1050</td>
-                          <td>Toner Brother TN1050</td>
-                          <td>1</td>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;48,45</td>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;48,45</td>
-                      </tr>
-                      <tr>
-                          <td scope="row">TN2220</td>
-                          <td>Toner Brother TN2220</td>
-                          <td>2</td>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;40,75</td>
-                          <td>&nbsp;&nbsp;&nbsp;&nbsp;81,50</td>
-                      </tr>
-                      </tbody>
-                  </table>
-
+  <div class="modal fade" id="modalDetails">
+    <div class="class modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" style="text-align: center">DETAILS PANIER</h3>
+          <button type="button" class="close" data-dismiss="modal">x</button>
+        </div>
+        <div class="modal-body">
+          <h3>Achat N°: 1102</h3>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">ID PRODUIT</th>
+                  <th scope="col">DESCRIPTION</th>
+                  <th scope="col">QUANTITE</th>
+                  <th scope="col">PRIX</th>
+                  <th scope="col">MONTANT-EUR.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row">CA1240</td>
+                  <td>Toner Canon 1240</td>
+                  <td>2</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;43,00</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;86,00</td>
+                </tr>
+                <tr>
+                  <td scope="row">COP1214</td>
+                  <td>Copieur Canon 1214</td>
+                  <td>1</td>
+                  <td>1.645,00</td>
+                  <td>1.645,00</td>
+                </tr>
+                <tr>
+                  <td scope="row">HP301XL</td>
+                  <td>Encre HP301XL</td>
+                  <td>2</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;34,50</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;69,00</td>
+                </tr>
+                <tr>
+                  <td scope="row">HP302XL</td>
+                  <td>Encre HP302XL</td>
+                  <td>1</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;45,00</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;45,00</td>
+                </tr>
+                <tr>
+                  <td scope="row">TN1050</td>
+                  <td>Toner Brother TN1050</td>
+                  <td>1</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;48,45</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;48,45</td>
+                </tr>
+                <tr>
+                  <td scope="row">TN2220</td>
+                  <td>Toner Brother TN2220</td>
+                  <td>2</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;40,75</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;81,50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm"></div>
+              <div class="col-sm"></div>
+              <br />
+              <div class="col-md">
+                <form>
+                  <div class="form-group">
+                    <label for="totalHt"><h4>Montant HT EUR.:</h4></label>
+                    <span
+                      ><input
+                        type="text"
+                        class="form-control"
+                        id="totalHt"
+                        name="totalHt"
+                    /></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="totalHt"><h4>TVA 21% EUR.: &nbsp;</h4></label>
+                    <span
+                      ><input
+                        type="text"
+                        class="form-control"
+                        id="totalHt"
+                        name="totalHt"
+                    /></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="totalHt"><h4>TOTAL TTC EUR.: &nbsp;</h4></label>
+                    <span
+                      ><input
+                        type="text"
+                        class="form-control"
+                        id="totalHt"
+                        name="totalHt"
+                    /></span>
+                  </div>
+                </form>
               </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row row-cols-3">
+              <div class="col">
+                <button type="button" class="btn btn-info btn-block">
+                  <h2><< RETOUR</h2>
+                </button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-success btn-block">
+                  <h2>CONFIRMER</h2>
+                </button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-danger btn-block">
+                  <h2>ANNULER</h2>
+                </button>
+              </div>
+            </div>
+          </div>
 
-            </div>
-            <div class="modal-footer">
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm">
-                      
-                  </div>
-                  <div class="col-sm">
-                    
-                  </div>
-                  <br>
-                  <div class="col-md">
-                        <form>
-                            <div class="form-group">
-                              <label for="totalHt"><h4>Montant HT EUR.:</h4></label>
-                              <span><input type="text" class="form-control" id="totalHt" name ="totalHt"></span>
-                            </div>
-                            <div class="form-group">
-                              <label for="totalHt"><h4>TVA 21%  EUR.: &nbsp;</h4></label>
-                              <span><input type="text" class="form-control" id="totalHt" name ="totalHt"></span>
-                              
-                            </div>
-                            <div class="form-group">
-                              <label for="totalHt"><h4>TOTAL TTC EUR.: &nbsp;</h4></label>
-                              <span><input type="text" class="form-control" id="totalHt" name ="totalHt"></span>
-                            </div>
-                        </form>
-                  </div>
-      
-                </div>
-                
-              </div>
-              <div class="container">
-                <div class="row row-cols-3">
-                  <div class="col">
-                        <button type="button" class="btn btn-info btn-block"><h2><< RETOUR</h2></button>
-                  </div>
-                  <div class="col">
-                    <button type="button" class="btn btn-success btn-block"><h2>CONFIRMER</h2></button>
-                  </div>
-                  <div class="col">
-                    <button type="button" class="btn btn-danger btn-block"><h2>ANNULER</h2></button>
-                  </div>
-                  
-                </div>
-              </div>
-      
-              <br>
-              <button type="button" data-dismiss="modal">Fermer</button>
-            </div>
-         </div>  
-        </div>    
-      </div>      
+          <br />
+          <button type="button" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- Fin MODAL panier -->
 
 <!-- Debut MODAL détails -->
 
 <div class="container">
-     
   <div class="modal fade" id="modalDetProduits">
     <div class="class modal-dialog modal-lg">
       <div class="modal-content">
-          <div class="modal-header">
-              <h3 class = "modal-title" style="text-align: center;">DETAILS PRODUIT</h3>
-            <button type ="button" class="close" data-dismiss="modal">x</button>
-            
-          </div>
-          <div class="modal-body">
-              <div class="container">
-                  <div class="row">
-                     <div class="col-xs-4 item-photo">
-                          <img style="max-width:100%;" src="assets/Images/{{selectedProduct.photo}}" />
-                      </div>
-                      <div class="col-xs-5" style="border:0px solid gray">
-                          <!-- Datos del vendedor y titulo del producto -->
-                          <h3>{{selectedProduct.libelleProd}}</h3>    
-                          <!-- Precios -->
-                          <h3 class="title-price">PRIX</h3>
-                          <h4 style="margin-top:0px;">{{selectedProduct.prix}} EUR   HT</h4>
-                          <h4 style="margin-top:0px;">TVA 21%    EUR</h4>
-                          <h4 style="margin-top:0px;">{{selectedProduct.prix}} EUR   TTC</h4>
-                          <!-- Detalles especificos del producto -->
-                          <div class="section">
-                              <h6 class="title-attr" style="margin-top:15px;" ><small>{{selectedProduct.description}}</small></h6>                    
-                              <div>
-                                  <div class="attr" style="width:25px;background:#5a5a5a;"></div>
-                                  <div class="attr" style="width:25px;background:white;"></div>
-                              </div>
-                          </div>
-                          
-                          <!-- <div class="section" style="padding-bottom:20px;">
+        <div class="modal-header">
+          <h3 class="modal-title" style="text-align: center">
+            DETAILS PRODUIT
+          </h3>
+          <button type="button" class="close" data-dismiss="modal">x</button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-4 item-photo">
+                <img
+                  style="max-width: 100%"
+                  src="assets/Images/{{ selectedProduct.photo }}"
+                />
+              </div>
+              <div class="col-xs-5" style="border: 0px solid gray">
+                <!-- Datos del vendedor y titulo del producto -->
+                <h3>{{ selectedProduct.libelleProd }}</h3>
+                <!-- Precios -->
+                <h3 class="title-price">PRIX</h3>
+                <h4 style="margin-top: 0px">
+                  {{ selectedProduct.prix }} EUR HT
+                </h4>
+                <h4 style="margin-top: 0px">TVA 21% EUR</h4>
+                <h4 style="margin-top: 0px">
+                  {{ selectedProduct.prix }} EUR TTC
+                </h4>
+                <!-- Detalles especificos del producto -->
+                <div class="section">
+                  <h6 class="title-attr" style="margin-top: 15px">
+                    <small>{{ selectedProduct.description }}</small>
+                  </h6>
+                  <div>
+                    <div
+                      class="attr"
+                      style="width: 25px; background: #5a5a5a"
+                    ></div>
+                    <div
+                      class="attr"
+                      style="width: 25px; background: white"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- <div class="section" style="padding-bottom:20px;">
                               <h6 class="title-attr"><small>Quantité</small></h6>                    
                               <div>
                                   <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
@@ -171,123 +196,142 @@
                                   <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
                               </div>
                           </div>                 -->
-              
-                          <!-- Botones de compra -->
-                                                              
-                      </div>                              
-              
-                      <div class="col-xs-9">
-                          <ul class="menu-items">
-                              <li class="active">infos complémentaires</li>
-                              <li>Garantie</li>
-                              <li>Vendeur</li>
-                              <li>divers</li>
-                          </ul>
-                          <div style="width:100%;border-top:1px solid silver">
-                              <p style="padding:15px;">
-                                  <small>
-                                  
-                                  </small>
-                              </p>
-                              <small>
-                                    
-                              </small>
-                          </div>
-                      </div>		
-                  </div>
-              </div>        
-             
-          
+
+                <!-- Botones de compra -->
+              </div>
+
+              <div class="col-xs-9">
+                <ul class="menu-items">
+                  <li class="active">infos complémentaires</li>
+                  <li>Garantie</li>
+                  <li>Vendeur</li>
+                  <li>divers</li>
+                </ul>
+                <div style="width: 100%; border-top: 1px solid silver">
+                  <p style="padding: 15px">
+                    <small> </small>
+                  </p>
+                  <small> </small>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="modal-footer">
+        </div>
+        <div class="modal-footer">
+          <div class="container"></div>
 
-                  <div class="container">     
-                  </div>
-
-                    <div class="container">
-                      <div class="row row-cols-2">
-                        <!-- <div class="col">
+          <div class="container">
+            <div class="row row-cols-2">
+              <!-- <div class="col">
                           <button *ngIf="this.useremail"
                           class="btn btn-info btn-lg" (click)="this.addToPanier({{selectedProduct.Id}}expédition)"><strong>Ajouter au panier</strong></button>
                         </div> -->
-                      </div>
-                    </div>
-                    <br>
-                    <button type="button" class="btn btn-info btn-block" data-dismiss="modal"><h3>Fermer</h3></button>
+            </div>
           </div>
-       </div>  
-      </div>    
-  </div>      
-    
+          <br />
+          <button
+            type="button"
+            class="btn btn-info btn-block"
+            data-dismiss="modal"
+          >
+            <h3>Fermer</h3>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- Fin MODAL détails -->
 
-
 <div class="container-fluid">
-    <h1 class="text-white" style="text-align: center; background-color:brown;">EFFECTUEZ VOS ACHATS EN TOUTE SECURITE</h1>
-    
-    
-        
-    <form #formAchatSelect ="ngForm">
-        <div class="row">
-                <div class="col-sm-4" style="background-color: darkgreen;">
-                    <div class="form-group">
-                        
-                        <label for="pointv"><h4 class="text-white">Choix Point de vente:</h4></label>
-                        <select required name="pointv" id="pointv" class="form-control" ngModel>
-                            <option *ngFor="let pointvente of pventes" [value]="pointvente.vile">{{pointvente.ville}}</option>
-                        </select>
-                        
-                    </div>
-                </div>
-                <div class="col-sm-4" style="background-color:darkgreen;">
-                    <div> 
-                            <nav class="navbar">
-                                <input class="form-control" type="text" name="nom" [(ngModel)] = "nom" (ngModelChange) = "Search()"  placeholder="Entrez le nom du produit recherché">
-                            </nav>
-                    </div>
+  <h1 class="text-white" style="text-align: center; background-color: brown">
+    EFFECTUEZ VOS ACHATS EN TOUTE SECURITE
+  </h1>
 
-                    <!-- <div class="form-group">
+  <form #formAchatSelect="ngForm">
+    <div class="row">
+      <div class="col-sm-4" style="background-color: darkgreen">
+        <div class="form-group">
+          <label for="pointv"
+            ><h4 class="text-white">Choix Point de vente:</h4></label
+          >
+          <select
+            required
+            name="pointv"
+            id="pointv"
+            class="form-control"
+            ngModel
+          >
+            <option
+              *ngFor="let pointvente of pventes"
+              [value]="pointvente.vile"
+            >
+              {{ pointvente.ville }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4" style="background-color: darkgreen">
+        <div>
+          <nav class="navbar">
+            <input
+              class="form-control"
+              type="text"
+              name="nom"
+              [(ngModel)]="nom"
+              (ngModelChange)="Search()"
+              placeholder="Entrez le nom du produit recherché"
+            />
+          </nav>
+        </div>
+
+        <!-- <div class="form-group">
                         <label for="categ"><h3 class="text-white">Choix Catégorie article:</h3></label>
                         <select required name="categ" id="categ" class="form-control" ngModel>
                             <option *ngFor="let categorie of categories" [value]="categorie.libelle">{{categorie.libelle}}</option>
                         </select>
                     </div> -->
-                </div>        
-                <div class="col-sm-4" style="background-color: darkgreen;">
-                    <div class="form-group">
-                        <label for="souscateg"><h3 class="text-white">Choix Sous-Catégorie article:</h3></label>
-                        <select required name="souscateg" id="souscateg" class="form-control" ngModel>
-                            <option *ngFor="let souscategorie of souscategories" [value]="souscategorie.libelleSousCat">{{souscategorie.libelleSousCat}}</option>
-                        </select>
-                    </div>
-                </div>
+      </div>
+      <div class="col-sm-4" style="background-color: darkgreen">
+        <div class="form-group">
+          <label for="souscateg"
+            ><h3 class="text-white">Choix Sous-Catégorie article:</h3></label
+          >
+          <select
+            required
+            name="souscateg"
+            id="souscateg"
+            class="form-control"
+            ngModel
+          >
+            <option
+              *ngFor="let souscategorie of souscategories"
+              [value]="souscategorie.libelleSousCat"
+            >
+              {{ souscategorie.libelleSousCat }}
+            </option>
+          </select>
         </div>
-    </form>   
-
+      </div>
+    </div>
+  </form>
 </div>
 <!-- Fin formulaire Select pv cat et scategorie -->
-<br>
-
-
+<br />
 
 <!-- Debut model accueil -->
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-6" style="background-color:orange;">&nbsp;</div>
-    <div class="col-sm-6" style="background-color:orange;">&nbsp;</div>
+    <div class="col-sm-6" style="background-color: orange">&nbsp;</div>
+    <div class="col-sm-6" style="background-color: orange">&nbsp;</div>
   </div>
 
-   <div class="row">
-  
-        <div class="col-sm-2">
-            
-        </div>
-                <table class="table table-responsive">
-
-                  <thead style="background-color: darkseagreen;">
-                  <!-- <tr>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <table class="table table-responsive">
+      <thead style="background-color: darkseagreen">
+        <!-- <tr>
                     <th scope="col">ID</th> 
                     <th scope="col">NOMS</th>
                     <th scope="col">PRENOMS</th>
@@ -299,262 +343,297 @@
                     <th scope="col">CIVILITE</th>
                     <th scope="col">Actions</th>
                   </tr> -->
-                </thead> 
+      </thead>
 
-                <tbody>
-                    <div class="row">
-                      
-                      <tr *ngFor = "let prod of lesproduits | orderBy: key: reverse | paginate: {itemsPerPage: 7, currentPage: p }">
-                        <!-- <tr *ngFor = "let prod of lesproduits"> -->
-                            
-                              <div class="col">
-                                    <td scope = "col">
-                                      <div class="card text-center">
-                                        <a href data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)"><img style="max-width:100%;" src="{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" alt="nope" width="200" height="100"></a>
-                                          <!-- class="card-img-top" alt="..." height="200" width="100"> -->
-                                          <div class="card-body" style="width: 18rem;">
-                                            <!-- <p class="card-text">{{prod.description}}</p>
+      <tbody>
+        <div class="row">
+          <tr
+            *ngFor="
+              let prod of lesproduits
+                | orderBy: key:reverse
+                | paginate: { itemsPerPage: 7, currentPage: p }
+            "
+          >
+            <!-- <tr *ngFor = "let prod of lesproduits"> -->
+
+            <div class="col">
+              <td scope="col">
+                <div class="card text-center">
+                  <a
+                    href
+                    data-toggle="modal"
+                    data-target="#modalDetProduits"
+                    (click)="getProduit(prod.Id)"
+                    ><img
+                      style="max-width: 100%"
+                      src="{{
+                        !prod.photo
+                          ? this.boutiqueContainer + 'logo-product.jpg'
+                          : this.boutiqueContainer + prod.photo
+                      }}"
+                      alt="nope"
+                      width="200"
+                      height="100"
+                  /></a>
+                  <!-- class="card-img-top" alt="..." height="200" width="100"> -->
+                  <div class="card-body" style="width: 18rem">
+                    <!-- <p class="card-text">{{prod.description}}</p>
                                             <h5 class="card-title"><strong>PRIX HT</strong></h5>
                                             <h5 class="card-title"><strong>{{prod.prix}} EUR</strong></h5>
                                              -->
-                                          </div>
-                                      </div>
-                                    </td>
-                                    <td scope = "col">
-                                      <div class="card text-center">
-                                          <div class="card-body" style="width: 18rem;">
-                                            <h5 class="card-title"><strong>{{prod.libelleProd}}</strong></h5>
-                                            <!-- <p class="card-text">{{prod.description}}</p>
+                  </div>
+                </div>
+              </td>
+              <td scope="col">
+                <div class="card text-center">
+                  <div class="card-body" style="width: 18rem">
+                    <h5 class="card-title">
+                      <strong>{{ prod.libelleProd }}</strong>
+                    </h5>
+                    <!-- <p class="card-text">{{prod.description}}</p>
                                             <h5 class="card-title"><strong>PRIX HT</strong></h5>
                                             <h5 class="card-title"><strong>{{prod.prix}} EUR</strong></h5>
                                              -->
-                                          </div>
-                                      </div>
-                                    </td>
-                                    <td scope = "col">
-                                      <div class="card text-center">
-                                          <div class="card-body" style="width: 18rem;">
-                                            <p class="card-text">{{prod.description}}</p>
-                                            <!-- <h5 class="card-title"><strong>{{prod.libelleProd}}</strong></h5>
+                  </div>
+                </div>
+              </td>
+              <td scope="col">
+                <div class="card text-center">
+                  <div class="card-body" style="width: 18rem">
+                    <p class="card-text">{{ prod.description }}</p>
+                    <!-- <h5 class="card-title"><strong>{{prod.libelleProd}}</strong></h5>
                                             <h5 class="card-title"><strong>PRIX HT</strong></h5>
                                             <h5 class="card-title"><strong>{{prod.prix}} EUR</strong></h5> -->
-                                          </div>
-                                      </div>
-                                    </td>
-                                    <td scope = "col">
-                                      <div class="card text-center">
-                                          <div class="card-body" style="width: 18rem;">
-                                            <!-- <h5 class="card-title"><strong>{{prod.libelleProd}}</strong></h5>
+                  </div>
+                </div>
+              </td>
+              <td scope="col">
+                <div class="card text-center">
+                  <div class="card-body" style="width: 18rem">
+                    <!-- <h5 class="card-title"><strong>{{prod.libelleProd}}</strong></h5>
                                             <p class="card-text">{{prod.description}}</p> -->
-                                            <h5 class="card-title"><strong>PRIX</strong></h5>
-                                            <h5 class="card-title"><strong>{{prod.prix}} EUR HT</strong></h5>
-                                            <!-- <h5 class="card-title"><strong>TVA 21% EUR HT</strong></h5>
+                    <h5 class="card-title"><strong>PRIX</strong></h5>
+                    <h5 class="card-title">
+                      <strong>{{ prod.prix }} EUR HT</strong>
+                    </h5>
+                    <!-- <h5 class="card-title"><strong>TVA 21% EUR HT</strong></h5>
                                             <h5 class="card-title"><strong>{{prod.prix}} EUR TTC</strong></h5> -->
-                                          </div>
-                                      </div>
-                                    </td>
-                                     <td scope = "col">
-                                      <div class="card text-center">
-                                          <div class="card-body" style="width: 18rem;">
-                                            <h5 class="card-title"><strong>ACTIONS</strong></h5>
-                                            <h5 class="card-title"><strong></strong></h5>
-                                            <button *ngIf="this.useremail"
-                                            class="btn btn-info btn-lg" (click)="this.addToPanier(prod.Id)"><strong>Ajouter au panier</strong></button>
-                                          </div>
-                                      </div>
-                                    </td>
-                            </div>
-                        </tr>  
-                    </div>    
-                </tbody>
-                <pagination-controls (pageChange)="p = $event"></pagination-controls> 
-              </table>
-  </div>           
-  <br> 
-  <div class="row">
-    <div class="col-sm-6" style="background-color:orange;">&nbsp;</div>
-    <div class="col" style="background-color:orange;">&nbsp;</div>
-    
+                  </div>
+                </div>
+              </td>
+              <td scope="col">
+                <div class="card text-center">
+                  <div class="card-body" style="width: 18rem">
+                    <h5 class="card-title"><strong>ACTIONS</strong></h5>
+                    <h5 class="card-title"><strong></strong></h5>
+                    <button
+                      *ngIf="this.useremail"
+                      class="btn btn-info btn-lg"
+                      (click)="this.addToPanier(prod.Id)"
+                    >
+                      <strong>Ajouter au panier</strong>
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </div>
+          </tr>
+        </div>
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
   </div>
-  <br>
+  <br />
+  <div class="row">
+    <div class="col-sm-6" style="background-color: orange">&nbsp;</div>
+    <div class="col" style="background-color: orange">&nbsp;</div>
+  </div>
+  <br />
 
-<!-- Fin model accueil -->
+  <!-- Fin model accueil -->
 
-
-
-
-
-
-
-
-<!-- Team -->
-<div class="class container-fluid">
+  <!-- Team -->
+  <div class="class container-fluid">
     <div class="class row">
-        <div class="class col">
-        </div>
-        <div class="class col">
-        </div>
-        <div class="class col">
-        </div>
-        <div class="class col">
-            <a href class="btn btn-info" data-toggle="modal" data-target="#modalDetails">Contenu Panier</a>
-            <!-- <a href class="btn btn-danger btn-block" routerLink="panier" ><h3>Contenu Panier</h3></a> -->
-        </div>
+      <div class="class col"></div>
+      <div class="class col"></div>
+      <div class="class col"></div>
+      <div class="class col">
+        <a
+          href
+          class="btn btn-info"
+          data-toggle="modal"
+          data-target="#modalDetails"
+          >Contenu Panier</a
+        >
+        <!-- <a href class="btn btn-danger btn-block" routerLink="panier" ><h3>Contenu Panier</h3></a> -->
+      </div>
     </div>
+  </div>
 
-</div>
+  <br /><br /><br />
 
+  <!-- Footer -->
+  <div class="container-fluid">
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <footer class="page-footer font-small blue-grey lighten-5">
+      <div style="background-color: #21d192">
+        <div class="container">
+          <!-- Grid row-->
+          <div class="row py-4 d-flex align-items-center">
+            <!-- Grid column -->
+            <div
+              class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0"
+            >
+              <h6 class="mb-0">
+                Restez connectés avec nous sur les réseaux sociaux
+              </h6>
+            </div>
+            <!-- Grid column -->
 
-<br><br><br>
+            <!-- Grid column -->
 
-     <!-- Footer -->
-     <div class="container-fluid">    
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-          <footer class="page-footer font-small blue-grey lighten-5">
-  
-            <div style="background-color: #21d192;">
-              <div class="container">
-  
-                <!-- Grid row-->
-                <div class="row py-4 d-flex align-items-center">
-  
-                  <!-- Grid column -->
-                  <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                    <h6 class="mb-0">Restez connectés avec nous sur les réseaux sociaux</h6>
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+              <div class="col-md-5">
+                <div class="d-inline-block">
+                  <div
+                    class="bg-circle-outline d-inline-block"
+                    style="background-color: #3b5998"
+                  >
+                    <a href="https://www.facebook.com/"
+                      ><i class="fa fa-2x fa-fw fa-facebook text-white"></i>
+                    </a>
                   </div>
-                  <!-- Grid column -->
-  
-                  <!-- Grid column -->
-                  
-                  <div class="col-md-6 col-lg-7 text-center text-md-right">
-  
-  
-                    <div class="col-md-5">
-                      <div class="d-inline-block">
-                        <div class="bg-circle-outline d-inline-block" style="background-color:#3b5998">
-                          <a href="https://www.facebook.com/"><i class="fa fa-2x fa-fw fa-facebook text-white"></i>
-                          </a>
-                        </div>
-                        <div class="bg-circle-outline d-inline-block" style="background-color:#4099FF">
-                          <a href="https://twitter.com/">
-                            <i class="fa fa-2x fa-fw fa-twitter text-white"></i></a>
-                        </div>
-            
-                        <div class="bg-circle-outline d-inline-block" style="background-color:#0077B5">
-                          <a href="https://www.linkedin.com/company/">
-                            <i class="fa fa-2x fa-fw fa-linkedin text-white"></i></a>
-                        </div>
-                        <div class="bg-circle-outline d-inline-block" style="background-color:#d34836">
-                          <a href="https://www.google.com/">
-                            <i class="fa fa-2x fa-fw fa-google text-white"></i></a>
-                        </div>
-                      </div>
-                    </div>
-  
-  
-  
-                    
+                  <div
+                    class="bg-circle-outline d-inline-block"
+                    style="background-color: #4099ff"
+                  >
+                    <a href="https://twitter.com/">
+                      <i class="fa fa-2x fa-fw fa-twitter text-white"></i
+                    ></a>
                   </div>
-                  <!-- Grid column -->
-  
+
+                  <div
+                    class="bg-circle-outline d-inline-block"
+                    style="background-color: #0077b5"
+                  >
+                    <a href="https://www.linkedin.com/company/">
+                      <i class="fa fa-2x fa-fw fa-linkedin text-white"></i
+                    ></a>
+                  </div>
+                  <div
+                    class="bg-circle-outline d-inline-block"
+                    style="background-color: #d34836"
+                  >
+                    <a href="https://www.google.com/">
+                      <i class="fa fa-2x fa-fw fa-google text-white"></i
+                    ></a>
+                  </div>
                 </div>
-                <!-- Grid row-->
-  
               </div>
             </div>
-  
-            <!-- Footer Links -->
-            <div class="container text-center text-md-left mt-5">
-  
-              <!-- Grid row -->
-              <div class="row mt-3 dark-grey-text">
-  
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
-  
-                  <!-- Content -->
-                  <h6 class="text-uppercase font-weight-bold">BOUTIKLINE</h6>
-                  <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                  <p>Boutline, votre partenaire privilegié dans les solutions informatiques,consommables et accessoires.
-                  </p>
-  
-                </div>
-                <!-- Grid column -->
-  
-                <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-  
-                  <!-- Links -->
-                  <h6 class="text-uppercase font-weight-bold">Produits</h6>
-                  <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                  <p>
-                    <a class="dark-grey-text" href="#!">PC portables & Desktop</a>
-                  </p>
-                  <p>
-                    <a class="dark-grey-text" href="#!">Encres & Toners</a>
-                  </p>
-                  <p>
-                    <a class="dark-grey-text" href="#!">Accessoires</a>
-                  </p>
-                  <p>
-                    <a class="dark-grey-text" href="#!">Services</a>
-                  </p>
-  
-                </div>
-                <!-- Grid column -->
-  
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-  
-                  <!-- Links -->
-                  <h6 class="text-uppercase font-weight-bold">Liens utiles</h6>
-                  <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                  <p>
-                    <a class="dark-grey-text" href="#!">Votre compte</a>
-                  </p>
-                  <p>
-                    <a class="dark-grey-text" href="#!">S'affilier</a>
-                  </p>
-                  <p>
-                    <a class="dark-grey-text" href="#!">Coûts d'expédition</a>
-                  </p>
-                  <p>
-                    <a class="dark-grey-text" href="#!">Aide</a>
-                  </p>
-  
-                </div>
-                <!-- Grid column -->
-  
-                <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-  
-                  <!-- Links -->
-                  <h6 class="text-uppercase font-weight-bold">Contact</h6>
-                  <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                  <p>
-                    <i class="fas fa-home mr-3"></i>Bd Albert II 78,1080 Bruxelles
-                    <i class="fas fa-print mr-3"></i> +32 02/23 236 63</p>
-  
-                </div>
-                <!-- Grid column -->
-  
-              </div>
-              <!-- Grid row -->
-  
-            </div>
-            <!-- Footer Links -->
-  
-            <!-- Copyright -->
-            <div class="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
-              <a class="dark-grey-text" href="#">Yamtoingar Antoine</a>
-            </div>
-            <!-- Copyright -->
-  
-          </footer>
-          <!-- Footer -->
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row-->
         </div>
-   
+      </div>
 
-        <!-- F I N -->
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3 dark-grey-text">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">BOUTIKLINE</h6>
+            <hr
+              class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px"
+            />
+            <p>
+              Boutline, votre partenaire privilegié dans les solutions
+              informatiques,consommables et accessoires.
+            </p>
+          </div>
+          <!-- Grid column -->
 
- 
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Produits</h6>
+            <hr
+              class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px"
+            />
+            <p>
+              <a class="dark-grey-text" href="#!">PC portables & Desktop</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Encres & Toners</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Accessoires</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Services</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Liens utiles</h6>
+            <hr
+              class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px"
+            />
+            <p>
+              <a class="dark-grey-text" href="#!">Votre compte</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">S'affilier</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Coûts d'expédition</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Aide</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr
+              class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px"
+            />
+            <p>
+              <i class="fas fa-home mr-3"></i>Bd Albert II 78,1080 Bruxelles
+              <i class="fas fa-print mr-3"></i> +32 02/23 236 63
+            </p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+      <!-- Footer Links -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center text-black-50 py-3">
+        © 2020 Copyright:
+        <a class="dark-grey-text" href="#">Yamtoingar Antoine</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </div>
+
+  <!-- F I N -->
+</div>
