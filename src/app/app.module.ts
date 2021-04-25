@@ -38,6 +38,7 @@ import { TableprodComponent } from './Pages/produits/tableprod/tableprod.compone
 import { TokenInterceptor } from './Shared/token-interceptor';
 import { AuthServiceService } from './Shared/auth-service.service';
 import { PanierDropDownComponent } from './Pages/panier-drop-down/panier-drop-down.component';
+import { ProduitListComponent } from './Pages/produit-list/produit-list.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { PanierDropDownComponent } from './Pages/panier-drop-down/panier-drop-do
     SignupComponent,
     TableprodComponent,
     PanierDropDownComponent,
+    ProduitListComponent,
 
 
 

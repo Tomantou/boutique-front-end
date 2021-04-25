@@ -16,6 +16,7 @@ import { FilemangerService } from 'src/app/Shared/filemanger.service';
   providers: [ConfigurerService]
 })
 export class ConfigurerComponent implements OnInit {
+public  signaletics : signaletiques [];
 public formData: signaletiques;
  typesocietes: string [];
  lespays: string [];
@@ -41,20 +42,38 @@ public formData: signaletiques;
        this.formData = new signaletiques();
       this.lespays = ["Australie", "Allemagne", "Belgique", "France", "USA", "Italie", "Espagne", "Portugal", "Suisse", "Pays-bas", "Suède", "Pologne"
       ];
+
+      this.configSignal.getSignaletique().subscribe(
+        (signaletiques) => {this.signaletics = signaletiques;
+        console.log('liste signaletiques',this.signaletics);
+        },
+        (error) => {
+           alert('probleme d\'acces a l api categories');
+        }
+        );  
+
   }
 
    addSignal(formsignal: NgForm){
       this.configSignal.saveSignaletique(formsignal.value).subscribe(
         (reponse) => {
-               const link = ['configurer'];
-               this.router.navigate(link);
+          this.toastr.success('Congifuration enregistrée avec succès','Notification!');
+          localStorage.setItem['signaletique'] = formsignal.value;
+              //  const link = ['configurer'];
+              //  this.router.navigate(link);
+
         },
         (error) => {
           this.errorMessage = 'Problème de connexion à votre serveur, prière contacter l\'administrateur';
           console.log(error);
         }
       );
-      this.toastr.success('Congifuration enregistrée avec succès','Notification!');
+     
+  }
+
+  recepererSignal(){
+
+
   }
 
   resetButton(form? : NgForm){
@@ -99,5 +118,6 @@ public formData: signaletiques;
     });
     reader.readAsDataURL(file);
  }
+
 
 }

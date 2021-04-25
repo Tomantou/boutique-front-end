@@ -17,6 +17,19 @@ allProducts: any;
 
   ngOnInit(): void {
 
+    
+      this.produitservice.getProduits().subscribe(
+         (produits) => {
+            this.lesproduits = produits;
+            console.log('liste produits', this.lesproduits);
+         },
+         (error) => {
+            alert('probleme d\'acces a l api');
+         }
+      );
+      
+
+
     this.produitservice.productAdded.subscribe(Res =>{
       this.toastr.success('Client enregistrée avec succès', 'Notification!');
     })

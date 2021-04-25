@@ -21,10 +21,7 @@ export class CategoriesService {
 
 
     getCategories(): Observable<any>{
-       
-      
          return this.http.get<categorie []>(this.lien);           
-                
      }
 
 

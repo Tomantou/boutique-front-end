@@ -147,14 +147,49 @@
       </div>
       <br>
       <div class="col">
-          <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
+          <button type="button" class="btn btn-danger btn-block" (click) = "retouralaccueil()"><h2>QUITTER</h2></button>
       </div>
       <br>
    </div>
   </div>
 </div>
 
- <!-- <app-tableprod [lesproduits] = this.lesproduits></app-tableprod> -->
+<app-produit-list [lesproduits] = "this.lesproduits">
+  <table class="table table-bordered">
+    <thead style="background-color: darkseagreen;">
+      <tr>
+        <th (click) = "sort('Id')" scope="col">ProduitID&nbsp;<i class="fa fa-sort"></i></th>
+        <th (click) = "sort('libelleProd')" scope="col">NOM du PRODUIT&nbsp;<i class="fa fa-sort"></i></th>
+        <th scope="col">PRIX></th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let prod of lesproduits | orderBy: key: reverse | paginate: {itemsPerPage: 10, currentPage: p }">
+          <!-- <td>{{prod.Id}}</td> -->
+          <td>
+            <img src="{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" alt="nope" width="125" height="80">
+          </td>
+          <td>{{prod.libelleProd}}</td>
+          <td>{{prod.prix}}</td>
+          <td>{{prod.description}}</td>
+          <div class="col">
+            <button class="btn btn-info" data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)">Détails</button>
+            <button type="button" class="btn btn-success">Modifier</button>&nbsp;
+            <button type="button" class="btn btn-danger" (click) = "delProduct(prod.Id)">Supprimer</button>
+            <!-- <button class="btn btn-info" data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)">Détails</button> -->
+          </div>
+      </tr>   
+    </tbody>
+    <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+    </table>
+</app-produit-list>
+ <!-- <app-tableprod [lesproduits] = "this.lesproduits"></app-tableprod> -->
+  <div>
+    --------------------------------------------------------------------------------------------------------------------------------------------------
+  </div>
+
 
   <div class="container-fluid">
     <div> 

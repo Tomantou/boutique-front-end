@@ -13,6 +13,7 @@ export class AppComponent {
   username: string;
   userrole: string;
   useremail: string;
+  logoapp: string;
 
   constructor(public authService: AuthServiceService,
     private router: Router
@@ -20,6 +21,7 @@ export class AppComponent {
     this.username = localStorage.getItem('username');
     this.userrole = localStorage.getItem('userrole');
     this.useremail = localStorage.getItem('useremail');
+    this.logoapp = localStorage.getItem('logoapp');
   }
   opened = true;
   title = 'NCL *  Nutri-Cosmétique en Ligne';

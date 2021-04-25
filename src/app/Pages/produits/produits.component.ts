@@ -79,8 +79,8 @@ export class ProduitsComponent implements OnInit {
          (error) => {
             alert('probleme d\'acces a l api');
          }
-      )
-      ;}
+      );
+      }
 
    Search() {
       if (this.nom == '') {
@@ -131,6 +131,11 @@ export class ProduitsComponent implements OnInit {
       );
    }
 
+  retouralaccueil(){
+     const lien = ['accueil'];
+    this.router.navigate(lien);
+  }
+
    onChangeMarqueId(id: number) {
       this.formData.marqueId = Number(id);
    }
@@ -148,15 +153,7 @@ export class ProduitsComponent implements OnInit {
     }
 
 
-    getDelProduit(id: number){
-      this.selectedProduct = this.lesproduits.find(p => p.Id == id);
-      return this.produitservice.getProductById(this.selectedProduct.Id).subscribe(res =>{
-         this.toastr.success('Client enregistrée avec succès', 'Notification!');
-         const link = ['produits'];
-         this.router.navigate(link);
-      });
-
-    }
+    
 
    resetButton(form?: NgForm) {
       if (form != null) form.reset();
@@ -189,8 +186,6 @@ export class ProduitsComponent implements OnInit {
       return this.produitservice.deleteProduct(id).subscribe(res =>{
          this.refreshProduits()
          this.toastr.success('Client supprimé avec succès', 'Notification!');
-         // const link = ['produits'];
-         // this.router.navigate(link);
       });
    }
 

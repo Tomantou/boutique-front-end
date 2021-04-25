@@ -196,6 +196,9 @@
       <tr *ngFor = "let stok of stocks">
             <td>{{stok.Id}}</td>
             <td>{{stok.produitId}}</td>
+            <!-- <td>
+              <img src="{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" alt="nope" width="125" height="80">
+            </td> -->
             <td>{{stok.pointventeId}}</td>
             <td>{{stok.quantiteStock}}</td>
             <td>{{stok.quantiteMin}}</td>

@@ -206,16 +206,14 @@
 
                     <div class="container">
                       <div class="row row-cols-2">
-                        <div class="col">
-                              <button type="button" class="btn btn-info btn-block"><h2><< RETOUR</h2></button>
-                        </div>
-                        <div class="col">
-                          <button type="button" class="btn btn-success btn-block"><h2>AJOUTER AU PANIER</h2></button>
-                        </div>
+                        <!-- <div class="col">
+                          <button *ngIf="this.useremail"
+                          class="btn btn-info btn-lg" (click)="this.addToPanier({{selectedProduct.Id}}expédition)"><strong>Ajouter au panier</strong></button>
+                        </div> -->
                       </div>
                     </div>
                     <br>
-                    <button type="button" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-info btn-block" data-dismiss="modal"><h3>Fermer</h3></button>
           </div>
        </div>  
       </div>    

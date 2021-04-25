@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ConfigurerService {
+  private lien = environment.boutiqueBackend + '/categories';
   constructor(
     private http: HttpClient,
     private toastr: ToastrService
@@ -42,5 +43,9 @@ export class ConfigurerService {
     return this.http.post(environment.boutiqueBackend + '/signaletiques', signaletiq, requestOptions);
   }
 
+
+  getSignaletique(): Observable<any>{
+    return this.http.get<signaletiques []>(this.lien);           
+}
 
 }

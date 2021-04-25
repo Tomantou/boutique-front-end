@@ -43,12 +43,6 @@ export class CategoriesComponent implements OnInit {
    
  }
    
-    loggerform(formProd: NgForm){
-       console.log(formProd);   
-    }
-
- 
-
    
 
 }
