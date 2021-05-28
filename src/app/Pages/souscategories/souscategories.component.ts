@@ -6,31 +6,35 @@ import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
 import { souscategorie } from 'src/app/Models/souscategorie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-souscategories',
   templateUrl: './souscategories.component.html',
   styleUrls: ['./souscategories.component.css'],
-  providers:[SouscategoriesService]
+  providers: [SouscategoriesService],
 })
 export class SouscategoriesComponent implements OnInit {
-  lessouscategories: souscategorie [];
+  lessouscategories: souscategorie[];
   constructor(
-    public souscategorieservice: SouscategoriesService
-    ) { }
+    public souscategorieservice: SouscategoriesService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-
     this.souscategorieservice.getsousCategories().subscribe(
-      (souscategories) => {this.lessouscategories = souscategories;
-      console.log('liste sous categories',this.lessouscategories);
+      (souscategories) => {
+        this.lessouscategories = souscategories;
+        console.log('liste sous categories', this.lessouscategories);
       },
       (error) => {
-         alert('probleme d\'acces a l api');
+        alert("probleme d'acces a l api");
       }
-      );  
-        
-
+    );
   }
 
+  retouralaccueil() {
+    const lien = ['accueil'];
+    this.router.navigate(lien);
+  }
 }

@@ -66,8 +66,8 @@ public lespointventes: pointvente [];
     console.log(formgerant.value);
     this.gerantsservice.saveGerant(formgerant.value).subscribe(
       (reponse) => {
-             const link = ['configurer'];
-             this.router.navigate(link);
+            /*  const link = ['configurer'];
+             this.router.navigate(link); */
       },
       (error) => {
         this.errorMessage = 'Problème de connexion à votre serveur, prière contacter l\'administrateur';
@@ -92,6 +92,9 @@ resetButton(form? : NgForm){
   }
   this.toastr.success('formulaire réinitialisé','Notification!');
   }
-
+  retouralaccueil() {
+    const lien = ['accueil'];
+    this.router.navigate(lien);
+  }
 
 }

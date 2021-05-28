@@ -13,86 +13,83 @@ import { Router } from '@angular/router';
   selector: 'app-custumers',
   templateUrl: './custumers.component.html',
   styleUrls: ['./custumers.component.css'],
-  providers:[]
+  providers: [],
 })
 export class CustumersComponent implements OnInit {
-  public civilites: string [];
+  public civilites: string[];
   public formData: custumer;
-  public lescustumers: custumer [];
-  errorMessage ='';
+  public lescustumers: custumer[];
+  errorMessage = '';
 
   constructor(
     private custumerservice: CustumersService,
     private router: Router,
     private toastr: ToastrService
-    
-    ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.civilites = [
-      "Mme",
-      "Mr"
-     ];
-     this.formData = new custumer();
+    this.civilites = ['Mme', 'Mr'];
+    this.formData = new custumer();
 
-     this.custumerservice.getCustumers().subscribe(
-      (custumers) => {this.lescustumers = custumers;
-      console.log('liste clients',this.lescustumers);
+    this.custumerservice.getCustumers().subscribe(
+      (custumers) => {
+        this.lescustumers = custumers;
+        console.log('liste clients', this.lescustumers);
       },
       (error) => {
-         alert('probleme d\'acces a l api');
+        alert("probleme d'acces a l api");
       }
-      );  
+    );
   }
 
-   getCustumerByid(id: number): custumer{
-      return this.lescustumers.find(c => c.Id === id);
-   }
+  getCustumerByid(id: number): custumer {
+    return this.lescustumers.find((c) => c.Id === id);
+  }
 
-
-  addCustumer(formcustumer: NgForm){
+  addCustumer(formcustumer: NgForm) {
     console.log(formcustumer.value);
     this.custumerservice.saveCustumer(formcustumer.value).subscribe(
       (reponse) => {
-             const link = ['clients'];
-             this.router.navigate(link);
+        /* const link = ['clients'];
+        this.router.navigate(link); */
       },
       (error) => {
-        this.errorMessage = 'Problème de connexion à votre serveur, prière contacter l\'administrateur';
+        this.errorMessage =
+          "Problème de connexion à votre serveur, prière contacter l'administrateur";
         console.log(error);
       }
     );
-    this.toastr.success('Client enregistrée avec succès','Notification!');
-}
-
-
-editerCustumer(custm: custumer): void{
-   this.custumerservice.selectedCustumer = Object.assign({}, custm);
-  
-}
-
-supprimerCustumer(id: number){
-  //  if(confirm('Voulez-vous réellement supprimer ce client ?') == true){
-     
-  //     })
-  //  }
-}
-
-resetButton(form?: NgForm){
-  if(form != null)form.reset();
-  this.formData = {
-    Id:0,
-     nomCli: '',
-     prenomCli: '',
-     adresse: '',
-     codePostal: 0,
-     ville: '',
-     civilite: '',
-     contact: '',
-     email: ''
-
-  }
-  this.toastr.success('formulaire réinitialisé','Notification!');
+    this.toastr.success('Client enregistrée avec succès', 'Notification!');
   }
 
+  editerCustumer(custm: custumer): void {
+    this.custumerservice.selectedCustumer = Object.assign({}, custm);
+  }
+
+  supprimerCustumer(id: number) {
+    //  if(confirm('Voulez-vous réellement supprimer ce client ?') == true){
+    //     })
+    //  }
+  }
+
+  resetButton(form?: NgForm) {
+    if (form != null) form.reset();
+    this.formData = {
+      Id: 0,
+      nomCli: '',
+      prenomCli: '',
+      adresse: '',
+      codePostal: 0,
+      ville: '',
+      civilite: '',
+      contact: '',
+      email: '',
+    };
+    this.toastr.success('formulaire réinitialisé', 'Notification!');
+  }
+
+  retouralaccueil() {
+    const lien = ['accueil'];
+    this.router.navigate(lien);
+  }
 }

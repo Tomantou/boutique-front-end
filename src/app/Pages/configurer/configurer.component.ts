@@ -59,6 +59,7 @@ public formData: signaletiques;
         (reponse) => {
           this.toastr.success('Congifuration enregistrée avec succès','Notification!');
           localStorage.setItem['signaletique'] = formsignal.value;
+          localStorage.setItem['lelogo'] = formsignal.value.logo;
               //  const link = ['configurer'];
               //  this.router.navigate(link);
 

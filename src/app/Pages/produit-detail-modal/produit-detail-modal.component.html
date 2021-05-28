@@ -40,9 +40,8 @@
                 </div>
                 <h3 class="title-price">
                   PRIX: {{ selectedProduct.prix }} EUR HT
-                </h3>
-                <h3 class="title-price">
-                  Marque: {{ selectedProduct.prix }} EUR HT
+                  <h4 style="margin-top:0px;">TVA 21%</h4>
+                  <h4 style="margin-top:0px;">{{selectedProduct.prix + selectedProduct.prix*0.21 }} EUR   TTC</h4>
                 </h3>
               </div>
             </div>

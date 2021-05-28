@@ -11,27 +11,19 @@ import { environment } from 'src/environments/environment';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class StocksService {
-  stocks: stock [];
-  private lien =  environment.boutiqueBackend + '/stocks';
-  constructor(
-    private http : HttpClient,
-    private toastr : ToastrService
-    ) { }
+  stocks: stock[];
+  private lien = environment.boutiqueBackend + '/stocks';
+  /* private liensp = environment.boutiqueBackend + '/stocks'; */
+  constructor(private http: HttpClient, private toastr: ToastrService) {}
 
+  getStocks(): Observable<any> {
+    return this.http.get<stock[]>(this.lien);
+  }
 
-    getStocks(): Observable<any>{
-       
-      
-         return this.http.get<stock []>(this.lien);           
-                
-     }
-      
-
-
-
-
+ /*  getStockProd(): Observable<any> {
+    return this.http.get<stock[]>(this.lien);
+  } */
 }

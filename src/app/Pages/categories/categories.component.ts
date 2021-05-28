@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { url } from 'inspector';
 import {Observable} from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',

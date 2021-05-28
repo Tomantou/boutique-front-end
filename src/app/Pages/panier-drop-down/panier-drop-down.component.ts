@@ -64,6 +64,7 @@ export class PanierDropDownComponent implements OnInit {
   public getTotalPrix(produits: ProduitDuPanier[]): number {
     let total = 0;
     produits.forEach(produit => total += produit.prix);
+
     return total;
   }
 
@@ -71,14 +72,9 @@ export class PanierDropDownComponent implements OnInit {
     this.produitDuPanierService
       .deleteProduct(productId)
       .subscribe((response) => this.refreshProduits());
+      this.montantHt = this.getTotalPrix(this.produits);
+      this.montantTtc = this.montantHt * 0.21;
   }
 
-  // calculMontantHt(prix: number, qte: number = 1){
-
-  //   this.produits.forEach(prod => {
-  //     this.montantHt = prod.prix*1;
-
-  //       }
-  //     );
-  // }
+  
 }

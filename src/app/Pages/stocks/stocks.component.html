@@ -1,215 +1,303 @@
 <router-outlet></router-outlet>
 
-<br><br><br><br>
+<br /><br /><br /><br />
 <!-- code modal détails produits -->
 
 <div class="container">
-     
   <div class="modal fade" id="modalStock">
     <div class="class modal-dialog modal-lg">
       <div class="modal-content">
-          <div class="modal-header">
-                <div class="col">
-                   <h3 class = "modal-title" style="text-align: center; background-color: darkseagreen;">TRANSFERT DE STOCK</h3>
-                </div>   
-              <button type ="button" class="close" data-dismiss="modal">x</button>
-            
+        <div class="modal-header">
+          <div class="col">
+            <h3
+              class="modal-title"
+              style="text-align: center; background-color: darkseagreen"
+            >
+              TRANSFERT DE STOCK
+            </h3>
           </div>
-          <div class="modal-body">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-sm-2">
-
-                      </div>
-                              <form #formsouscateg ="ngForm">  
-                                <div class="form-group row">
-                                  <label for="categorie"><h6 class="text-black">PRODUIT:</h6></label>
-                                  <select required name="categorie" id="categorie" class="form-control" ngModel>
-                                    <!-- <option *ngFor="let categ of lescategories" [value]="categ.libelle">{{categ.libelle}}</option> -->
-                                  </select>
-                                </div>
-                                <br>
-                                <div class="form-group row">
-                                  <label for="souscategId" class="col-sm-2 col-form-label"><h6 class="text-black">SOURCE:</h6></label>
-                                  <div class="col-sm-10">
-                                    <input required type="text" id="souscategId" ngModel name="souscategId" placeholder="Id sous-categorie">
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label for="libelScat" class="col-sm-2 col-form-label"><h6 class="text-black">DESTINATION:</h6></label>
-                                  <div class="col-sm-10">
-                                    <input required type="libelScat" id="libelScat" ngModel name="libelScat" placeholder="libéllé">
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label for="categor" class="col-sm-2 col-form-label"><h6 class="text-black">QUANTITE:</h6></label>
-                                  <div class="col-sm-10">
-                                    <input required type="text" id="categor" ngModel name="categor" placeholder="catégorie">
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label for="categor" class="col-sm-2 col-form-label"><h6 class="text-black">DATE:</h6></label>
-                                  <div class="col-sm-10">
-                                    <input required type="text" id="categor" ngModel name="categor" placeholder="catégorie">
-                                  </div>
-                                </div>
-                              </form>  
-                             
+          <button type="button" class="close" data-dismiss="modal">x</button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-2"></div>
+              <form #formsouscateg="ngForm">
+                <div class="form-group row">
+                  <label for="categorie"
+                    ><h6 class="text-black">PRODUIT:</h6></label
+                  >
+                  <select
+                    required
+                    name="categorie"
+                    id="categorie"
+                    class="form-control"
+                    ngModel
+                  >
+                    <!-- <option *ngFor="let categ of lescategories" [value]="categ.libelle">{{categ.libelle}}</option> -->
+                  </select>
+                </div>
+                <br />
+                <div class="form-group row">
+                  <label for="souscategId" class="col-sm-2 col-form-label"
+                    ><h6 class="text-black">SOURCE:</h6></label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      required
+                      type="text"
+                      id="souscategId"
+                      ngModel
+                      name="souscategId"
+                      placeholder="Id sous-categorie"
+                    />
                   </div>
-              </div>        
-             
-              <table class="table table-striped">
-                <thead style="background-color: darkseagreen;">
-                  <tr>
-                    <th scope="col">ID STOCK</th>
-                    <th scope="col">PRODUITS</th>
-                    <th scope="col">POINT VENTE</th>
-                    <th scope="col">Qté STOCK</th>
-                  </tr>
-                </thead>
-                <br>
-                <tbody>
-                    <tr *ngFor = "let stok of stocks">
-                          <td>{{stok.Id}}</td>
-                          <td>{{stok.produitId}}</td>
-                          <td>{{stok.pointventeId}}</td>
-                          <td>{{stok.quantiteStock}}</td>
-                    </tr>
-                </tbody>
-              </table>
+                </div>
+                <div class="form-group row">
+                  <label for="libelScat" class="col-sm-2 col-form-label"
+                    ><h6 class="text-black">DESTINATION:</h6></label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      required
+                      type="libelScat"
+                      id="libelScat"
+                      ngModel
+                      name="libelScat"
+                      placeholder="libéllé"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="categor" class="col-sm-2 col-form-label"
+                    ><h6 class="text-black">QUANTITE:</h6></label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      required
+                      type="text"
+                      id="categor"
+                      ngModel
+                      name="categor"
+                      placeholder="catégorie"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="categor" class="col-sm-2 col-form-label"
+                    ><h6 class="text-black">DATE:</h6></label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      required
+                      type="text"
+                      id="categor"
+                      ngModel
+                      name="categor"
+                      placeholder="catégorie"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="modal-footer">
 
-              <div class="container">     
+          <table class="table table-striped">
+            <thead style="background-color: darkseagreen">
+              <tr>
+                <th scope="col">ID STOCK</th>
+                <th scope="col">PRODUITS</th>
+                <th scope="col">POINT VENTE</th>
+                <th scope="col">Qté STOCK</th>
+              </tr>
+            </thead>
+            <br />
+            <tbody>
+              <tr *ngFor="let stok of stocks">
+                <td>{{ stok.Id }}</td>
+                <td>{{ stok.produitId }}</td>
+                <td>{{ stok.pointventeId }}</td>
+                <td>{{ stok.quantiteStock }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <div class="container"></div>
+
+          <div class="container">
+            <div class="row row-cols-2">
+              <div class="col">
+                <button type="button" class="btn btn-dark btn-block">
+                  <h2>ANNULER</h2>
+                </button>
               </div>
-
-            <div class="container">
-              <div class="row row-cols-2">
-                <div class="col">
-                      <button type="button" class="btn btn-dark btn-block"><h2>ANNULER</h2></button>
-                </div>
-                <div class="col">
-                  <button type="button" class="btn btn-success btn-block"><h2>VALIDER</h2></button>
-                </div>
+              <div class="col">
+                <button type="button" class="btn btn-success btn-block">
+                  <h2>VALIDER</h2>
+                </button>
               </div>
             </div>
-            <br>
-            <button type="button" data-dismiss="modal">Fermer</button>
           </div>
-       </div>  
-      </div>    
-      
-  </div>      
-    
+          <br />
+          <button type="button" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- fin code modal -->
 
-
-<br>
+<br />
 <div class="container-fluid">
-  <h1 class="text-white" style="text-align: center; background-color:darkgreen;">GESTION DES STOCKS</h1>
-  <br>
-  <hr>
+  <h1
+    class="text-white"
+    style="text-align: center; background-color: darkgreen"
+  >
+    GESTION DES STOCKS
+  </h1>
+  <br />
+  <hr />
   <div class="row">
-    <div class="col-sm-2">
-
-    </div>
+    <div class="col-sm-2"></div>
     <div class="col-sm-6">
-      <form #formconfig ="ngForm">  
+      <form #formconfig="ngForm">
         <div class="form-group row">
           <label for="Prod"><h6 class="text-black">PRODUIT:</h6></label>
-           <select required name="Prod" id="Prod" class="form-control" ngModel>
-            <option *ngFor="let prod of lesproduits" [value]="prod.libelleProd">{{prod.libelleProd}}</option>
-          </select> 
+          <select required name="Prod" id="Prod" class="form-control" ngModel>
+            <option *ngFor="let prod of lesproduits" [value]="prod.libelleProd">
+              {{ prod.libelleProd }}
+            </option>
+          </select>
         </div>
         <div class="form-group row">
           <label for="pointv"><h6 class="text-black">POINT VENTE:</h6></label>
-          <select required name="pointv" id="pointv" class="form-control" ngModel>
-            <option *ngFor="let pvente of pventes" [value]="pvente.ville">{{pvente.ville}}</option>
-          </select> 
+          <select
+            required
+            name="pointv"
+            id="pointv"
+            class="form-control"
+            ngModel
+          >
+            <option *ngFor="let pvente of pventes" [value]="pvente.ville">
+              {{ pvente.ville }}
+            </option>
+          </select>
         </div>
         <div class="form-group row">
-          <label for="qtestock" class="col-sm-2 col-form-label"><h6 class="text-black">QUANTITE STOCK:</h6></label>
+          <label for="qtestock" class="col-sm-2 col-form-label"
+            ><h6 class="text-black">QUANTITE STOCK:</h6></label
+          >
           <div class="col-sm-10">
-            <input required type="text" id="qtestock" ngModel name="qtestock" placeholder="quantité stock">
+            <input
+              required
+              type="text"
+              id="qtestock"
+              ngModel
+              name="qtestock"
+              placeholder="quantité stock"
+            />
           </div>
         </div>
         <div class="form-group row">
-          <label for="qtemin" class="col-sm-2 col-form-label"><h6 class="text-black">QUANTITE MIN.:</h6></label>
+          <label for="qtemin" class="col-sm-2 col-form-label"
+            ><h6 class="text-black">QUANTITE MIN.:</h6></label
+          >
           <div class="col-sm-10">
-            <input required type="qtemin" id="qtemin" ngModel name="qtemin" placeholder="quantité minimale">
+            <input
+              required
+              type="qtemin"
+              id="qtemin"
+              ngModel
+              name="qtemin"
+              placeholder="quantité minimale"
+            />
           </div>
         </div>
         <div class="form-group row">
-          <label for="qtemax" class="col-sm-2 col-form-label"><h6 class="text-black">QUANTITE MAX.:</h6></label>
+          <label for="qtemax" class="col-sm-2 col-form-label"
+            ><h6 class="text-black">QUANTITE MAX.:</h6></label
+          >
           <div class="col-sm-10">
-            <input required type="text" id="qtemax" ngModel name = "qtemax" placeholder="quantité maximale">
+            <input
+              required
+              type="text"
+              id="qtemax"
+              ngModel
+              name="qtemax"
+              placeholder="quantité maximale"
+            />
           </div>
         </div>
-      </form> 
-    </div>   
-        
-        
-        
-    <div class="col-sm-2">
-      
+      </form>
     </div>
+
+    <div class="col-sm-2"></div>
     <div class="col-sm-2">
-        <div class="col">
-            <button type="button" class="btn btn-success btn-block"><h2>CREER</h2></button>
-        </div>
-        <br>
-        <div class="col">
-            <button type="button" class="btn btn-dark btn-lg btn-block"><h2>REINITIALISATION</h2></button>
-        </div>
-        <br>
-        <div class="col">
-          <!-- <a href data-toggle="modal" data-target="#modalStock"><h3 class="btn btn-primary btn-block">TRANSFERT-STOCK</h3></a> -->
-          <a href data-toggle="modal" data-target="#modalStock"><button type="button" class="btn btn-info btn-block"><h2>TRANSFERT STOCK</h2></button></a>
-        </div>
-        <br>
-        <div class="col">
-            <button type="button" class="btn btn-danger btn-block"><h2>QUITTER</h2></button>
-        </div>
-        <br>
+      <div class="col">
+        <button type="button" class="btn btn-success btn-block">
+          <h2>CREER</h2>
+        </button>
       </div>
+      <br />
+      <div class="col">
+        <button type="button" class="btn btn-dark btn-lg btn-block">
+          <h2>REINITIALISATION</h2>
+        </button>
+      </div>
+      <br />
+      <div class="col">
+        <!-- <a href data-toggle="modal" data-target="#modalStock"><h3 class="btn btn-primary btn-block">TRANSFERT-STOCK</h3></a> -->
+        <a href data-toggle="modal" data-target="#modalStock"
+          ><button type="button" class="btn btn-info btn-block">
+            <h2>TRANSFERT STOCK</h2>
+          </button></a
+        >
+      </div>
+      <br />
+      <div class="col">
+        <button type="button" class="btn btn-danger btn-block" (click)="retouralaccueil()">
+          <h2>QUITTER</h2>
+        </button>
+      </div>
+      <br />
+    </div>
   </div>
 </div>
-      
 
 <div class="container-fluid">
   <table class="table table-striped">
-  <thead style="background-color: darkseagreen;">
-    <tr>
-      <th scope="col">ID STOCK</th>
-      <th scope="col">PRODUITS</th>
-      <th scope="col">POINT VENTE</th>
-      <th scope="col">Qté STOCK</th>
-      <th scope="col">Qté Min.</th>
-      <th scope="col">Qté Max.</th>
-      <th scope="col">ACTIONS</th>
-    </tr>
-  </thead>
-  <br>
-  <tbody>
-      <tr *ngFor = "let stok of stocks">
-            <td>{{stok.Id}}</td>
-            <td>{{stok.produitId}}</td>
-            <!-- <td>
+    <thead style="background-color: darkseagreen">
+      <tr>
+        <th scope="col">ID STOCK</th>
+        <th scope="col">PRODUITS</th>
+        <th scope="col">POINT VENTE</th>
+        <th scope="col">Qté STOCK</th>
+        <th scope="col">Qté Min.</th>
+        <th scope="col">Qté Max.</th>
+        <th scope="col">ACTIONS</th>
+      </tr>
+    </thead>
+    <br />
+    <tbody>
+      <tr *ngFor="let stok of stocks">
+        <td>{{ stok.Id }}</td>
+        <td>{{ stok.produitId }}</td>
+        <!-- <td>
               <img src="{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" alt="nope" width="125" height="80">
             </td> -->
-            <td>{{stok.pointventeId}}</td>
-            <td>{{stok.quantiteStock}}</td>
-            <td>{{stok.quantiteMin}}</td>
-            <td>{{stok.quantiteMax}}</td>
-            <div class="col">
-            <button type="button" class="btn btn-info">Modifier</button>&nbsp;
-            <button type="button" class="btn btn-success">Visualiser</button>&nbsp;
-            <button type="button" class="btn btn-danger">Supprimer</button>
-            </div> 
+        <td>{{ stok.pointventeId }}</td>
+        <td>{{ stok.quantiteStock }}</td>
+        <td>{{ stok.quantiteMin }}</td>
+        <td>{{ stok.quantiteMax }}</td>
+        <div class="col">
+          <button type="button" class="btn btn-info">Modifier</button>&nbsp;
+          <button type="button" class="btn btn-success">Visualiser</button
+          >&nbsp;
+          <button type="button" class="btn btn-danger">Supprimer</button>
+        </div>
       </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 </div>
-
