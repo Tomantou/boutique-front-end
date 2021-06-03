@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { pointvente } from 'src/app/Models/pointvente';
+import { pointsvente } from 'src/app/Models/pointsvente';
 import { gerant } from 'src/app/Models/gerant';
 import { PventeServiceService } from 'src/app/Shared/pvente-service.service';
 import { GerantsService } from 'src/app/Shared/gerants.service';
@@ -18,9 +18,9 @@ import {Observable} from 'rxjs';
   providers: [PventeServiceService, GerantsService]
 })
 export class PventesComponent implements OnInit {
- public pointventes : pointvente [];
+ public pointventes : pointsvente [];
  public gerants: gerant [];
- public formData: pointvente;
+ public formData: pointsvente;
   Villes: string[];
   errorMessage = '';
 
@@ -34,7 +34,7 @@ export class PventesComponent implements OnInit {
 
   ngOnInit() {
 
-     this.formData = new pointvente;
+     this.formData = new pointsvente;
 
     this.Villes = [
       "ANVERS",

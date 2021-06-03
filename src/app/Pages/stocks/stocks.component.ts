@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
 import { stock } from 'src/app/Models/stock';
 import { produit } from 'src/app/Models/produit';
-import { pointvente } from 'src/app/Models/pointvente';
+import { pointsvente } from 'src/app/Models/pointsvente';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
 export class StocksComponent implements OnInit {
   stocks: stock[];
   lesproduits: produit[];
-  pventes: pointvente[];
+  pventes: pointsvente[];
   selectedProduct: produit;
   constructor(
     public stockservice: StocksService,

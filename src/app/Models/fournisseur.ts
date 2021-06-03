@@ -1,8 +1,9 @@
-export class fournisseur{
-    FOURN_ID: string;
-    FOURN_Rsociale: string;
-    FOURN_Contact: string;
-    FOURN_Adresse: string;
-    FOURN_Email: string;
-    
+export class fournisseur {
+  Id: string;
+  raisonSociale: string;
+  adresse: string;
+  contact: string;
+  email: string;
+  codePostal: number;
+  ville: string;
 }

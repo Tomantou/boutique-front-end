@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { pointvente } from 'src/app/Models/pointvente';
+import { pointsvente } from 'src/app/Models/pointsvente';
 import { categorie } from 'src/app/Models/categorie';
 import { souscategorie } from 'src/app/Models/souscategorie';
 import { PventeServiceService } from 'src/app/Shared/pvente-service.service';
@@ -28,7 +28,7 @@ import { environment } from 'src/environments/environment';
 export class PromosComponent implements OnInit {
   public lesproduits: produit[] = [];
   selectedProduct: produit;
-  pventes: pointvente [];
+  pventes: pointsvente [];
   categories: categorie [];
   souscategories: souscategorie [];
   panier: produit [];

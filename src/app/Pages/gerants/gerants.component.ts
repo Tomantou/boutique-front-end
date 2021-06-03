@@ -8,7 +8,7 @@ import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
 import { gerant } from  'src/app/Models/gerant';
-import { pointvente } from  'src/app/Models/pointvente';
+import { pointsvente } from 'src/app/Models/pointsvente';
 import { Router } from '@angular/router';
 import { categorie } from 'src/app/Models/categorie';
 
@@ -21,7 +21,7 @@ import { categorie } from 'src/app/Models/categorie';
 })
 export class GerantsComponent implements OnInit { 
 public lesgerants: gerant [];
-public lespointventes: pointvente [];
+public lespointventes: pointsvente [];
  public formData: gerant;
  public lescategories: string [];
  errorMessage='';

@@ -48,7 +48,7 @@ public formData: signaletiques;
         console.log('liste signaletiques',this.signaletics);
         },
         (error) => {
-           alert('probleme d\'acces a l api categories');
+           alert('probleme d\'acces a l api signaletiques');
         }
         );  
 

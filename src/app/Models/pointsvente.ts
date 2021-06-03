@@ -1,4 +1,4 @@
-export class pointvente{
+export class pointsvente{
     Id: number;
     gerantId: number;
     adresse: string;

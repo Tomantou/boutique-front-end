@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { pointvente } from 'src/app/Models/pointvente';
+import { pointsvente } from 'src/app/Models/pointsvente';
 import { categorie } from 'src/app/Models/categorie';
 import { souscategorie } from 'src/app/Models/souscategorie';
 import { PventeServiceService } from 'src/app/Shared/pvente-service.service';
@@ -17,19 +17,25 @@ import { ProduitIdDuPanier } from 'src/app/Models/produit-id-du-panier';
   selector: 'app-achats',
   templateUrl: './achats.component.html',
   styleUrls: ['./achats.component.css'],
-  providers:[PventeServiceService,CategoriesService,SouscategoriesService,ProduitsService]
+  providers: [
+    PventeServiceService,
+    CategoriesService,
+    SouscategoriesService,
+    ProduitsService,
+  ],
 })
 export class AchatsComponent implements OnInit {
-public lesproduits: produit[] = [];
-selectedProduct: produit;
-pventes: pointvente [];
-categories: categorie [];
-souscategories: souscategorie [];
-panier: produit [];
-nom: any;
-p: number =1;
-public boutiqueContainer = environment.boutiqueContainer;
-useremail: string;
+  public lesproduits: produit[] = [];
+  selectedProduct: produit;
+  selectedPvente: pointsvente;
+  pventes: pointsvente[];
+  categories: categorie[];
+  souscategories: souscategorie[];
+  panier: produit[];
+  nom: any;
+  p: number = 1;
+  public boutiqueContainer = environment.boutiqueContainer;
+  useremail: string;
 
   constructor(
     private ptventeservice: PventeServiceService,
@@ -37,90 +43,98 @@ useremail: string;
     private souscategservice: SouscategoriesService,
     private produitservice: ProduitsService,
     private produitDuPanierService: ProduitDuPanierService
-    ) { }
+  ) {}
 
-  ngOnInit(): void{
-    this.useremail = localStorage.getItem("useremail");
-    this.selectedProduct = new produit;
-
+  ngOnInit(): void {
+    this.useremail = localStorage.getItem('useremail');
+    this.selectedProduct = new produit();
+    this.selectedPvente = new pointsvente();
     this.produitservice.getProduits().subscribe(
-      (produits) => {this.lesproduits=produits;
-      console.log('liste produits',this.lesproduits);
+      (produits) => {
+        this.lesproduits = produits;
+        console.log('liste produits', this.lesproduits);
       },
       () => {
-         alert('probleme d\'acces a l api');
+        alert("probleme d'acces a l api");
       }
-      );  
-
+    );
 
     this.ptventeservice.getPVENTES().subscribe(
-
-      (pointventes) => { this.pventes = pointventes;
-      //alert('c\'est ok Bravo!!!!');
+      (pointventes) => {
+        this.pventes = pointventes;
+        //alert('c\'est ok Bravo!!!!');
       },
       () => {
-        alert('probleme d\'acces a l api');
-
-       },
-     );
-
+        alert("probleme d'acces a l api");
+      }
+    );
 
     this.categoservice.getCategories().subscribe(
-      (categories) => {this.categories = categories;
-
+      (categories) => {
+        this.categories = categories;
       },
       () => {
-         alert('probleme d\'acces a l api categories');
+        alert("probleme d'acces a l api categories");
       }
-      );  
-        
-      this.souscategservice.getsousCategories().subscribe(
-       (souscategories) => {this.souscategories = souscategories;
-       
-       },
-       () => {
-          alert('probleme d\'acces a l api sous categories');
-       }
-       );  
+    );
 
+    this.souscategservice.getsousCategories().subscribe(
+      (souscategories) => {
+        this.souscategories = souscategories;
+      },
+      () => {
+        alert("probleme d'acces a l api sous categories");
+      }
+    );
   }
 
-  getProduit(id: number){
-    this.selectedProduct = this.lesproduits.find(p => p.Id == id);
+  getProduit(id: number) {
+    this.selectedProduct = this.lesproduits.find((p) => p.Id == id);
   }
 
+  getPvente(id: number) {
+    this.selectedPvente = this.pventes.find((pv) => pv.Id == id);
+  }
 
-  Search(){
-    if(this.nom ==''){
-        this.ngOnInit();
-    }else
-    {
-       this.lesproduits = this.lesproduits.filter(res => {
-          return res.libelleProd.toLocaleLowerCase().match(this.nom.toLocaleLowerCase());
-       });
-         
+  Search() {
+    if (this.nom == '') {
+      this.ngOnInit();
+    } else {
+      this.lesproduits = this.lesproduits.filter((res) => {
+        return res.libelleProd
+          .toLocaleLowerCase()
+          .match(this.nom.toLocaleLowerCase());
+      });
     }
-
   }
 
+  SearchIdpv() {
+    if (this.nom == '') {
+      this.ngOnInit();
+    } else {
+      this.lesproduits = this.lesproduits.filter((res) => {
+        return res.libelleProd
+          .toLocaleLowerCase()
+          .match(this.nom.toLocaleLowerCase());
+      });
+    }
+  }
 
   key: string = 'Id';
-   reverse: boolean = false;
+  reverse: boolean = false;
 
-   sort(){
-     this.key = this.key;
-     this.reverse = !this.reverse;
-
+  sort() {
+    this.key = this.key;
+    this.reverse = !this.reverse;
   }
 
   public addToPanier(productId: number) {
-    this.useremail = localStorage.getItem("useremail");
+    this.useremail = localStorage.getItem('useremail');
     if (!this.useremail) {
-      alert("Connectez-vous SVP");
+      alert('Connectez-vous SVP');
       return;
     }
     const produitDuPanier = new ProduitIdDuPanier(productId, this.useremail, 1);
     this.produitDuPanierService.addProduct(produitDuPanier).subscribe();
   }
-
 }

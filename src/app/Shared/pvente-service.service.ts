@@ -6,7 +6,7 @@ import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
-import { pointvente } from '../Models/pointvente';
+import { pointsvente } from '../Models/pointsvente';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,12 +15,12 @@ import { environment } from 'src/environments/environment';
 
 export class PventeServiceService {
 
-  private pointventes : pointvente [];
+  private pointventes : pointsvente [];
   private lien = environment.boutiqueBackend + '/pointsventes';
   constructor(private readonly http: HttpClient) { }
 
 
- public getPVENTES(): Observable<pointvente []> {
+ public getPVENTES(): Observable<pointsvente []> {
 
      const opts = {
     headers: new HttpHeaders({ 
@@ -32,13 +32,13 @@ export class PventeServiceService {
      };
      
     //console.log(opts.headers.get('X-Requested-With'));
-    return this.http.get<pointvente []>(this.lien);    
+    return this.http.get<pointsvente []>(this.lien);    
              
              
   }
 
 
-  savePventes(pointvente: pointvente ) {
+  savePventes(pointvente: pointsvente ) {
     const headerDict = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
