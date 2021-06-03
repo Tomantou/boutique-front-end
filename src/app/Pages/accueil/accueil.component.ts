@@ -67,7 +67,7 @@ export class AccueilComponent implements OnInit {
         (error) => {
            alert('probleme d\'acces a l api categories');
         }
-        );  
+      );  
 
 
   }
@@ -93,9 +93,10 @@ getProduit(id: number){
   console.log(this.selectedProduct);
 }
 
-getSignal(id: number){
-  this.selectedSignal = this.signaletics.find(s => s.numeroTva);
-  console.log(this.selectedProduct);
+getSignal(tva: number){
+  // tva = localStorage.getItem['lelogo'].value;
+  this.selectedSignal = this.signaletics.find(s => s.numeroTva ==tva);
+  console.log(this.selectedSignal);
 }
 
   key: string = 'Id';

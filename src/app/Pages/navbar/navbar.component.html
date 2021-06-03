@@ -1,0 +1,149 @@
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info justify-content-sm-start fixed-top">
+    
+    <!-- <a class="navbar-brand  order-1 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">BOUTIKLINE</a> -->
+    <img
+      href="#"
+      style="max-width: 100%; max-height: 70px;"
+        src="{{
+        !this.signaletic
+            ? this.boutiqueContainer + 'logo-product.jpg'
+            : this.boutiqueContainer + this.signaletic.logo
+          }}"
+    />
+
+    <button class="navbar-toggler align-self-start" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li *ngIf="this.userrole === 'ADMIN'" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <h4>Back Office</h4>
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="produits">
+              <h4>Gestion Produits</h4>
+            </a>
+            <a class="dropdown-item" routerLink="stocks">
+              <h4>Gestion Stocks</h4>
+            </a>
+            <a class="dropdown-item" routerLink="pventes">
+              <h4>Gestion Points vente</h4>
+            </a>
+            <a class="dropdown-item" routerLink="categories">
+              <h4>Gestion Catégories</h4>
+            </a>
+            <a class="dropdown-item" routerLink="marques">
+              <h4>Gestion Marques</h4>
+            </a>
+            <a class="dropdown-item" routerLink="custumers">
+              <h4>Gestion Clients</h4>
+            </a>
+            <a class="dropdown-item" routerLink="gerants">
+              <h4>Gestion Gérants</h4>
+            </a>
+            <a class="dropdown-item" routerLink="factures">
+              <h4>Gestion Factures</h4>
+            </a>
+            <a class="dropdown-item" routerLink="cmdesclients">
+              <h4>Gestion Commandes Clients</h4>
+            </a>
+            <a class="dropdown-item" routerLink="cmdesfournis">
+              <h4>Gestion Commandes Fournisseurs</h4>
+            </a>
+            <a class="dropdown-item" routerLink="fournisseurs">
+              <h4>Gestion Fournisseurs</h4>
+            </a>
+            <a class="dropdown-item" routerLink="promotions">
+              <h4>Gestion Promotions</h4>
+            </a>
+            <a class="dropdown-item" routerLink="configurer">
+              <h4>Configurer</h4>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <h4>Autres</h4>
+            </a>
+
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="accueil">
+            <h4>Accueil</h4> <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="achats">
+            <h4>Achats</h4>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="news">
+            <h4>News</h4>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="promos">
+            <h4>Promos</h4>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="contact">
+            <h4>Contact</h4>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <h4>A propos de nous</h4>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">
+              <h4>Qui sommes nous</h4>
+            </a>
+            <a class="dropdown-item" href="#">
+              <h4>Nos services</h4>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <h4>Autres</h4>
+            </a>
+          </div>
+        </li>
+        <li *ngIf="this.authService.isAuthenticated() && this.useremail" class="nav-item">
+          <div class="dropdown">
+            <button (click)="dropdownToggle(); panierdropdown.refreshProduits();" class="dropbtn">Panier</button>
+            <div id="myDropdown" class="dropdown-content">
+              <app-panier-drop-down #panierdropdown [userId]="this.useremail"></app-panier-drop-down>
+            </div>
+          </div>
+        </li>
+        <li *ngIf="!this.authService.isAuthenticated()" class="nav-item">
+          <a class="nav-link" routerLink="login">
+            <h4>Login</h4>
+          </a>
+        </li>
+        <li *ngIf="this.authService.isAuthenticated()" class="nav-item">
+          <a class="nav-link" (click)="this.Logout()">
+            <h4>Logout</h4>
+          </a>
+        </li>
+        <li *ngIf="!this.authService.isAuthenticated()" class="nav-item">
+          <a class="nav-link" routerLink="signup">
+            <h4>S'inscrire</h4>
+          </a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>

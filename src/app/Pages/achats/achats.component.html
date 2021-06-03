@@ -166,7 +166,7 @@
             id="pointv"
             class="form-control"
             ngModel
-           
+            
           >
             <option
               *ngFor="let pointvente of pventes"
@@ -178,6 +178,28 @@
         </div>
       </div>
       <div class="col-sm-4" style="background-color: darkgreen">
+        <div class="form-group">
+          <label for="categ"
+            ><h4 class="text-white">Choix Catégorie article:</h4></label
+          >
+          <select
+            required
+            name="categ"
+            id="categ"
+            class="form-control"
+            ngModel
+           
+          >
+            <option
+              *ngFor="let categorie of categories"
+              [value]="categorie.libelle"
+            >
+              {{ categorie.libelle }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <!-- <div class="col-sm-4" style="background-color: darkgreen">
         <div>
           <nav class="navbar">
             <input
@@ -189,15 +211,15 @@
               placeholder="Entrez le nom du produit recherché"
             />
           </nav>
-        </div>
+        </div> -->
 
         <!-- <div class="form-group">
                         <label for="categ"><h3 class="text-white">Choix Catégorie article:</h3></label>
                         <select required name="categ" id="categ" class="form-control" ngModel>
                             <option *ngFor="let categorie of categories" [value]="categorie.libelle">{{categorie.libelle}}</option>
                         </select>
-                    </div> -->
-      </div>
+        </div> 
+      </div> -->
       <div class="col-sm-4" style="background-color: darkgreen">
         <div class="form-group">
           <label for="souscateg"

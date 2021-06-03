@@ -13,112 +13,110 @@ import { FilemangerService } from 'src/app/Shared/filemanger.service';
   selector: 'app-configurer',
   templateUrl: './configurer.component.html',
   styleUrls: ['./configurer.component.css'],
-  providers: [ConfigurerService]
+  providers: [ConfigurerService],
 })
 export class ConfigurerComponent implements OnInit {
-public  signaletics : signaletiques [];
-public formData: signaletiques;
- typesocietes: string [];
- lespays: string [];
- errorMessage ='';
- public logo: File;
+  public signaletic: signaletiques;
+  public formData: signaletiques;
+  typesocietes: string[];
+  lespays: string[];
+  errorMessage = '';
+  public logo: File;
 
   constructor(
     public configSignal: ConfigurerService,
     public filemanagerservice: FilemangerService,
     private router: Router,
     private toastr: ToastrService
-    ) { 
-    }
+  ) {}
 
   ngOnInit(): void {
-     this.typesocietes = [
-        "ASBL",
-        "SA",
-        "SCRL",
-        "SPRL",
-        "INDEPENDANT"
-       ];
-       this.formData = new signaletiques();
-      this.lespays = ["Australie", "Allemagne", "Belgique", "France", "USA", "Italie", "Espagne", "Portugal", "Suisse", "Pays-bas", "Suède", "Pologne"
-      ];
+    this.typesocietes = ['ASBL', 'SA', 'SCRL', 'SPRL', 'INDEPENDANT'];
+    this.formData = new signaletiques();
+    this.lespays = [
+      'Australie',
+      'Allemagne',
+      'Belgique',
+      'France',
+      'USA',
+      'Italie',
+      'Espagne',
+      'Portugal',
+      'Suisse',
+      'Pays-bas',
+      'Suède',
+      'Pologne',
+    ];
 
-      this.configSignal.getSignaletique().subscribe(
-        (signaletiques) => {this.signaletics = signaletiques;
-        console.log('liste signaletiques',this.signaletics);
-        },
-        (error) => {
-           alert('probleme d\'acces a l api signaletiques');
+    this.configSignal.getSignaletique().subscribe(
+      (signaletiques) => {
+        if (signaletiques) {
+          this.signaletic = signaletiques[0];
+          console.log('liste signaletiques', this.signaletic);
         }
-        );  
-
+      },
+      (error) => {
+        alert("probleme d'acces a l api signaletiques");
+      }
+    );
   }
 
-   addSignal(formsignal: NgForm){
-      this.configSignal.saveSignaletique(formsignal.value).subscribe(
-        (reponse) => {
-          this.toastr.success('Congifuration enregistrée avec succès','Notification!');
-          localStorage.setItem['signaletique'] = formsignal.value;
-          localStorage.setItem['lelogo'] = formsignal.value.logo;
-              //  const link = ['configurer'];
-              //  this.router.navigate(link);
-
-        },
-        (error) => {
-          this.errorMessage = 'Problème de connexion à votre serveur, prière contacter l\'administrateur';
-          console.log(error);
-        }
-      );
-     
+  addSignal(formsignal: NgForm) {
+    this.configSignal.saveSignaletique(formsignal.value).subscribe(
+      (reponse) => {
+        this.toastr.success(
+          'Congifuration enregistrée avec succès',
+          'Notification!'
+        );
+        localStorage.setItem['lelogo'] = formsignal.value.logo;
+        //  const link = ['configurer'];
+        //  this.router.navigate(link);
+      },
+      (error) => {
+        this.errorMessage =
+          "Problème de connexion à votre serveur, prière contacter l'administrateur";
+        console.log(error);
+      }
+    );
   }
 
-  recepererSignal(){
+  recepererSignal() {}
 
-
-  }
-
-  resetButton(form? : NgForm){
-    if(form != null)form.reset();
+  resetButton(form?: NgForm) {
+    if (form != null) form.reset();
     this.formData = {
-
-       numeroTva: 0,
-       raisonSocial: '',
-       typeSociete: '',
-       logo: '',
-       adresseSiege: '',
-       contact: '',
-       emailSiege: '',
-       pays: '',
-       tauxTva: 0,
-       devise: ''
-
-    }
-    this.toastr.success('formulaire réinitialisé','Notification!');
+      numeroTva: 0,
+      raisonSocial: '',
+      typeSociete: '',
+      logo: '',
+      adresseSiege: '',
+      contact: '',
+      emailSiege: '',
+      pays: '',
+      tauxTva: 0,
+      devise: '',
+    };
+    this.toastr.success('formulaire réinitialisé', 'Notification!');
   }
 
-  onSubmit(form : NgForm){
-    if(form.value.numeroTva == null){
-         this.configSignal.saveSignaletique(form.value).subscribe(
-           response => {
-            this.filemanagerservice.uploadImage(this.logo)
-             this.resetButton(form);
-     })
-
+  onSubmit(form: NgForm) {
+    if (form.value.numeroTva == null) {
+      this.configSignal.saveSignaletique(form.value).subscribe((response) => {
+        this.filemanagerservice.uploadImage(this.logo);
+        this.resetButton(form);
+      });
     }
-
   }
-  
+
   processImage(imageInput: any) {
     const file: File = imageInput.files[0];
     const reader = new FileReader();
 
     reader.addEventListener('load', (event: any) => {
-       this.logo = file;
-       this.formData.logo = file.name
-       console.log(this.formData)
+      this.logo = file;
+      this.formData.logo = file.name;
+      console.log(this.formData);
     });
     reader.readAsDataURL(file);
- }
-
-
+  }
 }

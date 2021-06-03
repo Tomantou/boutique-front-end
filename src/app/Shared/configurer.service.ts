@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ConfigurerService {
-  private lien = environment.boutiqueBackend + '/categories';
+  private lien = environment.boutiqueBackend + '/signaletiques';
   constructor(
     private http: HttpClient,
     private toastr: ToastrService
@@ -45,7 +45,7 @@ export class ConfigurerService {
 
 
   getSignaletique(): Observable<any>{
-    return this.http.get<signaletiques []>(this.lien);           
+    return this.http.get<signaletiques[]>(this.lien + '?filter={"limit": 1}');           
 }
 
 }

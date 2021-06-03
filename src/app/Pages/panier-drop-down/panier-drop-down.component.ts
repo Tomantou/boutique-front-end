@@ -44,16 +44,19 @@ export class PanierDropDownComponent implements OnInit {
                     produitDuPanier.Id,
                     produit.libelleProd,
                     produit.prix,
+                    produitDuPanier.quantity,
                     produit.photo
                   )
                 );
                 //this.montantHt += produit.prix * 1;
-                console.log(this.getTotalPrix(this.produits));
-                this.montantHt = this.getTotalPrix(this.produits);
-                this.montantTtc = this.montantHt*0,21;
               });
             });
         });
+        this.montantHt = this.getTotalPrix(this.produits);
+        (this.montantTtc = this.montantHt * 0), 21;
+        console.log('this.produits');
+        console.log(this.produits);
+        console.log('this.produits');
       },
       (error) => {
         alert("probleme d'acces a l api");
@@ -63,7 +66,7 @@ export class PanierDropDownComponent implements OnInit {
 
   public getTotalPrix(produits: ProduitDuPanier[]): number {
     let total = 0;
-    produits.forEach(produit => total += produit.prix);
+    produits.forEach((produit) => (total += produit.prix));
 
     return total;
   }
@@ -72,9 +75,19 @@ export class PanierDropDownComponent implements OnInit {
     this.produitDuPanierService
       .deleteProduct(productId)
       .subscribe((response) => this.refreshProduits());
-      this.montantHt = this.getTotalPrix(this.produits);
-      this.montantTtc = this.montantHt * 0.21;
+    this.montantHt = this.getTotalPrix(this.produits);
+    this.montantTtc = this.montantHt * 0.21;
   }
 
-  
+  public changeQuantityProduct(prod: ProduitDuPanier, valeur: number) {
+    const produitDuPanier = this.produitsDuPanier.find(
+      (p) => p.Id == prod.panierId
+    );
+    produitDuPanier.quantity += valeur;
+    this.produitDuPanierService
+      .putProduct(produitDuPanier)
+      .subscribe((response) => this.refreshProduits());
+    this.montantHt = this.getTotalPrix(this.produits);
+    this.montantTtc = this.montantHt * 0.21;
+  }
 }

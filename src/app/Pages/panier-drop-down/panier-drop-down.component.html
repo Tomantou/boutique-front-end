@@ -8,6 +8,7 @@
                 <th scope="col"></th>
                 <th scope="col">NOM du PRODUIT</th>
                 <th scope="col">PRIX></th>
+                <th scope="col">Quantité</th>
                 <th scope="col">ACTIONS</th>
             </tr>
         </thead>
@@ -19,8 +20,15 @@
                 </td>
                 <td>{{prod.libelleProd}}</td>
                 <td>{{prod.prix}}</td>
+                <td>{{prod.quantity}}</td>
                 <div class="col">
-                    <button type="button" class="btn btn-danger" (click) = "deleteProduct(prod.panierId)">Supprimer</button>
+                    <div class="row" style="padding: 3px;">
+                        <button style="width: 50%; background-color: lightcoral;" type="button" class="btn" (click) = "changeQuantityProduct(prod, -1)">-</button>
+                        <button style="width: 50%; background-color: lightgreen;" type="button" class="btn" (click) = "changeQuantityProduct(prod, 1)">+</button>
+                    </div>
+                    <div class="row" style="padding: 3px;">
+                        <button type="button" class="btn btn-danger" (click) = "deleteProduct(prod.panierId)">Supprimer</button>
+                    </div>
                 </div>
             </tr>
             
