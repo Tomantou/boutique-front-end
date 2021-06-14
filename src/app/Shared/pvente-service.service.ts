@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
 import { pointsvente } from '../Models/pointsvente';
 import { environment } from 'src/environments/environment';
+import { fileURLToPath } from 'url';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,14 @@ export class PventeServiceService {
 
 
  public getPVENTES(): Observable<pointsvente []> {
-
+     const filter = {
+          include: { relation: 'gerant',
+          scope: {
+            fields: {'nom': true, 'prenoms': true}
+          }
+                
+        }
+     };
      const opts = {
     headers: new HttpHeaders({ 
       //'X-Requested-With':'Httpclient',
@@ -32,8 +40,8 @@ export class PventeServiceService {
      };
      
     //console.log(opts.headers.get('X-Requested-With'));
-    return this.http.get<pointsvente []>(this.lien);    
-             
+    return this.http.get<pointsvente []>(this.lien + '?filter =' + filter);    
+          
              
   }
 

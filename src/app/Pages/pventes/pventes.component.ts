@@ -15,91 +15,92 @@ import {Observable} from 'rxjs';
   selector: 'app-pventes',
   templateUrl: './pventes.component.html',
   styleUrls: ['./pventes.component.css'],
-  providers: [PventeServiceService, GerantsService]
+  providers: [PventeServiceService, GerantsService],
 })
 export class PventesComponent implements OnInit {
- public pointventes : pointsvente [];
- public gerants: gerant [];
- public formData: pointsvente;
+  public pointventes: pointsvente[];
+  public gerants: gerant[];
+  public selectedGerant: gerant;
+  public formData: pointsvente;
   Villes: string[];
   errorMessage = '';
 
   constructor(
     private gerantsservice: GerantsService,
     private router: Router,
-    private  pointventeservice: PventeServiceService,
+    private pointventeservice: PventeServiceService,
     private toastr: ToastrService
-
-    ) { }
+  ) {}
 
   ngOnInit() {
-
-     this.formData = new pointsvente;
-
+    this.formData = new pointsvente();
+    this.selectedGerant = new gerant();
     this.Villes = [
-      "ANVERS",
-      "BRUXELLES",
-      "LIEGE",
-      "NAMUR",
-      "MONS",
-      "GAND",
-      "WATERLOO"
-     ];
-      this.pointventeservice.getPVENTES().subscribe(
-
-        (pointventes) => { this.pointventes = pointventes;
-        console.log('POINTS DE VENTE',this.pointventes);
+      'ANVERS',
+      'BRUXELLES',
+      'LIEGE',
+      'NAMUR',
+      'MONS',
+      'GAND',
+      'WATERLOO',
+    ];
+    this.pointventeservice.getPVENTES().subscribe(
+      (pointventes) => {
+        this.pointventes = pointventes;
+        console.log('POINTS DE VENTE', this.pointventes);
         //alert('c\'est ok Bravo!!!!');
-        },
-        (error) => {
-          alert('probleme d\'acces a l api');
+      },
+      (error) => {
+        alert("probleme d'acces a l api");
+      }
+    );
 
-        },        
-      );
-    
-        
-      this.gerantsservice.getGerants().subscribe(
-        (gerants) => {this.gerants = gerants;
-        console.log('liste gerants',this.gerants);
-        },
-        (error) => {
-           alert('probleme d\'acces a l api');
-        }
-        ); 
-    
-      
+    this.gerantsservice.getGerants().subscribe(
+      (gerants) => {
+        this.gerants = gerants;
+        console.log('liste gerants', this.gerants);
+      },
+      (error) => {
+        alert("probleme d'acces a l api");
+      }
+    );
   }
 
-
-  addPventes(formpvente: NgForm){
+  addPventes(formpvente: NgForm) {
     console.log(formpvente.value);
     this.pointventeservice.savePventes(formpvente.value).subscribe(
       (reponse) => {
-             const link = ['configurer'];
-             this.router.navigate(link);
+        const link = ['configurer'];
+        this.router.navigate(link);
       },
       (error) => {
-        this.errorMessage = 'Problème de connexion à votre serveur, prière contacter l\'administrateur';
+        this.errorMessage =
+          "Problème de connexion à votre serveur, prière contacter l'administrateur";
         console.log(error);
       }
     );
-    this.toastr.success('Point vente enregistré avec succès','Notification!');
-}
-
-resetButton(form? : NgForm){
-  if(form != null)form.reset();
-  this.formData = {
-    Id: 0,
-    gerantId: 0,
-    adresse: '',
-    codePostal: 0,
-    ville: '',
-    contact: '',
-    email: ''
-    
-  }
-  this.toastr.success('formulaire réinitialisé','Notification!');
+    this.toastr.success('Point vente enregistré avec succès', 'Notification!');
   }
 
+  resetButton(form?: NgForm) {
+    if (form != null) form.reset();
+    this.formData = {
+      Id: 0,
+      gerantId: 0,
+      adresse: '',
+      codePostal: 0,
+      ville: '',
+      contact: '',
+      email: '',
+    };
+    this.toastr.success('formulaire réinitialisé', 'Notification!');
+  }
+  // getting the selected gerant
+  /* getSelectedGerant(gerid: number) {
+    return (this.selectedGerant = this.gerants.find((g) => g.Id == gerid));
+  } */
 
+  getSelectedGerant <gerant>(gerid: number) {
+    return this.selectedGerant = this.gerants.find((g) => g.Id == gerid);
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StocksService } from 'src/app/Shared/stocks.service';
 import { ProduitsService } from 'src/app/Shared/produits.service';
 import { PventeServiceService } from 'src/app/Shared/pvente-service.service';
+import { GerantsService } from 'src/app/Shared/gerants.service';
 import { HttpClient,HttpClientModule, HttpHeaders } from '@angular/common/http'; 
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
@@ -11,6 +12,7 @@ import { stock } from 'src/app/Models/stock';
 import { produit } from 'src/app/Models/produit';
 import { pointsvente } from 'src/app/Models/pointsvente';
 import { Router } from '@angular/router';
+import { gerant } from 'src/app/Models/gerant';
 
 @Component({
   selector: 'app-stocks',
@@ -19,10 +21,13 @@ import { Router } from '@angular/router';
   providers: [StocksService],
 })
 export class StocksComponent implements OnInit {
-  stocks: stock[];
-  lesproduits: produit[];
-  pventes: pointsvente[];
+  stocks: stock[] = [];
+  lesproduits: produit[] =[];
+  pventes: pointsvente[] = [];
+  gerants: gerant[] = [];
   selectedProduct: produit;
+  selectedPvente: pointsvente;
+  selectedGerant: gerant;
   constructor(
     public stockservice: StocksService,
     public toastr: ToastrService,
@@ -32,6 +37,8 @@ export class StocksComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.selectedPvente = new pointsvente();
+    this.selectedGerant = new gerant();
     this.stockservice.getStocks().subscribe(
       (stocks) => {
         this.stocks = stocks;
@@ -66,12 +73,20 @@ export class StocksComponent implements OnInit {
     );
   }
 
-  getProduit(id: number) {
-    this.selectedProduct = this.lesproduits.find((p) => p.Id == id);
+  getProduct(id: number) {
+    return this.selectedProduct = this.lesproduits.find((p) => p.Id == id);
   }
 
   retouralaccueil() {
     const lien = ['accueil'];
     this.router.navigate(lien);
+  }
+
+  getPvente(pvid: number) {
+    return this.selectedPvente = this.pventes.find((p) => p.Id == pvid);
+  }
+
+  getGerant(gerid: number) {
+    return this.selectedGerant = this.gerants.find((g) => g.Id == gerid);
   }
 }

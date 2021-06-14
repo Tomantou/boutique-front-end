@@ -64,7 +64,12 @@ export class CustumersService {
       const requestOptions = {
         headers: new HttpHeaders(headerDict),
       };
-      return this.http.post(environment.boutiqueBackend + '/custumers', custumer, requestOptions);
+      try{
+         return this.http.post(environment.boutiqueBackend + '/custumers', custumer, requestOptions);
+      }catch{
+               (this.handleError);
+            }
+      
     }
 
      // Get clients -list
@@ -94,7 +99,12 @@ export class CustumersService {
      // Get client by Id
 
      getCustumerbyId(id: number): Observable<any>{
-       return this.http.get<custumer>(environment.boutiqueBackend + '/${id}')
+       try{
+         return this.http.get<custumer>(environment.boutiqueBackend + '/${id}')
+         }catch{
+                 (this.handleError);
+               }
+       
      }
  
 

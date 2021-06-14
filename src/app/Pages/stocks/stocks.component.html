@@ -281,16 +281,16 @@
     </thead>
     <br />
     <tbody>
-      <tr *ngFor="let stok of stocks">
-        <td>{{ stok.Id }}</td>
-        <td>{{ stok.produitId }}</td>
+      <tr *ngFor="let stock of stocks">
+        <td>{{ stock.Id }}</td>
+        <td>{{(getProduct(stock.produitId).libelleProd)}}</td>
         <!-- <td>
               <img src="{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" alt="nope" width="125" height="80">
             </td> -->
-        <td>{{ stok.pointventeId }}</td>
-        <td>{{ stok.quantiteStock }}</td>
-        <td>{{ stok.quantiteMin }}</td>
-        <td>{{ stok.quantiteMax }}</td>
+        <td>{{(getPvente(stock.pointventeId).ville)}}</td>
+        <td>{{ stock.quantiteStock }}</td>
+        <td>{{ stock.quantiteMin }}</td>
+        <td>{{ stock.quantiteMax }}</td>
         <div class="col">
           <button type="button" class="btn btn-info">Modifier</button>&nbsp;
           <button type="button" class="btn btn-success">Visualiser</button

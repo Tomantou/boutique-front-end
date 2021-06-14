@@ -4,6 +4,8 @@ import { produit } from 'src/app/Models/produit';
 import { marque } from 'src/app/Models/marque';
 import { categorie } from 'src/app/Models/categorie';
 import { ProduitsService } from 'src/app/Shared/produits.service';
+import { PventeServiceService } from 'src/app/Shared/pvente-service.service';
+import { GerantsService } from 'src/app/Shared/gerants.service';
 import { MarquesService } from 'src/app/Shared/marques.service';
 import { CategoriesService } from 'src/app/Shared/categories.service';
 import { ToastrService } from 'ngx-toastr';

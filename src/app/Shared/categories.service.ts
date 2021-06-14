@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; 
-import {Observable} from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { ErrorObserver, Observable, throwError } from 'rxjs';
 import { categorie } from '../Models/categorie';
 import { environment } from 'src/environments/environment';
 
@@ -19,9 +19,27 @@ export class CategoriesService {
    .map(response => response.json()); */
      }
 
+     // Handling errors
+
+       private handleError(errorResponse: HttpErrorResponse) {
+           if(errorResponse.error instanceof ErrorEvent){
+              console.error('Erreur coté client: ', errorResponse.error.message);
+           }else
+            {
+                console.error('Erreur coté serveur: ', errorResponse);
+            }
+
+            // return new ErrorObservable('Il y a un problème avec le service, nous travaillons dessus, veuillez essayer plus tard.');
+
+       }
 
     getCategories(): Observable<any>{
-         return this.http.get<categorie []>(this.lien);           
+         try{
+            return this.http.get<categorie []>(this.lien);
+         }catch{
+           (this.handleError);
+         }
+                    
      }
 
 
