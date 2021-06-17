@@ -46,7 +46,7 @@ export class PromosComponent implements OnInit {
      this.selectedProduct = new produit;
     this.produitservice.getProduits().subscribe(
       (produits) => {this.lesproduits=produits;
-      console.log('liste produits',this.lesproduits);
+      // console.log('liste produits',this.lesproduits);
       },
       (error) => {
          alert('probleme d\'acces a l api');

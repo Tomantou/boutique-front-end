@@ -54,7 +54,7 @@ export class StocksComponent implements OnInit {
     this.prodservice.getProduits().subscribe(
       (produits) => {
         this.lesproduits = produits;
-        console.log('liste produits', this.lesproduits);
+        // console.log('liste produits', this.lesproduits);
       },
       (error) => {
         alert("probleme d'acces a l api");

@@ -13,8 +13,8 @@ import { environment } from 'src/environments/environment';
 })
 export class PanierDropDownComponent implements OnInit {
   @Input() userId: string;
-  public produitsDuPanier: ProduitIdDuPanier[] = [];
-  public produits: ProduitDuPanier[] = [];
+  public produitsDuPanier: ProduitIdDuPanier[];
+  public produits: ProduitDuPanier[];
   public boutiqueContainer = environment.boutiqueContainer;
   public montantHt: number = 0;
   public montantTtc: number = 0;
@@ -33,7 +33,6 @@ export class PanierDropDownComponent implements OnInit {
     this.produitDuPanierService.getByUserId(this.userId).subscribe(
       (produitsDuPanier) => {
         this.produitsDuPanier = produitsDuPanier;
-        console.log(produitsDuPanier);
         this.produitsDuPanier.forEach((produitDuPanier) => {
           this.produitsService
             .getById(produitDuPanier.productId)
@@ -49,15 +48,10 @@ export class PanierDropDownComponent implements OnInit {
                     produit.photo
                   )
                 );
-                //this.montantHt += produit.prix * 1;
               });
+              this.refreshTotalPrix();
             });
         });
-        this.montantHt = this.getTotalPrix(this.produits);
-        (this.montantTtc = this.montantHt * 0), 21;
-        // console.log('this.produits');
-        // console.log(this.produits);
-        // console.log('this.produits');
         this.produits.sort((a, b) => a.Id - b.Id);
       },
       (error) => {
@@ -66,19 +60,22 @@ export class PanierDropDownComponent implements OnInit {
     );
   }
 
-  public getTotalPrix(produits: ProduitDuPanier[]): number {
+  public refreshTotalPrix() {
     let total = 0;
-    produits.forEach((produit) => (total += produit.prix));
-
-    return total;
+    console.log(this.produits);
+    console.log(this.produits.length);
+    this.produits.forEach(produit => {
+      total += produit.prix;
+    });
+    this.montantHt = total;
+    this.montantTtc = this.montantHt * 1.21;
   }
 
   public deleteProduct(productId: number) {
     this.produitDuPanierService
       .deleteProduct(productId)
       .subscribe((response) => this.refreshProduits());
-    this.montantHt = this.getTotalPrix(this.produits);
-    this.montantTtc = this.montantHt * 0.21;
+    this.refreshTotalPrix();
   }
 
   public changeQuantityProduct(prod: ProduitDuPanier, valeur: number) {
@@ -89,7 +86,6 @@ export class PanierDropDownComponent implements OnInit {
     this.produitDuPanierService
       .putProduct(produitDuPanier)
       .subscribe((response) => this.refreshProduits());
-    this.montantHt = this.getTotalPrix(this.produits);
-    this.montantTtc = this.montantHt * 0.21;
+    this.refreshTotalPrix();
   }
 }

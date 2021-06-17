@@ -52,7 +52,7 @@ export class AchatsComponent implements OnInit {
     this.produitservice.getProduits().subscribe(
       (produits) => {
         this.lesproduits = produits;
-        console.log('liste produits', this.lesproduits);
+        // console.log('liste produits', this.lesproduits);
       },
       () => {
         alert("probleme d'acces a l api");
