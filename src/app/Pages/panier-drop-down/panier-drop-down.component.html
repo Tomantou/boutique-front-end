@@ -1,4 +1,3 @@
-<app-panier></app-panier>
 <div class="drop-down">
     <h3>Panier: {{this.produits.length}}</h3>
 
@@ -36,5 +35,5 @@
     </table>
     <div style="margin-left:auto;margin-right:1rem;width:fit-content"><h4>{{this.montantHt.toFixed(2)}} EURO HT</h4></div>
     <div style="margin-left:auto;margin-right:1rem;width:fit-content"><h4>{{(this.montantTtc).toFixed(2)}} EURO TTC</h4></div> 
-    <button class="btn btn-success btn-lg"><strong>CONFIRMER LA COMMANDE</strong></button>
+    <a  href="/panier"><button class="btn btn-success btn-lg"><strong>CONFIRMER LA COMMANDE</strong></button></a>
 </div>

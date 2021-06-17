@@ -62,8 +62,8 @@ export class PanierDropDownComponent implements OnInit {
 
   public refreshTotalPrix() {
     let total = 0;
-    console.log(this.produits);
-    console.log(this.produits.length);
+    // console.log(this.produits);
+    // console.log(this.produits.length);
     this.produits.forEach(produit => {
       total += produit.prix;
     });

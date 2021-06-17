@@ -62,7 +62,7 @@ export class AccueilComponent implements OnInit {
 
       this.configservice.getSignaletique().subscribe(
         (signaletiques) => {this.signaletics = signaletiques;
-        console.log('liste signaletiques',this.signaletics);
+        // console.log('liste signaletiques',this.signaletics);
         },
         (error) => {
            alert('probleme d\'acces a l api categories');

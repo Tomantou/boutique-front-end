@@ -16,11 +16,20 @@ import { environment } from 'src/environments/environment';
 export class StocksService {
   stocks: stock[];
   private lien = environment.boutiqueBackend + '/stocks';
-  /* private liensp = environment.boutiqueBackend + '/stocks'; */
+
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   getStocks(): Observable<any> {
     return this.http.get<stock[]>(this.lien);
+  }
+  getStocksByPvEtPId(pventeId: number, produitId: number) {
+    const filter =
+      '{"order": "produitId", "limit": 1, "where": {"produitId": ' +
+      produitId +
+      ', "pointventeId": ' +
+      pventeId +
+      '}}';
+    return this.http.get<stock[]>(this.lien + '?filter=' + filter);
   }
 
  /*  getStockProd(): Observable<any> {

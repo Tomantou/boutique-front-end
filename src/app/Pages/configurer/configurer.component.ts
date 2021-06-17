@@ -52,7 +52,7 @@ export class ConfigurerComponent implements OnInit {
       (signaletiques) => {
         if (signaletiques) {
           this.signaletic = signaletiques[0];
-          console.log('liste signaletiques', this.signaletic);
+          // console.log('liste signaletiques', this.signaletic);
         }
       },
       (error) => {
