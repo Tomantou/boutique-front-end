@@ -44,7 +44,8 @@ export class ProduitDuPanierService {
   }
 
   public getByUserId(userId: string) {
-    const filter = '{"order": "Id", "where": {"userId": "' + userId + '"}}';
+    const filter =
+      '{"order": "productId", "where": {"userId": "' + userId + '"}}';
     return this.http.get<ProduitIdDuPanier[]>(this.lien + '?filter=' + filter);
   }
 }

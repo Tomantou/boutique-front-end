@@ -33,6 +33,7 @@ export class PanierDropDownComponent implements OnInit {
     this.produitDuPanierService.getByUserId(this.userId).subscribe(
       (produitsDuPanier) => {
         this.produitsDuPanier = produitsDuPanier;
+        console.log(produitsDuPanier);
         this.produitsDuPanier.forEach((produitDuPanier) => {
           this.produitsService
             .getById(produitDuPanier.productId)
@@ -54,9 +55,10 @@ export class PanierDropDownComponent implements OnInit {
         });
         this.montantHt = this.getTotalPrix(this.produits);
         (this.montantTtc = this.montantHt * 0), 21;
-        console.log('this.produits');
-        console.log(this.produits);
-        console.log('this.produits');
+        // console.log('this.produits');
+        // console.log(this.produits);
+        // console.log('this.produits');
+        this.produits.sort((a, b) => a.Id - b.Id);
       },
       (error) => {
         alert("probleme d'acces a l api");
