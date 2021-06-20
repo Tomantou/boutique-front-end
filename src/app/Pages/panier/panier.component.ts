@@ -24,6 +24,7 @@ export class PanierComponent implements OnInit {
   pventes: pointsvente[];
   selectedPventeId: number;
   public produitStock: ProduitStock[];
+  public confirmed = false;
 
   constructor(
     private ptventeservice: PventeServiceService,
@@ -48,22 +49,26 @@ export class PanierComponent implements OnInit {
   }
 
   setPvente(p: number) {
-    (document.getElementById("confirmBtn") as HTMLInputElement).disabled = false;
+    (document.getElementById(
+      'confirmBtn'
+    ) as HTMLInputElement).disabled = false;
     this.produitStock = [];
     this.selectedPventeId = p;
-    this.produits.forEach(produit => {
+    this.produits.forEach((produit) => {
       this.stocksService
         .getStocksByPvEtPId(this.selectedPventeId, produit.Id)
         .subscribe((responseStock) => {
           let enStock;
           let stock;
+          let stockObject;
           if (!responseStock || responseStock.length == 0) {
             enStock = false;
             stock = 0;
-          }
-          else {
+            stockObject = undefined;
+          } else {
             enStock = produit.quantity <= responseStock[0].quantiteStock;
             stock = responseStock[0].quantiteStock;
+            stockObject = responseStock[0];
           }
           if (!enStock) {
             (document.getElementById(
@@ -76,12 +81,12 @@ export class PanierComponent implements OnInit {
               produit.libelleProd,
               produit.quantity,
               stock,
-              enStock
+              enStock,
+              stockObject
             )
           );
-        }
-        );
-    })
+        });
+    });
   }
 
   refreshProduits() {
@@ -119,8 +124,6 @@ export class PanierComponent implements OnInit {
 
   public refreshTotalPrix() {
     let total = 0;
-    // console.log(this.produits);
-    // console.log(this.produits.length);
     this.produits.forEach((produit) => {
       total += produit.prix;
     });
@@ -147,6 +150,20 @@ export class PanierComponent implements OnInit {
   }
 
   public confirm() {
-    console.log("k")
+    // console.log("k")
+    this.produits.forEach((p) => {
+      let stockDuProduit = this.produitStock.find(
+        (s) => s.stockObject.produitId == p.Id
+      );
+      stockDuProduit.stockObject.quantiteStock -= p.quantity;
+      this.stocksService
+        .putStock(stockDuProduit.stockObject)
+        .subscribe((response) => {
+          this.deleteProduct(p.panierId);
+          this.produitStock = [];
+         (document.getElementById('confirmBtn') as HTMLInputElement).disabled = true;
+         this.confirmed = true;
+        });
+    });
   }
 }

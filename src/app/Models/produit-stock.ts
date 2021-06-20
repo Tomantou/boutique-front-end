@@ -1,5 +1,8 @@
+import { stock } from './stock';
+
 export class ProduitStock {
   Id: number;
+  stockObject: stock;
   libelleProd: string;
   quantity: number;
   stock: number;
@@ -10,12 +13,14 @@ export class ProduitStock {
     libelleProd: string,
     quantity: number,
     stock: number,
-    enStock: boolean
+    enStock: boolean,
+    stockObject: stock
   ) {
     this.Id = Id;
     this.libelleProd = libelleProd;
     this.quantity = quantity;
     this.stock = stock;
     this.enStock = enStock;
+    this.stockObject = stockObject;
   }
 }

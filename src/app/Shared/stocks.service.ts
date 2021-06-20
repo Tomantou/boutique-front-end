@@ -32,7 +32,13 @@ export class StocksService {
     return this.http.get<stock[]>(this.lien + '?filter=' + filter);
   }
 
- /*  getStockProd(): Observable<any> {
-    return this.http.get<stock[]>(this.lien);
-  } */
+  public putStock(stock: stock) {
+    return this.http.put<stock>(this.lien + '/' + stock.Id, {
+      produitId: stock.produitId,
+      pointventeId: stock.pointventeId,
+      quantiteStock: stock.quantiteStock,
+      quantiteMin: stock.quantiteMin,
+      quantiteMax: stock.quantiteMax,
+    });
+  }
 }
