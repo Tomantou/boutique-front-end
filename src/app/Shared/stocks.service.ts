@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Pipe, PipeTransform } from '@angular/core';
 import { stock } from 'src/app/Models/stock';
 import { environment } from 'src/environments/environment';
+import { ReturnStatement } from '@angular/compiler';
 
 
 @Injectable({
@@ -31,8 +32,10 @@ export class StocksService {
       '}}';
     return this.http.get<stock[]>(this.lien + '?filter=' + filter);
   }
-
+   /* putStock(stock:stock, transOk: boolean) */
   public putStock(stock: stock) {
+    /* if(transOk){Return ... code ci-dessous} */
+     
     return this.http.put<stock>(this.lien + '/' + stock.Id, {
       produitId: stock.produitId,
       pointventeId: stock.pointventeId,
@@ -41,4 +44,5 @@ export class StocksService {
       quantiteMax: stock.quantiteMax,
     });
   }
+  
 }

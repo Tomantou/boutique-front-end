@@ -40,6 +40,7 @@ import { AuthServiceService } from './Shared/auth-service.service';
 import { PanierDropDownComponent } from './Pages/panier-drop-down/panier-drop-down.component';
 import { ProduitDetailModalComponent } from './Pages/produit-detail-modal/produit-detail-modal.component';
 import { NavbarComponent } from './Pages/navbar/navbar.component';
+import { PayerComponent } from './Pages/payer/payer.component';
 
 
 @NgModule({
@@ -72,6 +73,8 @@ import { NavbarComponent } from './Pages/navbar/navbar.component';
     PanierDropDownComponent,
     ProduitDetailModalComponent,
     NavbarComponent,
+    PayerComponent,
+    
   ],
   imports: [
     BrowserModule,

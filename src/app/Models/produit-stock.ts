@@ -1,6 +1,9 @@
 import { stock } from './stock';
 
 export class ProduitStock {
+  static beginTransaction(arg0: { isolationLevel: any; }) {
+    throw new Error('Method not implemented.');
+  }
   Id: number;
   stockObject: stock;
   libelleProd: string;

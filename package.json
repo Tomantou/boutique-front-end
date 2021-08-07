@@ -24,6 +24,7 @@
     "animate.css": "^4.1.1",
     "bootstrap": "^4.5.2",
     "cors": "^2.8.5",
+    "creditcardpayments": "^1.0.3",
     "jquery": "^3.5.1",
     "latest": "^0.2.0",
     "ng-sidebar": "^9.3.0",

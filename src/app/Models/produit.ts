@@ -1,3 +1,5 @@
+import { stock } from './stock';
+
 export class produit {
    Id: number;
    categorieId: number;
@@ -6,5 +8,6 @@ export class produit {
    prix: number;
    photo: string;
    description: string;
+   stock: stock
 
 }

@@ -17,6 +17,7 @@ import { Key } from 'readline';
 import { FilemangerService } from 'src/app/Shared/filemanger.service';
 import { environment } from 'src/environments/environment';
 import { TableprodComponent } from '../tableprod/tableprod.component';
+import { stock } from 'src/app/Models/stock';
 
 @Component({
   selector: 'app-produits',
@@ -117,6 +118,7 @@ export class ProduitsComponent implements OnInit {
       prix: 0,
       photo: '',
       description: '',
+      stock: null,
     };
     this.toastr.success('formulaire réinitialisé', 'Notification!');
   }

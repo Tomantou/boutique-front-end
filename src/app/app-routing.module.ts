@@ -23,6 +23,7 @@ import { CmdesfournisComponent } from './Pages/cmdesfournis/cmdesfournis.compone
 import { FacturesComponent } from './Pages/factures/factures.component';
 import { StocksComponent } from './Pages/stocks/stocks.component';
 import { SignupComponent } from './Pages/signup/signup.component';
+import { PayerComponent } from './Pages/payer/payer.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'accueil', pathMatch: 'full' },
@@ -71,6 +72,8 @@ const routes: Routes = [
   {path: 'stocks', component:  StocksComponent
   },
   {path: 'signup', component:  SignupComponent
+  },
+  {path: 'payer', component:  PayerComponent
   }
 ];
 

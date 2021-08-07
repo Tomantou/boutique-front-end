@@ -21,7 +21,8 @@ export class ProduitsService {
    
   getProduits(): Observable<any> {
 
-    return this.http.get<produit[]>(this.lien);
+    return this.http.get<produit[]>(this.lien + '?filter={"limit": 100}');
+    
 
   }
 

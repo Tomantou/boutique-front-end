@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { async } from '@angular/core/testing';
 import { pointsvente } from 'src/app/Models/pointsvente';
 import { ProduitDuPanier } from 'src/app/Models/produit-du-panier';
 import { ProduitIdDuPanier } from 'src/app/Models/produit-id-du-panier';
@@ -116,7 +117,7 @@ export class PanierComponent implements OnInit {
         });
         this.produits.sort((a, b) => a.Id - b.Id);
       },
-      (error) => {
+      () => {
         alert("probleme d'acces a l api");
       }
     );
@@ -134,7 +135,7 @@ export class PanierComponent implements OnInit {
   public deleteProduct(productId: number) {
     this.produitDuPanierService
       .deleteProduct(productId)
-      .subscribe((response) => this.refreshProduits());
+      .subscribe(() => this.refreshProduits());
     this.refreshTotalPrix();
   }
 
@@ -145,25 +146,26 @@ export class PanierComponent implements OnInit {
     produitDuPanier.quantity += valeur;
     this.produitDuPanierService
       .putProduct(produitDuPanier)
-      .subscribe((response) => this.refreshProduits());
+      .subscribe(() => this.refreshProduits());
     this.refreshTotalPrix();
   }
 
-  public confirm() {
-    // console.log("k")
+   public async confirm() {
     this.produits.forEach((p) => {
       let stockDuProduit = this.produitStock.find(
         (s) => s.stockObject.produitId == p.Id
       );
       stockDuProduit.stockObject.quantiteStock -= p.quantity;
-      this.stocksService
-        .putStock(stockDuProduit.stockObject)
-        .subscribe((response) => {
-          this.deleteProduct(p.panierId);
-          this.produitStock = [];
-         (document.getElementById('confirmBtn') as HTMLInputElement).disabled = true;
-         this.confirmed = true;
-        });
+      this.stocksService.putStock(stockDuProduit.stockObject).subscribe(() => {
+        this.deleteProduct(p.panierId);
+        this.produitStock = [];
+        (document.getElementById(
+          'confirmBtn'
+        ) as HTMLInputElement).disabled = true;
+        this.confirmed = true;
+      });
     });
-  }
+  } 
+  
+  
 }

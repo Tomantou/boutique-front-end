@@ -40,7 +40,7 @@
       <div class="col-sm-4" style="background-color: darkgreen">
         <h4 class="text-white">Choix Point de vente:</h4>
           <select
-            ngModel (ngModelChange)="this.setPvente($event)"
+            ngModel  (ngModelChange)="this.setPvente($event)"
           >
             <option
               *ngFor="let pointvente of pventes"
@@ -73,6 +73,11 @@
         </tbody>
     </table>
 
-    <h2 *ngIf="this.confirmed">C'est parti!</h2>
-
+     <br>
+     <br>
+     <br>
+     <br>
+    <!-- <h2 *ngIf="this.confirmed" >C'est parti!</h2> -->
     <button id="confirmBtn" style="margin-top: 2rem;" class="btn btn-success btn-lg" (click)="this.confirm()"><strong>Checkout</strong></button>
+    <div *ngIf="this.confirmed" ><app-payer></app-payer></div>
+     
