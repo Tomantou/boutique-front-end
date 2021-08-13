@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { render } from 'creditcardpayments/creditcardpayments';
 @Component({
   selector: 'app-payer',
@@ -6,7 +6,7 @@ import { render } from 'creditcardpayments/creditcardpayments';
   styleUrls: ['./payer.component.css']
 })
 export class PayerComponent implements OnInit {
-
+@Input() Totmont;
   constructor() {
       
    }
@@ -14,8 +14,8 @@ export class PayerComponent implements OnInit {
   ngOnInit(): void {
     render({
       id: '#myPaypalButtons',
-      currency: 'USD',
-      value: '500.00',
+      currency: 'EUR',
+      value: this.Totmont,
       onApprove: (detaiks) => {
         alert('Transaction réussie');
       },

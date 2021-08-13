@@ -79,5 +79,5 @@
      <br>
     <!-- <h2 *ngIf="this.confirmed" >C'est parti!</h2> -->
     <button id="confirmBtn" style="margin-top: 2rem;" class="btn btn-success btn-lg" (click)="this.confirm()"><strong>Checkout</strong></button>
-    <div *ngIf="this.confirmed" ><app-payer></app-payer></div>
+    <div *ngIf="this.confirmed" ><app-payer [Totmont] = total ></app-payer></div>
      

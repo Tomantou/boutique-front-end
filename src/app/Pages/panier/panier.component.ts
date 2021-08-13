@@ -20,6 +20,7 @@ export class PanierComponent implements OnInit {
   public produitsDuPanier: ProduitIdDuPanier[];
   public produits: ProduitDuPanier[];
   public boutiqueContainer = environment.boutiqueContainer;
+  public total: number;
   public montantHt: number = 0;
   public montantTtc: number = 0;
   pventes: pointsvente[];
@@ -124,11 +125,12 @@ export class PanierComponent implements OnInit {
   }
 
   public refreshTotalPrix() {
-    let total = 0;
+    // let total = 0;
+    this.total = 0;
     this.produits.forEach((produit) => {
-      total += produit.prix;
+      this.total += produit.prix;
     });
-    this.montantHt = total;
+    this.montantHt = this.total;
     this.montantTtc = this.montantHt * 1.21;
   }
 
