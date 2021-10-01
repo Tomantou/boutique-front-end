@@ -18,8 +18,8 @@
                         alt="nope" width="125" height="80">
                 </td>
                 <td>{{prod.libelleProd}}</td>
-                <td>{{prod.prix}}</td>
-                <td>{{prod.quantity}}</td>
+                <td><h4>{{prod.prix}}</h4></td>
+                <td><h4>{{prod.quantity}}</h4></td>
                 <div class="col">
                     <div class="row" style="padding: 3px;">
                         <button style="width: 50%; background-color: lightcoral;" type="button" class="btn" (click) = "changeQuantityProduct(prod, -1)">-</button>
@@ -79,5 +79,6 @@
      <br>
     <!-- <h2 *ngIf="this.confirmed" >C'est parti!</h2> -->
     <button id="confirmBtn" style="margin-top: 2rem;" class="btn btn-success btn-lg" (click)="this.confirm()"><strong>Checkout</strong></button>
-    <div *ngIf="this.confirmed" ><app-payer [Totmont] = total ></app-payer></div>
+    <div *ngIf="this.confirmed" ><app-payer [Totmont] = total></app-payer></div>
+     <!-- [numCmde]= numCom   à ajouter à la ligne précédente de code pour numéro commande-->
      

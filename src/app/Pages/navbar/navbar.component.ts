@@ -41,7 +41,7 @@ export class NavbarComponent implements OnInit {
         }
       },
       (error) => {
-        alert("probleme d'acces a l api categories");
+        alert("probleme d'acces a l api signaletiques");
       }
     );
   }

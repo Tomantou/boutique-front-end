@@ -1,6 +1,7 @@
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-info justify-content-sm-start fixed-top">
-    
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-sm-start fixed-top">
+  >
+      <!-- "navbar navbar-expand-lg navbar-dark bg-info justify-content-sm-start fixed-top" -->  
     <!-- <a class="navbar-brand  order-1 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">BOUTIKLINE</a> -->
     <img
       href="#"
@@ -19,101 +20,105 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-
+      <ul class= "navbar-nav mr-auto">
+               
         <li *ngIf="this.userrole === 'ADMIN'" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+             <h3>BACK OFFICE</h3>
+          </button>
+
+          <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <h4>Back Office</h4>
-          </a>
+          </a> -->
 
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="produits">
-              <h4>Gestion Produits</h4>
+              <h3>Gestion Produits</h3>
             </a>
             <a class="dropdown-item" routerLink="stocks">
-              <h4>Gestion Stocks</h4>
+              <h3>Gestion Stocks</h3>
             </a>
             <a class="dropdown-item" routerLink="pventes">
-              <h4>Gestion Points vente</h4>
+              <h3>Gestion Points vente</h3>
             </a>
             <a class="dropdown-item" routerLink="categories">
-              <h4>Gestion Catégories</h4>
+              <h3>Gestion Catégories</h3>
             </a>
             <a class="dropdown-item" routerLink="marques">
-              <h4>Gestion Marques</h4>
+              <h3>Gestion Marques</h3>
             </a>
             <a class="dropdown-item" routerLink="custumers">
-              <h4>Gestion Clients</h4>
+              <h3>Gestion Clients</h3>
             </a>
             <a class="dropdown-item" routerLink="gerants">
-              <h4>Gestion Gérants</h4>
+              <h3>Gestion Gérants</h3>
             </a>
             <a class="dropdown-item" routerLink="factures">
-              <h4>Gestion Factures</h4>
+              <h3>Gestion Factures</h3>
             </a>
             <a class="dropdown-item" routerLink="cmdesclients">
-              <h4>Gestion Commandes Clients</h4>
+              <h3>Gestion Commandes Clients</h3>
             </a>
             <a class="dropdown-item" routerLink="cmdesfournis">
-              <h4>Gestion Commandes Fournisseurs</h4>
+              <h3>Gestion Commandes Fournisseurs</h3>
             </a>
             <a class="dropdown-item" routerLink="fournisseurs">
-              <h4>Gestion Fournisseurs</h4>
+              <h3>Gestion Fournisseurs</h3>
             </a>
             <a class="dropdown-item" routerLink="promotions">
-              <h4>Gestion Promotions</h4>
+              <h3>Gestion Promotions</h3>
             </a>
             <a class="dropdown-item" routerLink="configurer">
-              <h4>Configurer</h4>
+              <h3>Configurer</h3>
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">
-              <h4>Autres</h4>
+              <h3>Autres</h3>
             </a>
 
           </div>
         </li>
         <li class="nav-item active">
           <a class="nav-link" routerLink="accueil">
-            <h4>Accueil</h4> <span class="sr-only">(current)</span>
+            <h3>Accueil</h3> <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="achats">
-            <h4>Achats</h4>
+            <h3>Achats</h3>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="news">
-            <h4>News</h4>
+            <h3>News</h3>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="promos">
-            <h4>Promos</h4>
+            <h3>Promos</h3>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="contact">
-            <h4>Contact</h4>
+            <h3>Contact</h3>
           </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            <h4>A propos de nous</h4>
+            <h3>A propos de nous</h3>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">
-              <h4>Qui sommes nous</h4>
+              <h3>Qui sommes nous</h3>
             </a>
             <a class="dropdown-item" href="#">
-              <h4>Nos services</h4>
+              <h3>Nos services</h3>
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">
-              <h4>Autres</h4>
+              <h3>Autres</h3>
             </a>
           </div>
         </li>
@@ -127,17 +132,17 @@
         </li>
         <li *ngIf="!this.authService.isAuthenticated()" class="nav-item">
           <a class="nav-link" routerLink="login">
-            <h4>Login</h4>
+            <h3>Login</h3>
           </a>
         </li>
         <li *ngIf="this.authService.isAuthenticated()" class="nav-item">
           <a class="nav-link" (click)="this.Logout()">
-            <h4>Logout</h4>
+            <h3>Logout</h3>
           </a>
         </li>
         <li *ngIf="!this.authService.isAuthenticated()" class="nav-item">
           <a class="nav-link" routerLink="signup">
-            <h4>S'inscrire</h4>
+            <h3>S'inscrire</h3>
           </a>
         </li>
       </ul>

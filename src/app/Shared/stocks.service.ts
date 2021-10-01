@@ -32,10 +32,10 @@ export class StocksService {
       '}}';
     return this.http.get<stock[]>(this.lien + '?filter=' + filter);
   }
-   /* putStock(stock:stock, transOk: boolean) */
+  /* putStock(stock:stock, transOk: boolean) */
   public putStock(stock: stock) {
     /* if(transOk){Return ... code ci-dessous} */
-     
+
     return this.http.put<stock>(this.lien + '/' + stock.Id, {
       produitId: stock.produitId,
       pointventeId: stock.pointventeId,
@@ -44,5 +44,19 @@ export class StocksService {
       quantiteMax: stock.quantiteMax,
     });
   }
+
+  saveStock(stock: stock): Observable<Response> {
+    const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    }
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+    return this.http.post<Response>(environment.boutiqueBackend + '/Stocks', stock, requestOptions);
+  }
+
   
 }

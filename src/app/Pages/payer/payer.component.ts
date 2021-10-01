@@ -20,6 +20,8 @@ export class PayerComponent implements OnInit {
         alert('Transaction réussie');
       },
     });
+       
+
   }
 
 }

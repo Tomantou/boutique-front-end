@@ -15,7 +15,7 @@
       />
     </nav>
   </div>
-  <table class="table table-bordered">
+  <table class="table table-responsive-lg">
     <thead style="background-color: darkseagreen">
       <tr>
         <th (click)="sort('Id')" scope="col">
@@ -24,9 +24,9 @@
         <th (click)="sort('libelleProd')" scope="col">
           NOM du PRODUIT&nbsp;<i class="fa fa-sort"></i>
         </th>
-        <th scope="col">PRIX></th>
-        <th scope="col">DESCRIPTION</th>
-        <th scope="col">ACTIONS</th>
+        <th scope="col"><h4>PRIX</h4></th>
+        <th scope="col"><h4>DESCRIPTION</h4></th>
+        <th scope="col"><h4>ACTIONS</h4></th>
       </tr>
     </thead>
     <tbody>
@@ -45,30 +45,32 @@
                 ? this.boutiqueContainer + 'logo-product.jpg'
                 : this.boutiqueContainer + prod.photo
             }}"
+            class= "img-thumbnail"
             alt="nope"
             width="125"
             height="80"
           />
         </td>
-        <td>{{ prod.libelleProd }}</td>
-        <td>{{ prod.prix }}</td>
-        <td>{{ prod.description }}</td>
+        <td><h4>{{ prod.libelleProd }}</h4></td>
+        <td><h4>{{ prod.prix }}</h4></td>
+        <td><h4>{{ prod.description }}</h4></td>
         <div class="col">
           <button
+            style="font-size:18px"
             class="btn btn-info"
             data-toggle="modal"
             data-target="#modalDetProduits"
             (click)="getProduit(prod.Id)"
           >
-            Détails
-          </button>&nbsp;
-          <button type="button" class="btn btn-success">Modifier</button>&nbsp;
-          <button
-            type="button"
+            Détails &nbsp;<i class="fa fa-eye" aria-hidden="true" style="font-size:32px;color:white"></i>
+          </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button style="font-size:18px" class="btn btn-success">Modifier &nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size:32px;color:white"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button 
+             style="font-size:18px"
             class="btn btn-danger"
             (click)="delProduct(prod.Id)"
           >
-            Supprimer
+            Supprimer<i class="fa fa-trash-o" style="font-size:32px;color:white"></i>
           </button>
           <!-- <button class="btn btn-info" data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)">Détails</button> -->
         </div>

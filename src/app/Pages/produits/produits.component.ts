@@ -18,6 +18,7 @@ import { FilemangerService } from 'src/app/Shared/filemanger.service';
 import { environment } from 'src/environments/environment';
 import { TableprodComponent } from '../tableprod/tableprod.component';
 import { stock } from 'src/app/Models/stock';
+import { StocksService } from 'src/app/Shared/stocks.service';
 
 @Component({
   selector: 'app-produits',
@@ -27,6 +28,7 @@ import { stock } from 'src/app/Models/stock';
 })
 export class ProduitsComponent implements OnInit {
   public formData: produit;
+  public formStock: stock;
   public lescategories: categorie[] = [];
   marques: marque[] = [];
   errorMessage = '';
@@ -35,6 +37,7 @@ export class ProduitsComponent implements OnInit {
 
   constructor(
     public produitservice: ProduitsService,
+    public stoksservice: StocksService,
     public filemanagerservice: FilemangerService,
     public categorieservice: CategoriesService,
     public marqueservice: MarquesService,
@@ -44,6 +47,7 @@ export class ProduitsComponent implements OnInit {
 
   ngOnInit(): void {
     this.formData = new produit();
+    this.formStock = new stock();
     this.categorieservice.getCategories().subscribe(
       (categories) => {
         this.lescategories = categories;
@@ -79,7 +83,7 @@ export class ProduitsComponent implements OnInit {
     this.produitservice.saveProduit(this.formData).subscribe({
       next: (response) => {
         this.filemanagerservice.uploadImage(this.logo);
-        this.toastr.success('Client enregistrée avec succès', 'Notification!');
+        this.toastr.success('Produit enregistrée avec succès', 'Notification!');
         this.tableprod.refreshProduits();
         //   const link = ['produits'];
         //   this.router.navigate(link);
@@ -90,6 +94,30 @@ export class ProduitsComponent implements OnInit {
         console.log(error);
       },
     });
+  }
+
+  addStocks() {
+    for (let i = 0; i < 5; i++){
+      this.formStock.Id = (i).toString() + (this.formData.Id).toString();
+      this.formStock.pointventeId = i;
+      this.formStock.produitId = this.formData.Id;
+      this.formStock.quantiteMax = 10;
+      this.formStock.quantiteMin = 5;
+      this.formStock.quantiteStock = 5;
+      this.stoksservice.saveStock(this.formStock)
+        .subscribe({
+          next: (response) => {
+            console.log('Stock enregistrée avec succès');
+            //   const link = ['produits'];
+            //   this.router.navigate(link);
+          },
+          error: (error) => {
+            this.errorMessage =
+              "Problème de connexion à votre serveur, prière contacter l'administrateur";
+            console.log(error);
+          },
+        });
+    }
   }
 
   retouralaccueil() {
