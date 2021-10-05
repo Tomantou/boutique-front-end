@@ -219,6 +219,38 @@ section .section-title {
 .footer a {
 	color: #78828D
 } */
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("images20.jpg");
+
+  /* Full height */
+  height: 60%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgfooter {
+  /* The image used */
+  background-image: url("fond8tfe.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .container-fluid{
     padding-right: 50px;
 }

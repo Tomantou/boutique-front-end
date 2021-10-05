@@ -1,7 +1,24 @@
 
-body{
-    background-color: #25274d;
+body, html {
+  height: 100%;
+  margin: 0;
 }
+
+.bg {
+  /* The image used */
+  background-image: url("images27.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/*body{
+    background-color: #25274d;
+}*/
 .contact{
     padding: 4%;
     height: 400px;
