@@ -5,7 +5,11 @@
   "projects": {
      "app-Boutline": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+            "@schematics/angular:component": {
+      "skipTests": true
+    }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -123,10 +127,11 @@
           }
         }
       }
-    }
+     }
   },
   "defaultProject": "app-Boutline",
   "cli": {
     "analytics": false
   }
+  
 }

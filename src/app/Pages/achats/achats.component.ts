@@ -42,7 +42,8 @@ export class AchatsComponent implements OnInit {
     private categoservice: CategoriesService,
     private souscategservice: SouscategoriesService,
     private produitservice: ProduitsService,
-    private produitDuPanierService: ProduitDuPanierService
+    private produitDuPanierService: ProduitDuPanierService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {

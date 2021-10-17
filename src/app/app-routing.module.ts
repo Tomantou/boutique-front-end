@@ -24,57 +24,35 @@ import { FacturesComponent } from './Pages/factures/factures.component';
 import { StocksComponent } from './Pages/stocks/stocks.component';
 import { SignupComponent } from './Pages/signup/signup.component';
 import { PayerComponent } from './Pages/payer/payer.component';
+import { ProduitEditComponent } from './Pages/produit-edit/produit-edit.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'accueil', pathMatch: 'full' },
-  {path: 'accueil', component: AccueilComponent
-  },
-  {path: 'achats', component: AchatsComponent
-  },
-  {path: 'news', component: NewsComponent
-  },
-  {path: 'promos', component: PromosComponent
-  },
-  {path: 'contact', component: ContactComponent
-  },
-  {path: 'login', component: LoginComponent
-  },
-  {path: 'details', component: DetailsComponent
-  },
-  {path: 'panier', component: PanierComponent
-  },
-  {path: 'produits', component:  ProduitsComponent
-  },
-  {path: 'pventes', component:  PventesComponent
-  },
-  {path: 'categories', component:  CategoriesComponent
-  },
-  {path: 'souscategories', component:  SouscategoriesComponent
-  },
-  {path: 'configurer', component:  ConfigurerComponent
-  },
-  {path: 'gerants', component:  GerantsComponent
-  },
-  {path: 'marques', component:  MarquesComponent
-  },
-  {path: 'custumers', component:  CustumersComponent
-  },
-  {path: 'fournisseurs', component:  FournisseursComponent
-  },
-  {path: 'factures', component:  FacturesComponent
-  },
-  {path: 'cmdesclients', component:  CmdesclientsComponent
-  },
-  {path: 'cmdesfournis', component:  CmdesfournisComponent
-  },
-  {path: 'promotions', component:  PromotionsComponent
-  },
-  {path: 'stocks', component:  StocksComponent
-  },
-  {path: 'signup', component:  SignupComponent
-  },
-  {path: 'payer', component:  PayerComponent
-  }
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'achats', component: AchatsComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'promos', component: PromosComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'details', component: DetailsComponent },
+  { path: 'panier', component: PanierComponent },
+  { path: 'produits', component: ProduitsComponent },
+  { path: 'produits/:id/edit', component: ProduitEditComponent },
+  { path: 'pventes', component: PventesComponent },
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'souscategories', component: SouscategoriesComponent },
+  { path: 'configurer', component: ConfigurerComponent },
+  { path: 'gerants', component: GerantsComponent },
+  { path: 'marques', component: MarquesComponent },
+  { path: 'custumers', component: CustumersComponent },
+  { path: 'fournisseurs', component: FournisseursComponent },
+  { path: 'factures', component: FacturesComponent },
+  { path: 'cmdesclients', component: CmdesclientsComponent },
+  { path: 'cmdesfournis', component: CmdesfournisComponent },
+  { path: 'promotions', component: PromotionsComponent },
+  { path: 'stocks', component: StocksComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'payer', component: PayerComponent },
 ];
 
   

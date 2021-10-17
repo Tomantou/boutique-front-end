@@ -1,0 +1,99 @@
+<br /><br /><br /><br />
+<div class="container-fluid">
+  <h1
+    class="text-white"
+    style="text-align: center; background-color: darkgreen"
+  >
+    GESTION DES PRODUITS
+  </h1>
+  <div class="row">
+    <div class="col-sm-2"></div>
+
+    <!-- Début form détails produits -->
+    
+
+    <!-- Fin form détails produits -->
+
+    <!-- Début form edit  produits -->
+
+    <!-- Fin form edit produits -->
+
+    <div class="col-sm-6">
+      <form #formprod="ngForm">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"
+            ><h4 class="text-black">NOM:</h4></label
+          >
+          <div class="col-sm-10">
+            <input
+              required
+              name="libelleProd"
+              #libelleProd="ngModel"
+              [(ngModel)]="produit.libelleProd"
+              class="form-control"
+              placeholder="nom du produit"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"
+            ><h4 class="text-black">PRIX:</h4></label
+          >
+          <div class="col-sm-10">
+            <input
+              required
+              type="number"
+              name="prix"
+              #prix="ngModel"
+              [(ngModel)]="produit.prix"
+              class="form-control"
+              placeholder="prix du roduit"
+            />
+          </div>
+        </div>
+        <!-- <div class="form-group row">
+          <label class="col-sm-2 col-form-label"
+            ><h4 class="text-black">PHOTO:</h4></label
+          >
+          <div class="col-sm-10">
+            <input
+              #imageInput
+              type="file"
+              accept="image/*"
+              (change)="processImage(imageInput)"
+            />
+          </div>
+        </div> -->
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"
+            ><h4 class="text-black">DESCRIPTION:</h4></label
+          >
+          <div class="col-sm-10">
+            <input
+              required
+              name="description"
+              #description="ngModel"
+              [(ngModel)]="produit.description"
+              class="form-control"
+              placeholder="Entrez la description du produit ici"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2">
+      <div class="col">
+        <button
+          [disabled]="formprod.invalid"
+          class="btn btn-success btn-block"
+          (click)="this.updateProduit()"
+        >
+          <h2>Modifier</h2>
+        </button>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>

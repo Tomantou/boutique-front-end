@@ -32,11 +32,10 @@ export class StocksService {
       '}}';
     return this.http.get<stock[]>(this.lien + '?filter=' + filter);
   }
-  /* putStock(stock:stock, transOk: boolean) */
+  
   public putStock(stock: stock) {
-    /* if(transOk){Return ... code ci-dessous} */
-
     return this.http.put<stock>(this.lien + '/' + stock.Id, {
+      Id: stock.Id,
       produitId: stock.produitId,
       pointventeId: stock.pointventeId,
       quantiteStock: stock.quantiteStock,

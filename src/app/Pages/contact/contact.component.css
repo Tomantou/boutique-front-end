@@ -6,7 +6,7 @@ body, html {
 
 .bg {
   /* The image used */
-  background-image: url("images27.jpg");
+  background-image: url("images28.jpg");
 
   /* Full height */
   height: 100%; 
@@ -16,9 +16,23 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-/*body{
+
+.bgfooter {
+  /* The image used */
+  background-image: url("fond8tfe.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body{
     background-color: #25274d;
-}*/
+}
 .contact{
     padding: 4%;
     height: 400px;

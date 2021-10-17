@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <h1 class="text-white" style="text-align: center; background-color:darkgreen;">GESTION DES MARQUES</h1>
+  <br>
+  <hr>
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-5">
+      <form #formconfig ="ngForm">  
+       
+        <div class="form-group row">
+          <label for="nomCli" class="col-sm-2 col-form-label"><h6 class="text-black">NOM de la Marque:</h6></label>
+          <div class="col-sm-10">
+            <input required type="text" id="nomCli" ngModel name="nomCli" placeholder="marque">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="prenomCli" class="col-sm-2 col-form-label"><h6 class="text-black">ORIGINE:</h6></label>
+          <select required name="origine" id="origine" class="form-control" ngModel>
+            <option *ngFor="let origine of origines" [value]="origine">{{origine}}</option>
+          </select>
+        </div>
+      </form> 
+    </div>        
+        
+    <!-- <div class="col-sm-2">
+      
+    </div> -->
+
+    <div class="col-sm-2">
+        <div class="col">
+            <button [disabled] = "formconfig.invalid" class="btn btn-success btn-block"><h2>CREER</h2></button>
+        </div>
+        <br> 
+        <div class="col">
+          <button type="button" class="btn btn-dark btn-block"><h2>ANNULER</h2></button>
+        </div>
+         <br>
+        <div class="col">
+            <button type="button" class="btn btn-danger btn-block" (click)="retouralaccueil()"><h2>QUITTER</h2></button>
+        </div>
+    </div>
+ </div>
+</div>
+

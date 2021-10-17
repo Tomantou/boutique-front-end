@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { async } from '@angular/core/testing';
 import { pointsvente } from 'src/app/Models/pointsvente';
 import { ProduitDuPanier } from 'src/app/Models/produit-du-panier';
@@ -7,8 +7,12 @@ import { ProduitStock } from 'src/app/Models/produit-stock';
 import { ProduitDuPanierService } from 'src/app/Shared/produit-du-panier.service';
 import { ProduitsService } from 'src/app/Shared/produits.service';
 import { PventeServiceService } from 'src/app/Shared/pvente-service.service';
+import { CmdesclientsService } from 'src/app/Shared/cmdesclients.service';
 import { StocksService } from 'src/app/Shared/stocks.service';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr'; 
+import { flatMap } from 'rxjs/operators';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-panier',
@@ -27,6 +31,8 @@ export class PanierComponent implements OnInit {
   selectedPventeId: number;
   public produitStock: ProduitStock[];
   public confirmed = false;
+  public numeroCmde = 10;
+  public detailsCmde: string;
 
   constructor(
     private ptventeservice: PventeServiceService,
@@ -124,6 +130,14 @@ export class PanierComponent implements OnInit {
     );
   }
 
+  private getDetailsString(produits: ProduitDuPanier[]): string {
+    let details = '';
+    produits.forEach((produit) => {
+      details += produit.libelleProd + " : " + produit.prix + ", ";
+    });
+    return details;
+  }
+
   public refreshTotalPrix() {
     // let total = 0;
     this.total = 0;
@@ -152,7 +166,8 @@ export class PanierComponent implements OnInit {
     this.refreshTotalPrix();
   }
 
-   public async confirm() {
+  public async confirm() {
+    this.detailsCmde = this.getDetailsString(this.produits);
     this.produits.forEach((p) => {
       let stockDuProduit = this.produitStock.find(
         (s) => s.stockObject.produitId == p.Id
@@ -167,7 +182,6 @@ export class PanierComponent implements OnInit {
         this.confirmed = true;
       });
     });
-  } 
-  
-  
+    this.confirmed = true;
+  }
 }

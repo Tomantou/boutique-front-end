@@ -34,7 +34,7 @@ export class ProduitsComponent implements OnInit {
   errorMessage = '';
   public logo: File;
   @ViewChild(TableprodComponent, { static: false }) tableprod;
-
+  @ViewChild(TableprodComponent, { static: false }) selectedProduct;
   constructor(
     public produitservice: ProduitsService,
     public stoksservice: StocksService,
@@ -97,26 +97,25 @@ export class ProduitsComponent implements OnInit {
   }
 
   addStocks() {
-    for (let i = 0; i < 5; i++){
-      this.formStock.Id = (i).toString() + (this.formData.Id).toString();
+    for (let i = 0; i < 5; i++) {
+      this.formStock.Id = i.toString() + this.formData.Id.toString();
       this.formStock.pointventeId = i;
       this.formStock.produitId = this.formData.Id;
       this.formStock.quantiteMax = 10;
       this.formStock.quantiteMin = 5;
       this.formStock.quantiteStock = 5;
-      this.stoksservice.saveStock(this.formStock)
-        .subscribe({
-          next: (response) => {
-            console.log('Stock enregistrée avec succès');
-            //   const link = ['produits'];
-            //   this.router.navigate(link);
-          },
-          error: (error) => {
-            this.errorMessage =
-              "Problème de connexion à votre serveur, prière contacter l'administrateur";
-            console.log(error);
-          },
-        });
+      this.stoksservice.saveStock(this.formStock).subscribe({
+        next: (response) => {
+          console.log('Stock enregistrée avec succès');
+          //   const link = ['produits'];
+          //   this.router.navigate(link);
+        },
+        error: (error) => {
+          this.errorMessage =
+            "Problème de connexion à votre serveur, prière contacter l'administrateur";
+          console.log(error);
+        },
+      });
     }
   }
 

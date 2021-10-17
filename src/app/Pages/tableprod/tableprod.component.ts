@@ -17,9 +17,10 @@ export class TableprodComponent implements OnInit {
   reverse: boolean = false;
   p: number = 1;
   public boutiqueContainer = environment.boutiqueContainer;
+
   constructor(
     private produitservice: ProduitsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -65,5 +66,9 @@ export class TableprodComponent implements OnInit {
           .match(this.nom.toLocaleLowerCase());
       });
     }
+  }
+
+  public openProduit(id: number) {
+    window.open("/produits/" + id + "/edit")
   }
 }

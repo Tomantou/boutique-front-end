@@ -41,6 +41,13 @@ import { PanierDropDownComponent } from './Pages/panier-drop-down/panier-drop-do
 import { ProduitDetailModalComponent } from './Pages/produit-detail-modal/produit-detail-modal.component';
 import { NavbarComponent } from './Pages/navbar/navbar.component';
 import { PayerComponent } from './Pages/payer/payer.component';
+import { PiedpageComponent } from './Pages/piedpage/piedpage.component';
+import { EnteteComponent } from './Pages/entete/entete.component';
+import { ModalprodComponent } from './Pages/modalprod/modalprod.component';
+import { MarquesaisieComponent } from './Pages/marquesaisie/marquesaisie.component';
+import { ProduitEditComponent } from './Pages/produit-edit/produit-edit.component';
+
+
 
 
 @NgModule({
@@ -74,6 +81,13 @@ import { PayerComponent } from './Pages/payer/payer.component';
     ProduitDetailModalComponent,
     NavbarComponent,
     PayerComponent,
+    PiedpageComponent,
+    EnteteComponent,
+    ModalprodComponent,
+    MarquesaisieComponent,
+    ProduitEditComponent,
+  
+  
     
   ],
   imports: [
