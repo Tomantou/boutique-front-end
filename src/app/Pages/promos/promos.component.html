@@ -10,14 +10,20 @@
         <br>
         <br><br>
         <div class="row">
-          <div class="col-sm" style="background-color: cadetblue; text-align: center;"><h1 class="alert alert-info">Profitez des meilleures promos de la saison, stock limité.</h1> </div> 
+          <div class="col-sm" style="background-color: cadetblue; text-align: center;"><h1 class="alert alert-info"></h1> </div> 
         </div>
       </div>
 
 <div class="bg">
    <br>
    <br>
-   <br>
+        <div class="row">
+          <div class="col">.col</div>
+          <div class="col">.col</div>
+          <div class="col"><h1 style="font-size:60px; color: lightgoldenrodyellow;">BOUTIKline,<br> Profitez des meilleures promos de la saison sur tous nos produits,<br> stock limité.</h1></div>
+          <div class="col"><h1 style="font-size:40px; color: lightgoldenrodyellow;"></h1></div>
+        </div>
+
    <br>
    <br>
    <br>
@@ -215,7 +221,7 @@
                                           <p class="card-text">{{prod.description}}</p>
                                           <h5 class="card-title"><strong>PRIX HT</strong></h5>
                                           <h5 class="card-title"><strong>{{prod.prix}} EUR</strong></h5>
-                                          <button class="btn btn-info btn-lg"><strong>Ajouter au panier</strong></button>
+                                          <button class="btn btn-info btn-lg btn-block" (click) = "gotoPageAchats()"><strong>ACHETER</strong></button>
                                         </div>
                                     </div>
                                   </td>

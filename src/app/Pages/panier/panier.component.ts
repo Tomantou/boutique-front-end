@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr'; 
 import { flatMap } from 'rxjs/operators';
 import { DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panier',
@@ -31,17 +32,19 @@ export class PanierComponent implements OnInit {
   selectedPventeId: number;
   public produitStock: ProduitStock[];
   public confirmed = false;
-  public numeroCmde = 10;
+  public numeroCmde: number;
   public detailsCmde: string;
 
   constructor(
     private ptventeservice: PventeServiceService,
     public produitDuPanierService: ProduitDuPanierService,
     public produitsService: ProduitsService,
+    private router: Router,
     public stocksService: StocksService
   ) {}
 
   ngOnInit(): void {
+  this.numeroCmde = Math.round(Math.random() * (3000 - 100) + 100);
     (document.getElementById('confirmBtn') as HTMLInputElement).disabled = true;
     this.userId = localStorage.getItem('useremail');
     this.refreshProduits();
@@ -133,13 +136,12 @@ export class PanierComponent implements OnInit {
   private getDetailsString(produits: ProduitDuPanier[]): string {
     let details = '';
     produits.forEach((produit) => {
-      details += produit.libelleProd + " : " + produit.prix + ", ";
+      details += produit.libelleProd + ' : ' + produit.prix + ', ';
     });
     return details;
   }
 
   public refreshTotalPrix() {
-    // let total = 0;
     this.total = 0;
     this.produits.forEach((produit) => {
       this.total += produit.prix;
@@ -182,6 +184,11 @@ export class PanierComponent implements OnInit {
         this.confirmed = true;
       });
     });
-    this.confirmed = true;
+  }
+
+  gotoPageAchats() {
+    this.refreshTotalPrix();
+    const lien = ['achats'];
+    this.router.navigate(lien);
   }
 }

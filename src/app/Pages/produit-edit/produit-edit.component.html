@@ -4,7 +4,7 @@
     class="text-white"
     style="text-align: center; background-color: darkgreen"
   >
-    GESTION DES PRODUITS
+    GESTION DES PRODUITS / MODIFICATION
   </h1>
   <div class="row">
     <div class="col-sm-2"></div>
@@ -91,6 +91,16 @@
           (click)="this.updateProduit()"
         >
           <h2>Modifier</h2>
+        </button>
+      </div>
+      <br>
+      <div class="col">
+        <button
+          [disabled]="formprod.invalid"
+          class="btn btn-danger btn-block"
+          (click)="this.gotoPageProduits()"
+        >
+          <h2>Quitter</h2>
         </button>
       </div>
       <br />

@@ -12,6 +12,7 @@ import { ProduitsService } from 'src/app/Shared/produits.service';
 import { environment } from 'src/environments/environment';
 import { ProduitDuPanierService } from 'src/app/Shared/produit-du-panier.service';
 import { ProduitIdDuPanier } from 'src/app/Models/produit-id-du-panier';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-achats',
@@ -43,6 +44,7 @@ export class AchatsComponent implements OnInit {
     private souscategservice: SouscategoriesService,
     private produitservice: ProduitsService,
     private produitDuPanierService: ProduitDuPanierService,
+    private router: Router,
     private toastr: ToastrService
   ) {}
 
